@@ -21,10 +21,13 @@ install: ## Install system dependencies (Qt5, build tools)
 		qml-module-qtquick-window2 \
 		qml-module-qtmultimedia
 
-build-rogue: ## Build rogue-collection
+build-rogue: ## Build rogue-collection in 
+	$(MAKE) -C $(ROGUE_DIR) headless
+
+build-rogue-gui: ## Build rogue-collection with GUI (requires Qt5)
 	$(MAKE) -C $(ROGUE_DIR)
 
-run-rogue: ## Run rogue-collection
+run-rogue: ## Run rogue-collection in the GUI
 	$(MAKE) -C $(ROGUE_DIR) run
 
 clean-rogue: ## Clean rogue-collection build artifacts

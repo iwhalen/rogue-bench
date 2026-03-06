@@ -5,7 +5,7 @@ from pathlib import Path
 
 from pydantic_settings import BaseSettings
 
-DEFAULT_ROGUE_PATH = Path("rogue-collection/build/release/rogue-collection")
+DEFAULT_ROGUE_PATH = Path(__file__).resolve().parents[2] / "rogue-collection" / "build" / "release" / "rogue-collection-headless"
 
 
 class PlayerType(StrEnum):
