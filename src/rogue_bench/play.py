@@ -2,10 +2,10 @@
 
 import os
 
-from rogomatic_llm.config import PlayerType, PlaySettings
-from rogomatic_llm.external.game import RogueGame
-from rogomatic_llm.player.human import HumanPlayer
-from rogomatic_llm.player.llm import LLMPlayer
+from rogue_bench.config import PlayerType, PlaySettings
+from rogue_bench.external.game import RogueGame
+from rogue_bench.player.human import HumanPlayer
+from rogue_bench.player.llm import LLMPlayer
 
 
 def play(config: PlaySettings) -> None:

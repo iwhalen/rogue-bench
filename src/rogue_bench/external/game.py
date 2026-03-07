@@ -8,11 +8,11 @@ import select
 import subprocess
 from typing import TYPE_CHECKING
 
-from rogomatic_llm.external.base import RogueInterface
-from rogomatic_llm.external.terminal_parser import TerminalParser
+from rogue_bench.external.base import RogueInterface
+from rogue_bench.external.terminal_parser import TerminalParser
 
 if TYPE_CHECKING:
-    from rogomatic_llm.external.screen import ScreenState
+    from rogue_bench.external.screen import ScreenState
 
 
 class RogueGame(RogueInterface):

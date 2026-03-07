@@ -6,14 +6,14 @@ import os
 import select
 from typing import TYPE_CHECKING
 
-from rogomatic_llm.player.base import PipeBasedPlayer
+from rogue_bench.player.base import PipeBasedPlayer
 
 if TYPE_CHECKING:
     from io import StringIO
 
     from rich.console import Console
 
-    from rogomatic_llm.external.game import RogueGame
+    from rogue_bench.external.game import RogueGame
 
 _ESC = 0x1B
 

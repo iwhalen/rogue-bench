@@ -6,7 +6,7 @@ from typing import Annotated
 import typer
 from dotenv import load_dotenv
 
-from rogomatic_llm.config import (
+from rogue_bench.config import (
     DEFAULT_ACTION_DELAY,
     DEFAULT_MAX_HISTORY,
     DEFAULT_MODEL,
@@ -16,7 +16,7 @@ from rogomatic_llm.config import (
     PlaySettings,
     RogueVersion,
 )
-from rogomatic_llm.play import play
+from rogue_bench.play import play
 
 app = typer.Typer()
 

@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Self
 
 if TYPE_CHECKING:
-    from rogomatic_llm.external.screen import ScreenState
+    from rogue_bench.external.screen import ScreenState
 
 
 class RogueInterface(ABC):

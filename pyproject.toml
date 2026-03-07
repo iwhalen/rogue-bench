@@ -1,7 +1,7 @@
 [project]
-name = "rogomatic-llm"
+name = "rogue-bench"
 version = "0.1.0"
-description = "Rogomatic for LLMs - play Rogue with any LLM that supports structured output"
+description = "Rogue-Bench: a benchmark where agents play Rogue."
 readme = "README.md"
 authors = [
     { name = "iwhalen", email = "ianpatrickwhalen@gmail.com" }
@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.scripts]
-rogomatic-llm = "rogomatic_llm.__main__:cli"
+rogue-bench = "rogue_bench.__main__:cli"
 
 [build-system]
 requires = ["uv_build>=0.9.17,<0.10.0"]
@@ -51,4 +51,4 @@ select = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["rogomatic_llm"]
+known-first-party = ["rogue_bench"]

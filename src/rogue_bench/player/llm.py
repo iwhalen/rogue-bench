@@ -12,7 +12,7 @@ from pydantic import BaseModel, Field
 from pydantic_ai import Agent
 from rich.spinner import Spinner
 
-from rogomatic_llm.player.base import PipeBasedPlayer, render_llm_frame
+from rogue_bench.player.base import PipeBasedPlayer, render_llm_frame
 
 if TYPE_CHECKING:
     from io import StringIO
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     from pydantic_ai.messages import ModelMessage
     from rich.console import Console
 
-    from rogomatic_llm.external.game import RogueGame
+    from rogue_bench.external.game import RogueGame
 
 SYSTEM_PROMPT = """You are an expert player of the classic dungeon crawler Rogue.
 You are controlling the game by issuing keystrokes. Your goal is to descend through the

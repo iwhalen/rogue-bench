@@ -16,7 +16,7 @@ from rich.panel import Panel
 from rich.text import Text
 
 if TYPE_CHECKING:
-    from rogomatic_llm.external.game import RogueGame
+    from rogue_bench.external.game import RogueGame
 
 _GAME_ROWS = 24
 _GAME_COLS = 80
