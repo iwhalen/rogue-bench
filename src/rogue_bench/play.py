@@ -1,6 +1,7 @@
 """Start and orchestrate a game of Rogue."""
 
 import os
+import random
 
 from rogue_bench.config import PlayerType, PlaySettings
 from rogue_bench.external.game import RogueGame
@@ -29,6 +30,8 @@ def play(config: PlaySettings) -> None:
     else:
         raise NotImplementedError(f"Invalid player type: {config.player}")
 
+    seed = config.seed if config.seed is not None else random.randint(0, 2**31 - 1)
+
     rogue_path = config.rogue_path.resolve()
     rogue_dir = str(rogue_path.parent)
     env = os.environ.copy()
@@ -39,7 +42,7 @@ def play(config: PlaySettings) -> None:
     try:
         with RogueGame(
             rogue_executable=str(rogue_path),
-            args=[config.rogue_version],
+            args=[config.rogue_version, "--seed", str(seed)],
             env=env,
         ) as game:
             player.play(game)

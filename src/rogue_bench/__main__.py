@@ -61,6 +61,13 @@ def main(
             help="Seconds to wait between actions in LLM mode.",
         ),
     ] = DEFAULT_ACTION_DELAY,
+    seed: Annotated[
+        int | None,
+        typer.Option(
+            help="RNG seed for the Rogue game. "
+            "Generated from current time if not provided.",
+        ),
+    ] = None,
 ) -> None:
     """Main typer application. Starts the play session with the given options."""
     load_dotenv(".env", override=True)
@@ -72,6 +79,7 @@ def main(
         model=model,
         max_history=max_history,
         action_delay=action_delay,
+        seed=seed,
     )
 
     play(settings)
