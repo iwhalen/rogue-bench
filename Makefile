@@ -1,7 +1,7 @@
 ROGUE_DIR := rogue-collection
 DOCKER_IMAGE := rogue-bench
 
-.PHONY: help install build-rogue run-rogue clean-rogue distclean-rogue lint test docker-build docker-run
+.PHONY: help install build clean docker-build docker-run lint test
 
 help: ## Show available commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -33,6 +33,10 @@ docker-build: ## Build the Docker image
 
 docker-run: ## Run the Docker container (use ARGS="..." for options)
 	docker run --rm -it --env-file .env $(DOCKER_IMAGE) $(ARGS)
+
+docker-clean: ## Stop container and remove rogue-bench image
+	-docker stop $$(docker ps -q --filter ancestor=$(DOCKER_IMAGE)) 2>/dev/null
+	-docker rmi $(DOCKER_IMAGE) 2>/dev/null
 
 lint: ## Run linters (ruff, ty)
 	uv run ruff check .
