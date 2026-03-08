@@ -1,6 +1,7 @@
 ROGUE_DIR := rogue-collection
+DOCKER_IMAGE := rogue-bench
 
-.PHONY: help install build-rogue run-rogue clean-rogue distclean-rogue lint test
+.PHONY: help install build-rogue run-rogue clean-rogue distclean-rogue lint test docker-build docker-run
 
 help: ## Show available commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -32,6 +33,12 @@ run-rogue: ## Run rogue-collection in the GUI
 
 clean-rogue: ## Clean rogue-collection build artifacts
 	$(MAKE) -C $(ROGUE_DIR) distclean
+
+docker-build: ## Build the Docker image
+	docker build -t $(DOCKER_IMAGE) .
+
+docker-run: ## Run the Docker container (use ARGS="..." for options)
+	docker run --rm -it --env-file .env $(DOCKER_IMAGE) $(ARGS)
 
 lint: ## Run linters (ruff, ty)
 	uv run ruff check .
