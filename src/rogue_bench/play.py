@@ -5,6 +5,7 @@ import os
 import random
 import struct
 import sys
+from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -88,6 +89,7 @@ def play(config: PlaySettings) -> None:
                 game.keylog,
             )
             _write_metadata(resolved_dir, config, seed)
+            _write_statistics(resolved_dir, game)
 
 
 def _resolve_output_dir(config: PlaySettings) -> Path:
@@ -100,9 +102,7 @@ def _resolve_output_dir(config: PlaySettings) -> Path:
     return base
 
 
-def _write_save_file(
-    path: Path, game_name: str, seed: int, keylog: bytes
-) -> None:
+def _write_save_file(path: Path, game_name: str, seed: int, keylog: bytes) -> None:
     """Write a game recording in Rogue Collection save format."""
     game_env = {**_ROGOMATIC_ENV, "seed": str(seed)}
 
@@ -129,9 +129,7 @@ def _write_short_string(f: object, s: str) -> None:
     f.write(encoded)  # type: ignore[union-attr]
 
 
-def _write_metadata(
-    output_dir: Path, config: PlaySettings, seed: int
-) -> None:
+def _write_metadata(output_dir: Path, config: PlaySettings, seed: int) -> None:
     """Write metadata.json for the game recording."""
     metadata = {
         "timestamp": datetime.now(UTC).isoformat(),
@@ -142,3 +140,15 @@ def _write_metadata(
         "args": sys.argv,
     }
     (output_dir / "metadata.json").write_text(json.dumps(metadata, indent=2))
+
+
+def _write_statistics(output_dir: Path, game: RogueGame) -> None:
+    """Write statistics.json with final game stats."""
+    stats: dict[str, object] = {
+        "total_keys": len(game.keylog),
+        "final_screen": game.screen.dump(),
+    }
+    status = game.last_status
+    if status is not None:
+        stats.update(asdict(status))
+    (output_dir / "statistics.json").write_text(json.dumps(stats, indent=2))

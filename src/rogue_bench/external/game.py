@@ -9,6 +9,7 @@ import subprocess
 from typing import TYPE_CHECKING
 
 from rogue_bench.external.base import RogueInterface
+from rogue_bench.external.screen import StatusLine
 from rogue_bench.external.terminal_parser import TerminalParser
 
 if TYPE_CHECKING:
@@ -42,6 +43,7 @@ class RogueGame(RogueInterface):
         self._trogue_fd: int | None = None
         self._parser = TerminalParser()
         self._keylog = bytearray()
+        self._last_status: StatusLine | None = None
 
     @property
     def output_fd(self) -> int:
@@ -143,6 +145,11 @@ class RogueGame(RogueInterface):
             return False
         return self._process.poll() is None
 
+    @property
+    def last_status(self) -> StatusLine | None:
+        """Last successfully parsed status bar, surviving screen overwrites."""
+        return self._last_status
+
     def feed(self, data: bytes) -> None:
         """Forward raw bytes to the internal VT100 parser.
 
@@ -151,6 +158,13 @@ class RogueGame(RogueInterface):
         in sync.
         """
         self._parser.feed(data)
+        self._update_status()
+
+    def _update_status(self) -> None:
+        """Cache the latest valid status bar."""
+        status = self._parser.screen.status
+        if status is not None:
+            self._last_status = status
 
     def _drain(self, timeout: float = 0.05) -> None:
         """Read all currently-available bytes from the frogue pipe."""
@@ -166,3 +180,4 @@ class RogueGame(RogueInterface):
             if not data:
                 break
             self._parser.feed(data)
+        self._update_status()
