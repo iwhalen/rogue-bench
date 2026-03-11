@@ -258,7 +258,7 @@ class LLMPlayer(PipeBasedPlayer):
                         executed_count=i,
                         reasoning=last_reasoning,
                     )
-                    os.write(game.input_fd, key.encode("latin-1"))
+                    game.send_keypress(key)
                     await asyncio.sleep(self._action_delay)
 
                     # Drain game output after each key

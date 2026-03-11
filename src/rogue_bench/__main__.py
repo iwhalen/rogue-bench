@@ -68,8 +68,20 @@ def main(
             "Generated from current time if not provided.",
         ),
     ] = None,
+    output_path: Annotated[
+        Path | None,
+        typer.Option(
+            help="Directory to save game recording. Created if it doesn't exist.",
+        ),
+    ] = None,
+    versioned: Annotated[
+        bool,
+        typer.Option(
+            help="Append ISO timestamp subdirectory to output path.",
+        ),
+    ] = False,
 ) -> None:
-    """Main typer application. Starts the play session with the given options."""
+    """Main CLI application. Starts the play session with the given options."""
     load_dotenv(".env", override=True)
 
     settings = PlaySettings(
@@ -80,6 +92,8 @@ def main(
         max_history=max_history,
         action_delay=action_delay,
         seed=seed,
+        output_path=output_path,
+        versioned=versioned,
     )
 
     play(settings)
