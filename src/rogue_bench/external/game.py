@@ -41,6 +41,7 @@ class RogueGame(RogueInterface):
         self._frogue_fd: int | None = None
         self._trogue_fd: int | None = None
         self._parser = TerminalParser()
+        self._keylog = bytearray()
 
     @property
     def output_fd(self) -> int:
@@ -92,6 +93,16 @@ class RogueGame(RogueInterface):
         self._trogue_fd = trogue_w
 
     def stop(self) -> None:
+        # Close pipe fds first so the game process won't block on pipe
+        # writes (e.g. in its auto_save/save_file signal handler) after
+        # we send SIGTERM.  With the read end closed, writes fail with
+        # EPIPE instead of blocking on a full buffer.
+        for fd_attr in ("_frogue_fd", "_trogue_fd"):
+            fd = getattr(self, fd_attr)
+            if fd is not None:
+                with contextlib.suppress(OSError):
+                    os.close(fd)
+                setattr(self, fd_attr, None)
         if self._process is not None:
             self._process.terminate()
             try:
@@ -100,17 +111,21 @@ class RogueGame(RogueInterface):
                 self._process.kill()
                 self._process.wait()
             self._process = None
-        for fd_attr in ("_frogue_fd", "_trogue_fd"):
-            fd = getattr(self, fd_attr)
-            if fd is not None:
-                with contextlib.suppress(OSError):
-                    os.close(fd)
-                setattr(self, fd_attr, None)
 
     def send_keypress(self, key: str) -> None:
+        self.send_raw(key.encode("latin-1"))
+
+    def send_raw(self, data: bytes) -> None:
+        """Send raw bytes to the game and record them in the keylog."""
         if self._trogue_fd is None:
             raise RuntimeError("Rogue process is not running")
-        os.write(self._trogue_fd, key.encode("latin-1"))
+        os.write(self._trogue_fd, data)
+        self._keylog.extend(data)
+
+    @property
+    def keylog(self) -> bytes:
+        """All input bytes sent to the game during this session."""
+        return bytes(self._keylog)
 
     def read_screen(self) -> ScreenState:
         if self._frogue_fd is None:

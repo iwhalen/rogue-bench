@@ -70,3 +70,11 @@ class PlaySettings(BaseSettings):
         description="RNG seed for the Rogue game. "
         "Generated from current time if not provided.",
     )
+    output_path: Path | None = Field(
+        default=None,
+        description="Directory to save game recording. Created if it doesn't exist.",
+    )
+    versioned: bool = Field(
+        default=False,
+        description="Append ISO timestamp subdirectory to output path.",
+    )

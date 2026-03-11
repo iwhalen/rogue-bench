@@ -101,7 +101,7 @@ class HumanPlayer(PipeBasedPlayer):
                     data = os.read(fd_in, 1024)
                     if not data or b"\x03" in data:
                         break
-                    os.write(trogue, _translate_keys(data))
+                    game.send_raw(_translate_keys(data))
         except KeyboardInterrupt:
             pass
         finally:
