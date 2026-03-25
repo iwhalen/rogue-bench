@@ -38,9 +38,7 @@ def replay(
     """Replay a saved game recording."""
     sav_path = input_path / "game.sav"
     if not sav_path.exists():
-        raise FileNotFoundError(
-            f"No game.sav found in {input_path}"
-        )
+        raise FileNotFoundError(f"No game.sav found in {input_path}")
 
     game_name, env, keylog = _parse_save_file(sav_path)
     seed = env.get("seed", "0")
@@ -77,9 +75,6 @@ def replay(
         os.chdir(original_cwd)
 
 
-# ── Save file parsing ───────────────────────────────────────────
-
-
 def _parse_save_file(
     path: Path,
 ) -> tuple[str, dict[str, str], bytes]:
@@ -90,9 +85,7 @@ def _parse_save_file(
     # version (uint8)
     (version,) = struct.unpack("B", f.read(1))
     if version != 2:
-        raise ValueError(
-            f"Unsupported save file version: {version}"
-        )
+        raise ValueError(f"Unsupported save file version: {version}")
 
     # restore_count (uint16 LE) — unused for replay
     f.read(2)
@@ -119,9 +112,6 @@ def _read_environment(f: BytesIO) -> dict[str, str]:
         value = _read_short_string(f)
         env[key] = value
     return env
-
-
-# ── Draining ────────────────────────────────────────────────────
 
 
 def _drain_initial(game: RogueGame) -> None:
@@ -171,24 +161,18 @@ def _replay_visual(
     try:
         tty.setraw(fd_in)
         buf = StringIO()
-        console = Console(
-            file=buf, force_terminal=True, width=_CONSOLE_W
-        )
+        console = Console(file=buf, force_terminal=True, width=_CONSOLE_W)
         os.write(stdout_fd, _CLEAR + _HOME)
 
         # Show initial screen
-        frame = render_frame(
-            console, buf, game.screen.characters
-        )
+        frame = render_frame(console, buf, game.screen.characters)
         os.write(stdout_fd, frame)
 
         for byte in keylog:
             game.send_raw(bytes([byte]))
             time.sleep(replay_speed)
             game.read_screen()
-            frame = render_frame(
-                console, buf, game.screen.characters
-            )
+            frame = render_frame(console, buf, game.screen.characters)
             os.write(stdout_fd, frame)
             # Check for Ctrl-C
             r, _, _ = select.select([fd_in], [], [], 0)
@@ -199,9 +183,6 @@ def _replay_visual(
     finally:
         termios.tcsetattr(fd_in, termios.TCSADRAIN, old_settings)
         os.write(sys.stdout.fileno(), _SHOW_CURSOR)
-
-
-# ── Headless replay ────────────────────────────────────────────
 
 
 def _replay_headless(game: RogueGame, keylog: bytes) -> None:

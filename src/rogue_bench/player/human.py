@@ -82,7 +82,6 @@ class HumanPlayer(PipeBasedPlayer):
     ) -> None:
         """Bidirectional relay between the human's terminal and Rogue."""
         frogue = game.output_fd
-        trogue = game.input_fd
 
         self._redraw(game, stdout_fd, console, buf)
 
