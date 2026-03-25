@@ -80,9 +80,35 @@ def main(
             help="Append ISO timestamp subdirectory to output path.",
         ),
     ] = False,
+    input_path: Annotated[
+        Path | None,
+        typer.Option(
+            help="Directory containing a game.sav to replay. "
+            "Mutually exclusive with --output-path.",
+        ),
+    ] = None,
+    replay_speed: Annotated[
+        float,
+        typer.Option(
+            help="Seconds between keystrokes during replay.",
+        ),
+    ] = 0.05,
+    no_display: Annotated[
+        bool,
+        typer.Option(
+            help="Skip visual replay; run at max speed and "
+            "print final statistics as JSON.",
+        ),
+    ] = False,
 ) -> None:
     """Main CLI application. Starts the play session with the given options."""
     load_dotenv(".env", override=True)
+
+    if input_path is not None:
+        from rogue_bench.replay import replay
+
+        replay(input_path, rogue_path, replay_speed, no_display)
+        return
 
     settings = PlaySettings(
         player=player,

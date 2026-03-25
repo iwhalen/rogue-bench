@@ -2,8 +2,9 @@
 
 from enum import StrEnum
 from pathlib import Path
+from typing import Self
 
-from pydantic import Field
+from pydantic import Field, model_validator
 from pydantic_settings import BaseSettings
 
 DEFAULT_ROGUE_PATH = (
@@ -78,3 +79,23 @@ class PlaySettings(BaseSettings):
         default=False,
         description="Append ISO timestamp subdirectory to output path.",
     )
+    input_path: Path | None = Field(
+        default=None,
+        description="Directory containing a game.sav to replay. "
+        "Mutually exclusive with --output-path.",
+    )
+    replay_speed: float = Field(
+        default=0.05,
+        description="Seconds between keystrokes during replay.",
+    )
+    no_display: bool = Field(
+        default=False,
+        description="Skip visual replay; run at max speed and "
+        "print final statistics as JSON.",
+    )
+
+    @model_validator(mode="after")
+    def check_path_exclusivity(self) -> Self:
+        if self.input_path is not None and self.output_path is not None:
+            raise ValueError("--input-path and --output-path are mutually exclusive")
+        return self
