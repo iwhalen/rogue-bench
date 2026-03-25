@@ -11,7 +11,7 @@ My to do list is:
 - [x] Implement headless version of Rogue for performance reasons
 - [ ] Determine how to and then implement run seeding / saving
 - [ ] Determine how to implement run saving in headless mode and when running in dockerized mode
-- [ ] Reimplement the Rogue environment as a `gymnasium` environment
+- [ ] Reimplement the Rogue environment as a `verifiers` environment
 - [ ] Determine how to output score as the "reward" signal (is it just total gold?)
 - [ ] Make it easier to add custom agents / agent harnesses
 
