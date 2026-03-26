@@ -9,11 +9,10 @@ import subprocess
 from typing import TYPE_CHECKING
 
 from rogue_bench.external.base import RogueInterface
-from rogue_bench.external.screen import StatusLine
 from rogue_bench.external.terminal_parser import TerminalParser
 
 if TYPE_CHECKING:
-    from rogue_bench.external.screen import ScreenState
+    from rogue_bench.external.screen import ScreenState, StatusLine
 
 
 class RogueGame(RogueInterface):
