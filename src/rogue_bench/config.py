@@ -40,7 +40,7 @@ DEFAULT_MAX_HISTORY = 25
 DEFAULT_ACTION_DELAY = 0.5
 
 
-class PlaySettings(BaseSettings):
+class Settings(BaseSettings):
     """Global config for Rogomatic for LLMs."""
 
     player: PlayerType = Field(

@@ -16,10 +16,12 @@ from typing import TYPE_CHECKING
 
 from rich.console import Console
 
+from rogue_bench.external.game import RogueGame
+
 if TYPE_CHECKING:
     from pathlib import Path
 
-from rogue_bench.external.game import RogueGame
+    from rogue_bench.config import Settings
 from rogue_bench.player.base import (
     _CLEAR,
     _CONSOLE_W,
@@ -29,21 +31,33 @@ from rogue_bench.player.base import (
 )
 
 
-def replay(
-    input_path: Path,
-    rogue_path: Path,
-    replay_speed: float,
-    no_display: bool,
-) -> None:
-    """Replay a saved game recording."""
-    sav_path = input_path / "game.sav"
+def replay(settings: Settings) -> None:
+    """Replay a saved game recording from a ``game.sav`` file.
+
+    Parses the binary save file to extract the game name, seed, and
+    keylog, then starts a fresh headless game and feeds the recorded
+    keystrokes back in.  In visual mode the screen is rendered to the
+    terminal with a configurable delay between keys; in headless mode
+    the keylog is fed at max speed and final game statistics are
+    printed as JSON to stdout.
+
+    Args:
+        settings: Application settings. Must have ``input_path``
+            set to the directory containing a ``game.sav`` file.
+            Uses ``rogue_path``, ``replay_speed``, and
+            ``no_display`` from the settings.
+    """
+    assert settings.input_path is not None
+    sav_path = settings.input_path / "game.sav"
     if not sav_path.exists():
-        raise FileNotFoundError(f"No game.sav found in {input_path}")
+        raise FileNotFoundError(
+            f"No game.sav found in {settings.input_path}"
+        )
 
     game_name, env, keylog = _parse_save_file(sav_path)
     seed = env.get("seed", "0")
 
-    rogue_path = rogue_path.resolve()
+    rogue_path = settings.rogue_path.resolve()
     if not rogue_path.exists():
         raise FileNotFoundError(
             f"Rogue executable not found at {rogue_path}. "
@@ -67,10 +81,12 @@ def replay(
     try:
         with game:
             _drain_initial(game)
-            if no_display:
+            if settings.no_display:
                 _replay_headless(game, keylog)
             else:
-                _replay_visual(game, keylog, replay_speed)
+                _replay_visual(
+                    game, keylog, settings.replay_speed
+                )
     finally:
         os.chdir(original_cwd)
 
@@ -144,9 +160,6 @@ def _drain_game_output(game: RogueGame) -> bool:
             break
         game.feed(more)
     return True
-
-
-# ── Visual replay ───────────────────────────────────────────────
 
 
 def _replay_visual(

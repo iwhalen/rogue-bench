@@ -9,7 +9,7 @@ from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path
 
-from rogue_bench.config import PlayerType, PlaySettings
+from rogue_bench.config import PlayerType, Settings
 from rogue_bench.external.game import RogueGame
 from rogue_bench.player.human import HumanPlayer
 from rogue_bench.player.llm import LLMPlayer
@@ -33,7 +33,7 @@ _ROGOMATIC_ENV: dict[str, str] = {
 }
 
 
-def play(config: PlaySettings) -> None:
+def play(config: Settings) -> None:
     """Play a game of Rogue given the config."""
     rogue_path = config.rogue_path.resolve()
 
@@ -92,7 +92,7 @@ def play(config: PlaySettings) -> None:
             _write_statistics(resolved_dir, game)
 
 
-def _resolve_output_dir(config: PlaySettings) -> Path:
+def _resolve_output_dir(config: Settings) -> Path:
     """Resolve the output directory, optionally appending a timestamp."""
     assert config.output_path is not None
     base = config.output_path
@@ -129,7 +129,7 @@ def _write_short_string(f: object, s: str) -> None:
     f.write(encoded)  # type: ignore[union-attr]
 
 
-def _write_metadata(output_dir: Path, config: PlaySettings, seed: int) -> None:
+def _write_metadata(output_dir: Path, config: Settings, seed: int) -> None:
     """Write metadata.json for the game recording."""
     metadata = {
         "timestamp": datetime.now(UTC).isoformat(),

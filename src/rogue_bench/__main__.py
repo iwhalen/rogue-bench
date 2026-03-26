@@ -13,10 +13,11 @@ from rogue_bench.config import (
     DEFAULT_ROGUE_PATH,
     DEFAULT_ROGUE_VERSION,
     PlayerType,
-    PlaySettings,
     RogueVersion,
+    Settings,
 )
 from rogue_bench.play import play
+from rogue_bench.replay import replay
 
 app = typer.Typer()
 
@@ -104,13 +105,7 @@ def main(
     """Main CLI application. Starts the play session with the given options."""
     load_dotenv(".env", override=True)
 
-    if input_path is not None:
-        from rogue_bench.replay import replay
-
-        replay(input_path, rogue_path, replay_speed, no_display)
-        return
-
-    settings = PlaySettings(
+    settings = Settings(
         player=player,
         rogue_path=rogue_path,
         rogue_version=rogue_version,
@@ -120,9 +115,15 @@ def main(
         seed=seed,
         output_path=output_path,
         versioned=versioned,
+        input_path=input_path,
+        replay_speed=replay_speed,
+        no_display=no_display,
     )
 
-    play(settings)
+    if settings.input_path is not None:
+        replay(settings)
+    else:
+        play(settings)
 
 
 def cli() -> None:
