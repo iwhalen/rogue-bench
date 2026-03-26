@@ -9,7 +9,7 @@ If you just want to play Rogue, see the [Rogue Collection](https://github.com/mi
 My to do list is:
 - [x] Dockerize Rogue Collection for portability
 - [x] Implement headless version of Rogue for performance reasons
-- [ ] Determine how to and then implement run seeding / saving
+- [x] Determine how to and then implement run seeding / saving
 - [ ] Determine how to implement run saving in headless mode and when running in dockerized mode
 - [ ] Reimplement the Rogue environment as a `verifiers` environment
 - [ ] Determine how to output score as the "reward" signal (is it just total gold? Gold + amulet?)
