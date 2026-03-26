@@ -10,7 +10,9 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from rogue_bench.config import PlayerType, Settings
-from rogue_bench.external.game import RogueGame
+from rogue_bench.game.base import PipeRogueGame
+from rogue_bench.game.docker import DockerRogueGame
+from rogue_bench.game.local import LocalRogueGame
 from rogue_bench.player.human import HumanPlayer
 from rogue_bench.player.llm import LLMPlayer
 
@@ -35,14 +37,6 @@ _ROGOMATIC_ENV: dict[str, str] = {
 
 def play(config: Settings) -> None:
     """Play a game of Rogue given the config."""
-    rogue_path = config.rogue_path.resolve()
-
-    if not rogue_path.exists():
-        raise FileNotFoundError(
-            f"Rogue executable not found at {rogue_path}. "
-            "Run 'make build' first to compile the rogue binary."
-        )
-
     if config.player == PlayerType.HUMAN:
         player = HumanPlayer()
     elif config.player == PlayerType.LLM:
@@ -55,12 +49,6 @@ def play(config: Settings) -> None:
         raise NotImplementedError(f"Invalid player type: {config.player}")
 
     seed = config.seed if config.seed is not None else random.randint(0, 2**31 - 1)
-
-    rogue_path = config.rogue_path.resolve()
-    rogue_dir = str(rogue_path.parent)
-    env = os.environ.copy()
-    env["LD_LIBRARY_PATH"] = rogue_dir
-
     args = [config.rogue_version, "--seed", str(seed)]
 
     resolved_dir = None
@@ -68,19 +56,19 @@ def play(config: Settings) -> None:
         resolved_dir = _resolve_output_dir(config).resolve()
         resolved_dir.mkdir(parents=True, exist_ok=True)
 
-    game = RogueGame(
-        rogue_executable=str(rogue_path),
-        args=args,
-        env=env,
-    )
+    game = _create_game(config, args)
 
     original_cwd = os.getcwd()
-    os.chdir(rogue_dir)
+    use_local = config.docker_image is None
+    if use_local:
+        rogue_dir = str(config.rogue_path.resolve().parent)
+        os.chdir(rogue_dir)
     try:
         with game:
             player.play(game)
     finally:
-        os.chdir(original_cwd)
+        if use_local:
+            os.chdir(original_cwd)
         if resolved_dir:
             _write_save_file(
                 resolved_dir / "game.sav",
@@ -90,6 +78,33 @@ def play(config: Settings) -> None:
             )
             _write_metadata(resolved_dir, config, seed)
             _write_statistics(resolved_dir, game)
+
+
+def _create_game(
+    config: Settings,
+    args: list[str],
+) -> PipeRogueGame:
+    """Instantiate the right game backend based on config."""
+    if config.docker_image:
+        return DockerRogueGame(
+            docker_image=config.docker_image,
+            args=args,
+        )
+
+    rogue_path = config.rogue_path.resolve()
+    if not rogue_path.exists():
+        raise FileNotFoundError(
+            f"Rogue executable not found at {rogue_path}. "
+            "Run 'make build' first to compile the rogue binary."
+        )
+    rogue_dir = str(rogue_path.parent)
+    env = os.environ.copy()
+    env["LD_LIBRARY_PATH"] = rogue_dir
+    return LocalRogueGame(
+        rogue_executable=str(rogue_path),
+        args=args,
+        env=env,
+    )
 
 
 def _resolve_output_dir(config: Settings) -> Path:
@@ -142,7 +157,7 @@ def _write_metadata(output_dir: Path, config: Settings, seed: int) -> None:
     (output_dir / "metadata.json").write_text(json.dumps(metadata, indent=2))
 
 
-def _write_statistics(output_dir: Path, game: RogueGame) -> None:
+def _write_statistics(output_dir: Path, game: PipeRogueGame) -> None:
     """Write statistics.json with final game stats."""
     stats: dict[str, object] = {
         "total_keys": len(game.keylog),

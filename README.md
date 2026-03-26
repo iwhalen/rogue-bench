@@ -10,7 +10,7 @@ My to do list is:
 - [x] Dockerize Rogue Collection for portability
 - [x] Implement headless version of Rogue for performance reasons
 - [x] Determine how to and then implement run seeding / saving
-- [ ] Determine how to implement run saving in headless mode and when running in dockerized mode
+- [x] Determine how to implement run saving in headless mode and when running in dockerized mode
 - [ ] Reimplement the Rogue environment as a `verifiers` environment
 - [ ] Determine how to output score as the "reward" signal (is it just total gold? Gold + amulet?)
 - [ ] Implement Rogomatic as an agent
@@ -20,8 +20,6 @@ My to do list is:
 ## Quickstart
 
 Rogue-Bench has been tested locally on (WSL2) Ubuntu 24.04 and also provides a Docker setup.
-
-Both are available through `make` commands.
 
 ### Local
 
@@ -43,7 +41,7 @@ To run in Docker, execute:
 ``` bash
 git clone --recursive https://github.com/iwhalen/rogue-bench.git
 make build-docker
-make docker-run ARGS="--player human"
+uv run rogue-bench --docker-image rogue-bench --player human
 ```
 
 Again, this will start in "human" mode.

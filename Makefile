@@ -31,9 +31,6 @@ clean: ## Clean rogue-collection build artifacts
 docker-build: ## Build the Docker image
 	docker build -t $(DOCKER_IMAGE) .
 
-docker-run: ## Run the Docker container (use ARGS="..." for options)
-	docker run --rm -it --env-file .env $(DOCKER_IMAGE) $(ARGS)
-
 docker-clean: ## Stop container and remove rogue-bench image
 	-docker stop $$(docker ps -q --filter ancestor=$(DOCKER_IMAGE)) 2>/dev/null
 	-docker rmi $(DOCKER_IMAGE) 2>/dev/null

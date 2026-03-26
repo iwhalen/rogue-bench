@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     from pydantic_ai.messages import ModelMessage
     from rich.console import Console
 
-    from rogue_bench.external.game import RogueGame
+    from rogue_bench.game.base import PipeRogueGame
 
 SYSTEM_PROMPT = """You are an expert player of the classic dungeon crawler Rogue.
 You are controlling the game by issuing keystrokes. Your goal is to descend through the
@@ -178,7 +178,7 @@ class LLMPlayer(PipeBasedPlayer):
 
     def _io_loop(
         self,
-        game: RogueGame,
+        game: PipeRogueGame,
         fd_in: int,
         stdout_fd: int,
         console: Console,
@@ -189,7 +189,7 @@ class LLMPlayer(PipeBasedPlayer):
 
     async def _async_io_loop(
         self,
-        game: RogueGame,
+        game: PipeRogueGame,
         fd_in: int,
         stdout_fd: int,
         console: Console,
@@ -295,7 +295,7 @@ class LLMPlayer(PipeBasedPlayer):
 
     async def _spin_while_thinking(
         self,
-        game: RogueGame,
+        game: PipeRogueGame,
         stdout_fd: int,
         console: Console,
         buf: StringIO,
@@ -316,7 +316,7 @@ class LLMPlayer(PipeBasedPlayer):
 
     @staticmethod
     def _redraw_llm(
-        game: RogueGame,
+        game: PipeRogueGame,
         stdout_fd: int,
         console: Console,
         buf: StringIO,
@@ -351,14 +351,14 @@ class LLMPlayer(PipeBasedPlayer):
         return list(messages[-pair_count:])
 
     @staticmethod
-    def _build_prompt(game: RogueGame, turn: int = 0) -> str:
+    def _build_prompt(game: PipeRogueGame, turn: int = 0) -> str:
         """Build the user prompt from the current game screen."""
         screen = game.screen
         heading = f"=== State from turn {turn} ==="
         return f"{heading}\n\n{screen.dump()}"
 
     @staticmethod
-    def _drain_initial(game: RogueGame) -> None:
+    def _drain_initial(game: PipeRogueGame) -> None:
         """Wait for the game to produce its first screen output."""
         frogue = game.output_fd
         r, _, _ = select.select([frogue], [], [], 2.0)
