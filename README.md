@@ -28,11 +28,17 @@ To run locally on Ubuntu 24.04, execute:
 ``` bash
 git clone --recursive https://github.com/iwhalen/rogue-bench.git 
 make install  # Install system level dependencies
-make build
+make build  # Compile the custom headless Rogue executable
 uv run rogue-bench --player human
 ```
 
 This will start a "human" session where you can control Rogue with keyboard inputs.
+
+For all command line options, see:
+
+``` bash
+uv run rogue-bench --help
+```
 
 ### Docker
 
