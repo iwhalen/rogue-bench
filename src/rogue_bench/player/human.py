@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
     from rich.console import Console
 
-    from rogue_bench.external.game import RogueGame
+    from rogue_bench.game.base import PipeRogueGame
 
 _ESC = 0x1B
 
@@ -74,7 +74,7 @@ class HumanPlayer(PipeBasedPlayer):
 
     def _io_loop(
         self,
-        game: RogueGame,
+        game: PipeRogueGame,
         fd_in: int,
         stdout_fd: int,
         console: Console,

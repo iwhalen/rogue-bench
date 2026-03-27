@@ -4,15 +4,12 @@ WORKDIR /src
 COPY rogue-collection/ ./rogue-collection/
 RUN make -C rogue-collection headless
 
-FROM python:3.13-slim
-COPY --from=ghcr.io/astral-sh/uv:0.9 /uv /uvx /bin/
-WORKDIR /app
-
-COPY pyproject.toml uv.lock .python-version README.md ./
-COPY src/ ./src/
-RUN uv sync --frozen --no-dev
-
-COPY --from=builder /src/rogue-collection/build/release/ ./rogue/
-COPY --from=builder /src/rogue-collection/rogue.opt ./rogue/
-
-ENTRYPOINT ["uv", "run", "rogue-bench", "--rogue-path", "/app/rogue/rogue-collection-headless"]
+FROM ubuntu:24.04
+WORKDIR /app/rogue
+COPY --from=builder /src/rogue-collection/build/release/rogue-collection-headless ./
+COPY --from=builder /src/rogue-collection/build/release/*.so ./
+COPY --from=builder /src/rogue-collection/rogue.opt ./
+COPY docker/entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+ENV LD_LIBRARY_PATH=/app/rogue
+ENTRYPOINT ["/app/entrypoint.sh"]

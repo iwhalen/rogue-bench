@@ -16,7 +16,7 @@ from rich.panel import Panel
 from rich.text import Text
 
 if TYPE_CHECKING:
-    from rogue_bench.external.game import RogueGame
+    from rogue_bench.game.base import PipeRogueGame
 
 _GAME_ROWS = 24
 _GAME_COLS = 80
@@ -129,7 +129,7 @@ class Player(ABC):
     """Contract for a player that interacts with a running Rogue game."""
 
     @abstractmethod
-    def play(self, game: RogueGame) -> None:
+    def play(self, game: PipeRogueGame) -> None:
         """Take control and play the game until it ends or the player quits."""
 
 
@@ -142,7 +142,7 @@ class PipeBasedPlayer(Player):
     define how input is sourced (keyboard vs. LLM).
     """
 
-    def play(self, game: RogueGame) -> None:
+    def play(self, game: PipeRogueGame) -> None:
         fd_in = sys.stdin.fileno()
         old_settings = termios.tcgetattr(fd_in)
         try:
@@ -159,7 +159,7 @@ class PipeBasedPlayer(Player):
     @abstractmethod
     def _io_loop(
         self,
-        game: RogueGame,
+        game: PipeRogueGame,
         fd_in: int,
         stdout_fd: int,
         console: Console,
@@ -169,7 +169,7 @@ class PipeBasedPlayer(Player):
 
     @staticmethod
     def _redraw(
-        game: RogueGame,
+        game: PipeRogueGame,
         stdout_fd: int,
         console: Console,
         buf: StringIO,
@@ -179,7 +179,7 @@ class PipeBasedPlayer(Player):
         os.write(stdout_fd, frame)
 
     @staticmethod
-    def _drain_game_output(game: RogueGame) -> bool:
+    def _drain_game_output(game: PipeRogueGame) -> bool:
         """Read all available bytes from the game pipe and feed the parser.
 
         Returns False if the pipe is closed (game exited).

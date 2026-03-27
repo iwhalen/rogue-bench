@@ -93,6 +93,11 @@ class Settings(BaseSettings):
         description="Skip visual replay; run at max speed and "
         "print final statistics as JSON.",
     )
+    docker_image: str | None = Field(
+        default=None,
+        description="Docker image name for running Rogue in a container. "
+        "When set, the game runs inside Docker instead of using a local binary.",
+    )
 
     @model_validator(mode="after")
     def check_path_exclusivity(self) -> Self:

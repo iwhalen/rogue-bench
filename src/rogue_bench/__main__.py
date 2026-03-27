@@ -101,6 +101,13 @@ def main(
             "print final statistics as JSON.",
         ),
     ] = False,
+    docker_image: Annotated[
+        str | None,
+        typer.Option(
+            help="Docker image to run the Rogue binary in. "
+            "When set, uses Docker instead of a local binary.",
+        ),
+    ] = None,
 ) -> None:
     """Main CLI application. Starts the play session with the given options."""
     load_dotenv(".env", override=True)
@@ -118,6 +125,7 @@ def main(
         input_path=input_path,
         replay_speed=replay_speed,
         no_display=no_display,
+        docker_image=docker_image,
     )
 
     if settings.input_path is not None:

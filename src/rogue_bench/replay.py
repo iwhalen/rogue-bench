@@ -16,12 +16,14 @@ from typing import TYPE_CHECKING
 
 from rich.console import Console
 
-from rogue_bench.external.game import RogueGame
+from rogue_bench.game.docker import DockerRogueGame
+from rogue_bench.game.local import LocalRogueGame
 
 if TYPE_CHECKING:
     from pathlib import Path
 
     from rogue_bench.config import Settings
+    from rogue_bench.game.base import PipeRogueGame
 from rogue_bench.player.base import (
     _CLEAR,
     _CONSOLE_W,
@@ -57,27 +59,14 @@ def replay(settings: Settings) -> None:
     game_name, env, keylog = _parse_save_file(sav_path)
     seed = env.get("seed", "0")
 
-    rogue_path = settings.rogue_path.resolve()
-    if not rogue_path.exists():
-        raise FileNotFoundError(
-            f"Rogue executable not found at {rogue_path}. "
-            "Run 'make build' first to compile the rogue binary."
-        )
-
-    rogue_dir = str(rogue_path.parent)
-    proc_env = os.environ.copy()
-    proc_env["LD_LIBRARY_PATH"] = rogue_dir
-
     args = [game_name, "--seed", seed]
-
-    game = RogueGame(
-        rogue_executable=str(rogue_path),
-        args=args,
-        env=proc_env,
-    )
+    game = _create_replay_game(settings, args)
 
     original_cwd = os.getcwd()
-    os.chdir(rogue_dir)
+    use_local = settings.docker_image is None
+    if use_local:
+        rogue_dir = str(settings.rogue_path.resolve().parent)
+        os.chdir(rogue_dir)
     try:
         with game:
             _drain_initial(game)
@@ -88,7 +77,35 @@ def replay(settings: Settings) -> None:
                     game, keylog, settings.replay_speed
                 )
     finally:
-        os.chdir(original_cwd)
+        if use_local:
+            os.chdir(original_cwd)
+
+
+def _create_replay_game(
+    settings: Settings,
+    args: list[str],
+) -> PipeRogueGame:
+    """Instantiate the right game backend for replay."""
+    if settings.docker_image:
+        return DockerRogueGame(
+            docker_image=settings.docker_image,
+            args=args,
+        )
+
+    rogue_path = settings.rogue_path.resolve()
+    if not rogue_path.exists():
+        raise FileNotFoundError(
+            f"Rogue executable not found at {rogue_path}. "
+            "Run 'make build' first to compile the rogue binary."
+        )
+    rogue_dir = str(rogue_path.parent)
+    proc_env = os.environ.copy()
+    proc_env["LD_LIBRARY_PATH"] = rogue_dir
+    return LocalRogueGame(
+        rogue_executable=str(rogue_path),
+        args=args,
+        env=proc_env,
+    )
 
 
 def _parse_save_file(
@@ -130,7 +147,7 @@ def _read_environment(f: BytesIO) -> dict[str, str]:
     return env
 
 
-def _drain_initial(game: RogueGame) -> None:
+def _drain_initial(game: PipeRogueGame) -> None:
     """Wait for the game to produce its first screen output."""
     frogue = game.output_fd
     r, _, _ = select.select([frogue], [], [], 2.0)
@@ -138,7 +155,7 @@ def _drain_initial(game: RogueGame) -> None:
         _drain_game_output(game)
 
 
-def _drain_game_output(game: RogueGame) -> bool:
+def _drain_game_output(game: PipeRogueGame) -> bool:
     """Read all available bytes from the game pipe and feed the parser."""
     frogue = game.output_fd
     try:
@@ -163,7 +180,7 @@ def _drain_game_output(game: RogueGame) -> bool:
 
 
 def _replay_visual(
-    game: RogueGame,
+    game: PipeRogueGame,
     keylog: bytes,
     replay_speed: float,
 ) -> None:
@@ -198,7 +215,7 @@ def _replay_visual(
         os.write(sys.stdout.fileno(), _SHOW_CURSOR)
 
 
-def _replay_headless(game: RogueGame, keylog: bytes) -> None:
+def _replay_headless(game: PipeRogueGame, keylog: bytes) -> None:
     """Replay at max speed without display, print JSON stats."""
     for byte in keylog:
         game.send_raw(bytes([byte]))
