@@ -1,7 +1,5 @@
 """Abstract base classes defining the programmatic interface to a Rogue process."""
 
-from __future__ import annotations
-
 import os
 import select
 from abc import ABC, abstractmethod

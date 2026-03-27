@@ -5,8 +5,6 @@ Processes a raw byte stream from a Rogue process and maintains an
 internal :class:`ScreenState` that mirrors the terminal display.
 """
 
-from __future__ import annotations
-
 import copy
 from enum import Enum, auto
 

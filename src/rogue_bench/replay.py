@@ -1,7 +1,5 @@
 """Replay a previously recorded game from a game.sav file."""
 
-from __future__ import annotations
-
 import json
 import os
 import select

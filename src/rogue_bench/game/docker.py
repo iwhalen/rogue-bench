@@ -1,7 +1,5 @@
 """Rogue game running inside a Docker container."""
 
-from __future__ import annotations
-
 import subprocess
 
 from rogue_bench.game.base import PipeRogueGame

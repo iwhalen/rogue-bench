@@ -1,7 +1,5 @@
 """Human player that relays terminal I/O to and from a Rogue game."""
 
-from __future__ import annotations
-
 import os
 import select
 from typing import TYPE_CHECKING
