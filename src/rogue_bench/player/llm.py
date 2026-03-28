@@ -1,5 +1,7 @@
 """AI player powered by an LLM via PydanticAI."""
 
+from __future__ import annotations
+
 import asyncio
 import contextlib
 import os
@@ -19,6 +21,7 @@ if TYPE_CHECKING:
     from rich.console import Console
 
     from rogue_bench.game.base import PipeRogueGame
+
 
 SYSTEM_PROMPT = """You are an expert player of the classic dungeon crawler Rogue.
 You are controlling the game by issuing keystrokes. Your goal is to descend through the

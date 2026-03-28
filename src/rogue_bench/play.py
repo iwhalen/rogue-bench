@@ -9,7 +9,7 @@ from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path
 
-from rogue_bench.config import PlayerType, Settings
+from rogue_bench.config import ROGUE_VERSION, PlayerType, Settings
 from rogue_bench.game.base import PipeRogueGame
 from rogue_bench.game.docker import DockerRogueGame
 from rogue_bench.game.local import LocalRogueGame
@@ -49,7 +49,7 @@ def play(config: Settings) -> None:
         raise NotImplementedError(f"Invalid player type: {config.player}")
 
     seed = config.seed if config.seed is not None else random.randint(0, 2**31 - 1)
-    args = [config.rogue_version, "--seed", str(seed)]
+    args = [ROGUE_VERSION, "--seed", str(seed)]
 
     resolved_dir = None
     if config.output_path:
@@ -66,13 +66,14 @@ def play(config: Settings) -> None:
     try:
         with game:
             player.play(game)
+            game.drain_remaining()
     finally:
         if use_local:
             os.chdir(original_cwd)
         if resolved_dir:
             _write_save_file(
                 resolved_dir / "game.sav",
-                str(config.rogue_version),
+                ROGUE_VERSION,
                 seed,
                 game.keylog,
             )
@@ -149,7 +150,7 @@ def _write_metadata(output_dir: Path, config: Settings, seed: int) -> None:
     metadata = {
         "timestamp": datetime.now(UTC).isoformat(),
         "seed": seed,
-        "rogue_version": str(config.rogue_version),
+        "rogue_version": ROGUE_VERSION,
         "player": str(config.player),
         "model": config.model,
         "args": sys.argv,
@@ -161,6 +162,8 @@ def _write_statistics(output_dir: Path, game: PipeRogueGame) -> None:
     """Write statistics.json with final game stats."""
     stats: dict[str, object] = {
         "total_keys": len(game.keylog),
+        "score": game.final_score,
+        "has_amulet": game.has_amulet,
         "final_screen": game.screen.dump(),
     }
     status = game.last_status

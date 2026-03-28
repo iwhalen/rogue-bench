@@ -2,16 +2,12 @@
 
 import os
 import select
-from typing import TYPE_CHECKING
+from io import StringIO
 
+from rich.console import Console
+
+from rogue_bench.game.base import PipeRogueGame
 from rogue_bench.player.base import PipeBasedPlayer
-
-if TYPE_CHECKING:
-    from io import StringIO
-
-    from rich.console import Console
-
-    from rogue_bench.game.base import PipeRogueGame
 
 _ESC = 0x1B
 

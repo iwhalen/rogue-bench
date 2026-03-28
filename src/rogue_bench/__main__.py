@@ -11,9 +11,7 @@ from rogue_bench.config import (
     DEFAULT_MAX_HISTORY,
     DEFAULT_MODEL,
     DEFAULT_ROGUE_PATH,
-    DEFAULT_ROGUE_VERSION,
     PlayerType,
-    RogueVersion,
     Settings,
 )
 from rogue_bench.play import play
@@ -37,13 +35,6 @@ def main(
             help="Path to the rogue executable.",
         ),
     ] = DEFAULT_ROGUE_PATH,
-    rogue_version: Annotated[
-        RogueVersion,
-        typer.Option(
-            help="Rogue version to play.",
-            case_sensitive=False,
-        ),
-    ] = DEFAULT_ROGUE_VERSION,
     model: Annotated[
         str,
         typer.Option(
@@ -115,7 +106,6 @@ def main(
     settings = Settings(
         player=player,
         rogue_path=rogue_path,
-        rogue_version=rogue_version,
         model=model,
         max_history=max_history,
         action_delay=action_delay,

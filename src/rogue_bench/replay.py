@@ -1,5 +1,7 @@
 """Replay a previously recorded game from a game.sav file."""
 
+from __future__ import annotations
+
 import json
 import os
 import select
@@ -224,7 +226,11 @@ def _replay_headless(game: PipeRogueGame, keylog: bytes) -> None:
     # Final drain to capture remaining output
     game.read_screen()
 
-    stats: dict[str, object] = {"total_keys": len(keylog)}
+    stats: dict[str, object] = {
+        "total_keys": len(keylog),
+        "score": game.final_score,
+        "has_amulet": game.has_amulet,
+    }
     status = game.last_status
     if status is not None:
         stats.update(asdict(status))
