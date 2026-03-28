@@ -38,6 +38,3 @@ docker-clean: ## Stop container and remove rogue-bench image
 lint: ## Run linters (ruff, ty)
 	uv run ruff check .
 	uv run ty check
-
-test: ## Run tests
-	uv run pytest
