@@ -11,11 +11,11 @@ My to do list is:
 - [x] Implement headless version of Rogue for performance reasons
 - [x] Determine how to and then implement run seeding / saving
 - [x] Determine how to implement run saving in headless mode and when running in dockerized mode
-- [ ] Reimplement the Rogue environment as a `verifiers` environment
 - [ ] Determine how to output score as the "reward" signal (is it just total gold? Gold + amulet?)
 - [ ] Implement Rogomatic as an agent
-- [ ] Implement LLM agent with pydantic ai
+- [ ] Implement (better) LLM agent with pydantic ai 
 - [ ] Make it easier to add custom agents / agent harnesses
+- [ ] Implement rogue-bench as a `verifiers` environment
 
 ## Quickstart
 

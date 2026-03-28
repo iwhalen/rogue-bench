@@ -22,6 +22,7 @@ if TYPE_CHECKING:
 
     from rogue_bench.game.base import PipeRogueGame
 
+
 SYSTEM_PROMPT = """You are an expert player of the classic dungeon crawler Rogue.
 You are controlling the game by issuing keystrokes. Your goal is to descend through the
 Dungeons of Doom, find the Amulet of Yendor on the deepest level, and return

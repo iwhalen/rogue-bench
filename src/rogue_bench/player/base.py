@@ -1,7 +1,5 @@
 """Abstract base classes for Rogue players."""
 
-from __future__ import annotations
-
 import os
 import select
 import sys
@@ -9,14 +7,12 @@ import termios
 import tty
 from abc import ABC, abstractmethod
 from io import StringIO
-from typing import TYPE_CHECKING
 
 from rich.console import Console, Group, RenderableType
 from rich.panel import Panel
 from rich.text import Text
 
-if TYPE_CHECKING:
-    from rogue_bench.game.base import PipeRogueGame
+from rogue_bench.game.base import PipeRogueGame
 
 _GAME_ROWS = 24
 _GAME_COLS = 80

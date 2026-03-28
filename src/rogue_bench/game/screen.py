@@ -1,10 +1,10 @@
 """Data models for representing the Rogue game screen state."""
 
-from __future__ import annotations
-
 import re
 from dataclasses import dataclass, field
-from typing import ClassVar
+from typing import ClassVar, Optional
+
+_SCORE_ENTRY_RE = re.compile(r"^\s*\d+\s+(\d+)\s+rogomatic:")
 
 _STATUS_RE = re.compile(
     r"Level:\s*(\d+)\s+"
@@ -31,7 +31,7 @@ class StatusLine:
     experience_points: int
 
     @classmethod
-    def parse(cls, raw_line: str) -> StatusLine | None:
+    def parse(cls, raw_line: str) -> Optional["StatusLine"]:
         """Parse a status line string.
 
         Expected format (Rogue 5.3+):
@@ -76,7 +76,7 @@ class ScreenState:
     cursor_col: int = 0
 
     @staticmethod
-    def empty() -> ScreenState:
+    def empty() -> "ScreenState":
         """Create a blank 24x80 screen filled with spaces."""
         return ScreenState()
 
@@ -100,6 +100,21 @@ class ScreenState:
             for c in range(self.COLS):
                 if self.characters[r][c] == "@":
                     return (r, c)
+        return None
+
+    def parse_final_score(self) -> int | None:
+        """Parse the player's score from the Rogue score table screen.
+
+        After the game ends, Rogue displays a score table with entries like:
+            " 1  1234 rogomatic: killed on level 5 by a hobgoblin."
+
+        Returns the score as an integer, or None if not parseable.
+        """
+        for row in self.characters:
+            line = "".join(row)
+            m = _SCORE_ENTRY_RE.search(line)
+            if m is not None:
+                return int(m.group(1))
         return None
 
     def dump(self) -> str:

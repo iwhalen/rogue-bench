@@ -21,14 +21,7 @@ class PlayerType(StrEnum):
     LLM = "llm"
 
 
-class RogueVersion(StrEnum):
-    V3_6_3 = "Unix Rogue 3.6.3"
-    V5_2_1 = "Unix Rogue 5.2.1"
-    V5_3 = "Unix Rogue 5.3"
-    V5_4_2 = "Unix Rogue 5.4.2"
-
-
-DEFAULT_ROGUE_VERSION = RogueVersion.V5_4_2
+ROGUE_VERSION = "Unix Rogue 5.4.2"
 
 # Must be a valid PydanticAI model that support structured output.
 DEFAULT_MODEL = "anthropic:claude-sonnet-4-6"
@@ -49,10 +42,6 @@ class Settings(BaseSettings):
     rogue_path: Path = Field(
         default=DEFAULT_ROGUE_PATH,
         description="Path to the rogue-collection headless executable.",
-    )
-    rogue_version: RogueVersion = Field(
-        default=DEFAULT_ROGUE_VERSION,
-        description="Rogue version to play.",
     )
     model: str = Field(
         default=DEFAULT_MODEL,

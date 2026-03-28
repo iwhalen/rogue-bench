@@ -7,12 +7,12 @@ import select
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Self
 
-from rogue_bench.game.terminal_parser import TerminalParser
+from rogue_bench.game.terminal_parser import ScreenState, TerminalParser
 
 if TYPE_CHECKING:
     import subprocess
 
-    from rogue_bench.game.screen import ScreenState, StatusLine
+    from rogue_bench.game.screen import StatusLine
 
 
 class RogueInterface(ABC):
@@ -81,6 +81,7 @@ class PipeRogueGame(RogueInterface):
         self._parser = TerminalParser()
         self._keylog = bytearray()
         self._last_status: StatusLine | None = None
+        self._has_amulet: bool = False
 
     @property
     def output_fd(self) -> int:
@@ -140,6 +141,32 @@ class PipeRogueGame(RogueInterface):
         """Last successfully parsed status bar, surviving screen overwrites."""
         return self._last_status
 
+    @property
+    def has_amulet(self) -> bool:
+        """Whether the player has picked up the Amulet of Yendor."""
+        return self._has_amulet
+
+    @property
+    def score(self) -> int | None:
+        """Current score during gameplay (equals gold from the status bar)."""
+        if self._last_status is not None:
+            return self._last_status.gold
+        return None
+
+    @property
+    def final_score(self) -> int | None:
+        """Final score parsed from the score table screen.
+
+        Returns the parsed score if available, otherwise falls back
+        to a heuristic (gold minus 10% death penalty).
+        """
+        parsed = self.screen.parse_final_score()
+        if parsed is not None:
+            return parsed
+        if self._last_status is not None:
+            return self._last_status.gold * 9 // 10
+        return None
+
     def feed(self, data: bytes) -> None:
         """Forward raw bytes to the internal VT100 parser.
 
@@ -151,10 +178,23 @@ class PipeRogueGame(RogueInterface):
         self._update_status()
 
     def _update_status(self) -> None:
-        """Cache the latest valid status bar."""
+        """Cache the latest valid status bar and track amulet state."""
         status = self._parser.screen.status
         if status is not None:
             self._last_status = status
+        if not self._has_amulet:
+            msg = self._parser.screen.message_line
+            if "Amulet of Yendor" in msg:
+                self._has_amulet = True
+
+    def drain_remaining(self) -> None:
+        """Drain any unread bytes from the game pipe.
+
+        Call after the game has exited but before stop() to ensure
+        the final screen state (e.g., score table) is captured.
+        """
+        if self._frogue_fd is not None:
+            self._drain(timeout=0.1)
 
     def _drain(self, timeout: float = 0.05) -> None:
         """Read all currently-available bytes from the frogue pipe."""
