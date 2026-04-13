@@ -12,10 +12,10 @@ My to do list is:
 - [x] Determine how to and then implement run seeding / saving
 - [x] Determine how to implement run saving in headless mode and when running in dockerized mode
 - [x] Determine how to output score as the "reward" signal (is it just total gold? Gold + amulet?)
-- [ ] Implement Rogomatic as an agent
 - [ ] Implement (better) LLM agent with pydantic ai 
 - [ ] Make it easier to add custom agents / agent harnesses
 - [ ] Implement rogue-bench as a `verifiers` environment
+- [ ] Implement Rogomatic as an agent to generate RL rollout data
 
 ## Quickstart
 
@@ -51,6 +51,15 @@ uv run rogue-bench --docker-image rogue-bench --player human
 ```
 
 Again, this will start in "human" mode.
+
+## Player types
+
+There are currently three player types for executing Rogue runs:
+
+- `human`: inputs taken from terminal. You are in the driver's seat.
+- `llm`: inputs taken from LLM-powered agent. Uses Pydantic AI identifiers to set LLM.
+
+See [here](https://ai.pydantic.dev/models/overview/) for more on setting up Pydantic AI models.
 
 ## License
 
