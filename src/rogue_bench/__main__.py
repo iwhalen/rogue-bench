@@ -38,7 +38,7 @@ def main(
     model: Annotated[
         str,
         typer.Option(
-            help="PydanticAI compatible Agent model string.",
+            help="Pydantic AI compatible Agent model string.",
         ),
     ] = DEFAULT_MODEL,
     max_history: Annotated[

@@ -1,4 +1,4 @@
-"""AI player powered by an LLM via PydanticAI."""
+"""AI player powered by an LLM via Pydantic AI."""
 
 from __future__ import annotations
 
@@ -8,15 +8,23 @@ import os
 import select
 from typing import TYPE_CHECKING
 
+import httpx
 from pydantic import BaseModel, Field
 from pydantic_ai import Agent
 from rich.spinner import Spinner
+from tenacity import (
+    AsyncRetrying,
+    retry_if_exception_type,
+    stop_after_attempt,
+    wait_exponential,
+)
 
 from rogue_bench.player.base import PipeBasedPlayer, render_llm_frame
 
 if TYPE_CHECKING:
     from io import StringIO
 
+    from pydantic_ai.agent import AgentRunResult
     from pydantic_ai.messages import ModelMessage
     from rich.console import Console
 
@@ -154,20 +162,20 @@ class RogueAction(BaseModel):
     keys: list[str] = Field(
         description=(
             "List of actions to execute in order. Each element is one"
-            " logical action (e.g. 'h', 'fj', 'ea'). Return 3-8 actions"
-            " when the path is clear."
+            " logical action (e.g. 'h', 'fj', 'ea')."
         ),
     )
 
 
 class LLMPlayer(PipeBasedPlayer):
-    """LLM-powered Rogue player using PydanticAI."""
+    """LLM-powered Rogue player using Pydantic AI."""
 
     def __init__(
         self,
         model: str,
         max_history: int = 25,
         action_delay: float = 0.66,
+        retries: int = 5,
     ) -> None:
         self._agent = Agent(
             model,
@@ -176,6 +184,7 @@ class LLMPlayer(PipeBasedPlayer):
         )
         self._max_history = max_history
         self._action_delay = action_delay
+        self._retries = retries
 
     def _io_loop(
         self,
@@ -218,12 +227,7 @@ class LLMPlayer(PipeBasedPlayer):
                     )
                 )
                 ctrl_c_task = asyncio.create_task(self._watch_ctrl_c(fd_in))
-                llm_task = asyncio.create_task(
-                    self._agent.run(
-                        prompt,
-                        message_history=history or None,
-                    )
-                )
+                llm_task = asyncio.create_task(self._run_agent(prompt, history))
                 try:
                     done, _ = await asyncio.wait(
                         [llm_task, ctrl_c_task],
@@ -287,6 +291,26 @@ class LLMPlayer(PipeBasedPlayer):
         finally:
             os.write(stdout_fd, b"\x1b[2J\x1b[H\x1b[?25h")
 
+    async def _run_agent(
+        self,
+        prompt: str,
+        history: list[ModelMessage],
+    ) -> AgentRunResult:
+        """Run the agent with retries on transient HTTP/connection errors."""
+        async for attempt in AsyncRetrying(
+            retry=retry_if_exception_type((httpx.HTTPStatusError, ConnectionError)),
+            wait=wait_exponential(multiplier=1, min=2, max=30),
+            stop=stop_after_attempt(self._retries),
+            reraise=True,
+        ):
+            with attempt:
+                return await self._agent.run(
+                    prompt,
+                    message_history=history or None,
+                )
+
+        raise RuntimeError("Something went really wrong! Failed retry loop.")
+
     async def _watch_ctrl_c(self, fd_in: int) -> None:
         """Poll stdin for Ctrl-C until detected or cancelled."""
         while True:
@@ -342,7 +366,7 @@ class LLMPlayer(PipeBasedPlayer):
     def _trim_history(self, messages: list[ModelMessage]) -> list[ModelMessage]:
         """Keep only the last max_history request/response pairs.
 
-        PydanticAI messages alternate: system parts are re-injected
+        Pydantic AI messages alternate: system parts are re-injected
         automatically, so we skip any leading system/setup messages and
         keep the trailing user+assistant pairs.
         """
