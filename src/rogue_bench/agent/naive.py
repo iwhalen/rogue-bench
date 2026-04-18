@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 import dataclasses
+from collections import deque
 from typing import TYPE_CHECKING, cast
 
 import httpx
 from pydantic_ai import Agent
-from pydantic_ai.messages import ModelRequest, ToolReturnPart
+from pydantic_ai.messages import ModelMessage, ModelRequest, ToolReturnPart
 from pydantic_ai.usage import RunUsage
 from tenacity import (
     AsyncRetrying,
@@ -20,7 +21,6 @@ from rogue_bench.agent.base import RogueAction, RogueAgent
 
 if TYPE_CHECKING:
     from pydantic_ai.agent import AgentRunResult
-    from pydantic_ai.messages import ModelMessage
 
     from rogue_bench.game.screen import ScreenState
 
@@ -154,6 +154,30 @@ Example `keys` lists:
 Keep your reasoning brief. Focus on what you see and what to do next."""
 
 
+def strip_orphan_tool_returns(
+    messages: list[ModelMessage],
+) -> list[ModelMessage]:
+    """Remove a leading orphan ToolReturnPart from the first ModelRequest.
+
+    Structured-output tool calls leave a ToolReturnPart at the start of each
+    follow-up ModelRequest. When older messages are evicted from the history
+    deque, the first remaining request can start with a ToolReturnPart whose
+    matching tool-call assistant message is gone. Providers will reject this
+    empty tool call, so instead we strip it out.
+    """
+    if not messages:
+        return messages
+    first = messages[0]
+    if not isinstance(first, ModelRequest):
+        return messages
+    clean_parts = [p for p in first.parts if not isinstance(p, ToolReturnPart)]
+    if len(clean_parts) == len(first.parts):
+        return messages
+    if clean_parts:
+        return [dataclasses.replace(first, parts=clean_parts), *messages[1:]]
+    return messages[1:]
+
+
 class NaiveAgent(RogueAgent):
     """Straightforward LLM agent: system prompt + screen dump + structured output."""
 
@@ -167,17 +191,18 @@ class NaiveAgent(RogueAgent):
             model,
             system_prompt=SYSTEM_PROMPT,
             output_type=RogueAction,
+            history_processors=[strip_orphan_tool_returns],
         )
-        self._max_history = max_history
         self._retries = retries
         self._usage = RunUsage()
-        self._history: list[ModelMessage] = []
+        self._history: deque[ModelMessage] = deque(maxlen=max_history * 2)
 
     async def decide(self, screen: ScreenState, turn: int) -> RogueAction:
         prompt = f"=== State from turn {turn} ===\n\n{screen.dump()}"
-        result = await self._run_agent(prompt, self._history)
+        history = list(self._history) if self._history else None
+        result = await self._run_agent(prompt, history)
         self._usage += result.usage()
-        self._history = self._trim_history(result.all_messages())
+        self._history.extend(result.new_messages())
         return result.output
 
     def usage_stats(self) -> dict[str, int] | None:
@@ -190,7 +215,7 @@ class NaiveAgent(RogueAgent):
     async def _run_agent(
         self,
         prompt: str,
-        history: list[ModelMessage],
+        history: list[ModelMessage] | None,
     ) -> AgentRunResult[RogueAction]:
         """Run the agent with retries on transient HTTP/connection errors."""
         async for attempt in AsyncRetrying(
@@ -202,36 +227,7 @@ class NaiveAgent(RogueAgent):
             with attempt:
                 return cast(
                     "AgentRunResult[RogueAction]",
-                    await self._agent.run(
-                        prompt,
-                        message_history=history or None,
-                    ),
+                    await self._agent.run(prompt, message_history=history),
                 )
 
         raise RuntimeError("Something went really wrong! Failed retry loop.")
-
-    def _trim_history(self, messages: list[ModelMessage]) -> list[ModelMessage]:
-        """Keep only the last max_history request/response pairs.
-
-        When structured output uses tool calls, each ModelRequest (except the
-        first) starts with a ToolReturnPart followed by a UserPromptPart.
-        Slicing mid-history can leave a ToolReturnPart at the start with no
-        preceding assistant tool_calls message, causing a 400 from OpenAI.
-        Strip those orphaned parts from the first message after trimming.
-        """
-        pair_count = self._max_history * 2
-        if len(messages) <= pair_count:
-            return list(messages)
-
-        trimmed = list(messages[-pair_count:])
-
-        first = trimmed[0]
-        if isinstance(first, ModelRequest):
-            clean_parts = [p for p in first.parts if not isinstance(p, ToolReturnPart)]
-            if len(clean_parts) != len(first.parts):
-                if clean_parts:
-                    trimmed[0] = dataclasses.replace(first, parts=clean_parts)
-                else:
-                    trimmed = trimmed[1:]
-
-        return trimmed

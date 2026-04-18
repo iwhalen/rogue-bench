@@ -19,8 +19,7 @@ class RogueAction(BaseModel):
     )
     keys: list[str] = Field(
         description=(
-            "List of actions to execute in order. Each element is one"
-            " logical action (e.g. 'h', 'fj', 'ea')."
+            "List of actions to execute in order. Each element is one logical action."
         ),
     )
 

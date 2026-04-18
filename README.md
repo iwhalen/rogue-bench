@@ -12,10 +12,11 @@ My to do list is:
 - [x] Determine how to and then implement run seeding / saving
 - [x] Determine how to implement run saving in headless mode and when running in dockerized mode
 - [x] Determine how to output score as the "reward" signal (is it just total gold? Gold + amulet?)
-- [ ] Implement (better) LLM agent with pydantic ai 
-- [ ] Make it easier to add custom agents / agent harnesses
+- [x] Implement (better) LLM agent with pydantic ai 
+- [x] Make it easier to add custom agents / agent harnesses
+- [ ] Update how agent config is handled through the CLI
+- [ ] Implement Rogomatic as a baseline agent (requires C/C++ work)
 - [ ] Implement rogue-bench as a `verifiers` environment
-- [ ] Implement Rogomatic as an agent to generate RL rollout data
 
 ## Quickstart
 
