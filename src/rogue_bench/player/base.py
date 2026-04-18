@@ -5,7 +5,7 @@ import select
 import sys
 import termios
 import tty
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 from io import StringIO
 
 from rich.console import Console, Group, RenderableType
@@ -13,6 +13,7 @@ from rich.panel import Panel
 from rich.text import Text
 
 from rogue_bench.game.base import PipeRogueGame
+from rogue_bench.playback import PlaybackLog
 
 _GAME_ROWS = 24
 _GAME_COLS = 80
@@ -53,19 +54,34 @@ def render_frame(
     return _HIDE_CURSOR + _HOME + text.encode() + _CLEAR_BELOW + _SHOW_CURSOR
 
 
+def _actions_text(labels: list[str], executed_count: int) -> Text:
+    """Render a list of action labels with dim/bold styling for executed items."""
+    txt = Text()
+    for i, label in enumerate(labels):
+        style = "dim" if i < executed_count else "bold white"
+        txt.append(label, style=style)
+        if i < len(labels) - 1:
+            txt.append("  ", style="dim")
+    return txt
+
+
 def render_llm_frame(
     console: Console,
     buf: StringIO,
     screen_chars: list[list[str]],
     *,
     actions: list[str] | None = None,
+    queue_length: int | None = None,
     executed_count: int = 0,
     reasoning: str | None = None,
     spinner: RenderableType | None = None,
 ) -> bytes:
     """Render game panel plus LLM status panels (actions, reasoning, spinner).
 
-    Returns raw bytes ready for ``os.write`` to a raw-mode terminal.
+    Pass ``actions`` during live play to show each queued keystroke by
+    name, or ``queue_length`` during replay to show placeholder glyphs
+    when the originals aren't saved.  Returns raw bytes ready for
+    ``os.write`` to a raw-mode terminal.
     """
     game_content = "\n".join("".join(row) for row in screen_chars)
     game_panel = Panel(
@@ -81,14 +97,13 @@ def render_llm_frame(
     if spinner is not None:
         actions_content = spinner
     elif actions is not None:
-        txt = Text()
-        for i, key in enumerate(actions):
-            display = repr(key)
-            style = "dim" if i < executed_count else "bold white"
-            txt.append(display, style=style)
-            if i < len(actions) - 1:
-                txt.append("  ", style="dim")
-        actions_content = txt
+        actions_content = _actions_text(
+            [repr(k) for k in actions], executed_count
+        )
+    elif queue_length is not None:
+        actions_content = _actions_text(
+            ["\u2022"] * queue_length, executed_count
+        )
     else:
         actions_content = Text("Waiting...", style="dim")
 
@@ -121,15 +136,7 @@ def render_llm_frame(
     return _HIDE_CURSOR + _HOME + text.encode() + _CLEAR_BELOW + _SHOW_CURSOR
 
 
-class Player(ABC):
-    """Contract for a player that interacts with a running Rogue game."""
-
-    @abstractmethod
-    def play(self, game: PipeRogueGame) -> None:
-        """Take control and play the game until it ends or the player quits."""
-
-
-class PipeBasedPlayer(Player):
+class PipeBasedPlayer:
     """Base class for players that communicate with Rogue over pipes.
 
     Handles terminal raw-mode setup/teardown and provides helpers for
@@ -180,26 +187,16 @@ class PipeBasedPlayer(Player):
 
         Returns False if the pipe is closed (game exited).
         """
-        frogue = game.output_fd
-        try:
-            data = os.read(frogue, 4096)
-        except OSError:
-            return False
-        if not data:
-            return False
-        game.feed(data)
-        while True:
-            r, _, _ = select.select([frogue], [], [], 0.02)
-            if not r:
-                break
-            try:
-                more = os.read(frogue, 4096)
-            except OSError:
-                break
-            if not more:
-                break
-            game.feed(more)
-        return True
+        return game.drain_available()
+
+    def playback_log(self) -> PlaybackLog | None:
+        """Return per-turn playback info if the player produces one.
+
+        Default implementation returns ``None``; subclasses that track
+        reasoning / action queues (e.g. :class:`AgentPlayer`) override
+        this so :func:`rogue_bench.play.play` can persist the log.
+        """
+        return None
 
     @staticmethod
     def _check_ctrl_c(fd_in: int) -> bool:

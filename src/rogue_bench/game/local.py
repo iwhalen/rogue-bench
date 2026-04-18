@@ -21,11 +21,13 @@ class LocalRogueGame(PipeRogueGame):
         rogue_executable: str,
         args: list[str] | None = None,
         env: dict[str, str] | None = None,
+        cwd: str | None = None,
     ) -> None:
         super().__init__()
         self._executable = rogue_executable
         self._args = args or []
         self._env = env
+        self._cwd = cwd
 
     def start(self) -> None:
         trogue_r, trogue_w = os.pipe()
@@ -46,6 +48,7 @@ class LocalRogueGame(PipeRogueGame):
                     str(frogue_w),
                 ],
                 env=self._env,
+                cwd=self._cwd,
                 pass_fds=(trogue_r, frogue_w),
                 close_fds=True,
                 stdout=subprocess.DEVNULL,
