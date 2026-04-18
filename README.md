@@ -14,6 +14,7 @@ My to do list is:
 - [x] Determine how to output score as the "reward" signal (is it just total gold? Gold + amulet?)
 - [x] Implement (better) LLM agent with pydantic ai 
 - [x] Make it easier to add custom agents / agent harnesses
+- [ ] Add verbose output log options that allow verbose replays for LLM agents including reasoning
 - [ ] Update how agent config is handled through the CLI
 - [ ] Implement Rogomatic as a baseline agent (requires C/C++ work)
 - [ ] Implement rogue-bench as a `verifiers` environment
