@@ -23,7 +23,7 @@ class PlayerType(StrEnum):
 
 ROGUE_VERSION = "Unix Rogue 5.4.2"
 
-# Must be a valid PydanticAI model that support structured output.
+# Must be a valid Pydantic AI model that support structured output.
 DEFAULT_MODEL = "anthropic:claude-sonnet-4-6"
 
 # Maximum number of previous frames in LLM prompt.
