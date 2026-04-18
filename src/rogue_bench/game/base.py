@@ -196,6 +196,42 @@ class PipeRogueGame(RogueInterface):
         if self._frogue_fd is not None:
             self._drain(timeout=0.1)
 
+    def drain_available(self) -> bool:
+        """Read all currently-available bytes and feed the parser.
+
+        Returns False when the pipe is closed (game exited); True
+        otherwise, even if no bytes were ready.
+        """
+        if self._frogue_fd is None:
+            return False
+        try:
+            data = os.read(self._frogue_fd, 4096)
+        except OSError:
+            return False
+        if not data:
+            return False
+        self.feed(data)
+        while True:
+            rlist, _, _ = select.select([self._frogue_fd], [], [], 0.02)
+            if not rlist:
+                break
+            try:
+                more = os.read(self._frogue_fd, 4096)
+            except OSError:
+                break
+            if not more:
+                break
+            self.feed(more)
+        return True
+
+    def drain_initial(self, timeout: float = 2.0) -> None:
+        """Wait up to ``timeout`` seconds for the game's first output."""
+        if self._frogue_fd is None:
+            return
+        rlist, _, _ = select.select([self._frogue_fd], [], [], timeout)
+        if rlist:
+            self.drain_available()
+
     def _drain(self, timeout: float = 0.05) -> None:
         """Read all currently-available bytes from the frogue pipe."""
         assert self._frogue_fd is not None

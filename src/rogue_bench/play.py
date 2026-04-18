@@ -16,7 +16,7 @@ from rogue_bench.game.base import PipeRogueGame
 from rogue_bench.game.docker import DockerRogueGame
 from rogue_bench.game.local import LocalRogueGame
 from rogue_bench.player.agent import AgentPlayer
-from rogue_bench.player.base import Player
+from rogue_bench.player.base import PipeBasedPlayer
 from rogue_bench.player.human import HumanPlayer
 
 # Environment key-value pairs matching C++ Environment::SetRogomaticValues().
@@ -40,7 +40,6 @@ _ROGOMATIC_ENV: dict[str, str] = {
 
 def play(config: Settings) -> None:
     """Play a game of Rogue given the config."""
-    player: Player
     if config.player == PlayerType.HUMAN:
         player = HumanPlayer()
     elif config.player == PlayerType.LLM:
@@ -64,18 +63,11 @@ def play(config: Settings) -> None:
 
     game = _create_game(config, args)
 
-    original_cwd = os.getcwd()
-    use_local = config.docker_image is None
-    if use_local:
-        rogue_dir = str(config.rogue_path.resolve().parent)
-        os.chdir(rogue_dir)
     try:
         with game:
             player.play(game)
             game.drain_remaining()
     finally:
-        if use_local:
-            os.chdir(original_cwd)
         if resolved_dir:
             _write_save_file(
                 resolved_dir / "game.sav",
@@ -85,6 +77,7 @@ def play(config: Settings) -> None:
             )
             _write_metadata(resolved_dir, config, seed)
             _write_statistics(resolved_dir, game, player)
+            _write_playback(resolved_dir, player)
 
 
 def _create_game(
@@ -111,6 +104,7 @@ def _create_game(
         rogue_executable=str(rogue_path),
         args=args,
         env=env,
+        cwd=rogue_dir,
     )
 
 
@@ -164,10 +158,20 @@ def _write_metadata(output_dir: Path, config: Settings, seed: int) -> None:
     (output_dir / "metadata.json").write_text(json.dumps(metadata, indent=2))
 
 
+def _write_playback(output_dir: Path, player: PipeBasedPlayer) -> None:
+    """Write playback.json if the player tracked per-turn reasoning/queue info."""
+    log = player.playback_log()
+    if log is None or not log.turns:
+        return
+    (output_dir / "playback.json").write_text(
+        json.dumps(log.model_dump(), indent=2)
+    )
+
+
 def _write_statistics(
     output_dir: Path,
     game: PipeRogueGame,
-    player: Player | None = None,
+    player: PipeBasedPlayer | None = None,
 ) -> None:
     """Write statistics.json with final game stats."""
     stats: dict[str, object] = {

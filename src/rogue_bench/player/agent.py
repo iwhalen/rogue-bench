@@ -10,6 +10,7 @@ from typing import TYPE_CHECKING
 
 from rich.spinner import Spinner
 
+from rogue_bench.playback import PlaybackLog, TurnPlayback
 from rogue_bench.player.base import PipeBasedPlayer, render_llm_frame
 
 if TYPE_CHECKING:
@@ -31,10 +32,16 @@ class AgentPlayer(PipeBasedPlayer):
     ) -> None:
         self._agent = agent
         self._action_delay = action_delay
+        self._turns: list[TurnPlayback] = []
 
     @property
     def agent(self) -> RogueAgent:
         return self._agent
+
+    def playback_log(self) -> PlaybackLog | None:
+        if not self._turns:
+            return None
+        return PlaybackLog(turns=list(self._turns))
 
     def _io_loop(
         self,
@@ -54,7 +61,7 @@ class AgentPlayer(PipeBasedPlayer):
         console: Console,
         buf: StringIO,
     ) -> None:
-        self._drain_initial(game)
+        game.drain_initial()
         self._redraw_llm(game, stdout_fd, console, buf)
 
         turn = 0
@@ -96,6 +103,7 @@ class AgentPlayer(PipeBasedPlayer):
                 last_reasoning = action.reasoning
                 keys = action.keys
 
+                start_bytes = len(game.keylog)
                 for i, key in enumerate(keys):
                     self._redraw_llm(
                         game,
@@ -116,6 +124,14 @@ class AgentPlayer(PipeBasedPlayer):
 
                     if self._check_ctrl_c(fd_in):
                         break
+
+                self._turns.append(
+                    TurnPlayback(
+                        reasoning=last_reasoning,
+                        queue_length=len(keys),
+                        byte_length=len(game.keylog) - start_bytes,
+                    )
+                )
 
                 self._redraw_llm(
                     game,
@@ -184,10 +200,3 @@ class AgentPlayer(PipeBasedPlayer):
         )
         os.write(stdout_fd, frame)
 
-    @staticmethod
-    def _drain_initial(game: PipeRogueGame) -> None:
-        """Wait for the game to produce its first screen output."""
-        frogue = game.output_fd
-        r, _, _ = select.select([frogue], [], [], 2.0)
-        if r:
-            PipeBasedPlayer._drain_game_output(game)
