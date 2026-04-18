@@ -9,12 +9,14 @@ from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path
 
+from rogue_bench.agent.naive import NaiveAgent
 from rogue_bench.config import ROGUE_VERSION, PlayerType, Settings
 from rogue_bench.game.base import PipeRogueGame
 from rogue_bench.game.docker import DockerRogueGame
 from rogue_bench.game.local import LocalRogueGame
+from rogue_bench.player.agent_player import AgentPlayer
+from rogue_bench.player.base import Player
 from rogue_bench.player.human import HumanPlayer
-from rogue_bench.player.llm import LLMPlayer
 
 # Environment key-value pairs matching C++ Environment::SetRogomaticValues().
 _ROGOMATIC_ENV: dict[str, str] = {
@@ -37,14 +39,15 @@ _ROGOMATIC_ENV: dict[str, str] = {
 
 def play(config: Settings) -> None:
     """Play a game of Rogue given the config."""
+    player: Player
     if config.player == PlayerType.HUMAN:
         player = HumanPlayer()
     elif config.player == PlayerType.LLM:
-        player = LLMPlayer(
+        agent = NaiveAgent(
             model=config.model,
             max_history=config.max_history,
-            action_delay=config.action_delay,
         )
+        player = AgentPlayer(agent, action_delay=config.action_delay)
     else:
         raise NotImplementedError(f"Invalid player type: {config.player}")
 
@@ -78,7 +81,7 @@ def play(config: Settings) -> None:
                 game.keylog,
             )
             _write_metadata(resolved_dir, config, seed)
-            _write_statistics(resolved_dir, game)
+            _write_statistics(resolved_dir, game, player)
 
 
 def _create_game(
@@ -158,7 +161,11 @@ def _write_metadata(output_dir: Path, config: Settings, seed: int) -> None:
     (output_dir / "metadata.json").write_text(json.dumps(metadata, indent=2))
 
 
-def _write_statistics(output_dir: Path, game: PipeRogueGame) -> None:
+def _write_statistics(
+    output_dir: Path,
+    game: PipeRogueGame,
+    player: Player | None = None,
+) -> None:
     """Write statistics.json with final game stats."""
     stats: dict[str, object] = {
         "total_keys": len(game.keylog),
@@ -169,4 +176,8 @@ def _write_statistics(output_dir: Path, game: PipeRogueGame) -> None:
     status = game.last_status
     if status is not None:
         stats.update(asdict(status))
+    if isinstance(player, AgentPlayer):
+        agent_stats = player.agent.usage_stats()
+        if agent_stats:
+            stats.update(agent_stats)
     (output_dir / "statistics.json").write_text(json.dumps(stats, indent=2))
