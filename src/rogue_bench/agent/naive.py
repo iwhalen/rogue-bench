@@ -17,7 +17,7 @@ from tenacity import (
     wait_exponential,
 )
 
-from rogue_bench.agent.base import RogueAction, RogueAgent
+from rogue_bench.agent.base import LLMAgentConfig, RogueAction, RogueAgent
 
 if TYPE_CHECKING:
     from pydantic_ai.agent import AgentRunResult
@@ -181,21 +181,17 @@ def strip_orphan_tool_returns(
 class NaiveAgent(RogueAgent):
     """Straightforward LLM agent: system prompt + screen dump + structured output."""
 
-    def __init__(
-        self,
-        model: str,
-        max_history: int = 25,
-        retries: int = 5,
-    ) -> None:
+    def __init__(self, config: LLMAgentConfig) -> None:
+        super().__init__(config)
         self._agent: Agent[RogueAction] = Agent(
-            model,
+            config.model,
             system_prompt=SYSTEM_PROMPT,
             output_type=RogueAction,
             history_processors=[strip_orphan_tool_returns],
         )
-        self._retries = retries
+        self._retries = config.retries
         self._usage = RunUsage()
-        self._history: deque[ModelMessage] = deque(maxlen=max_history * 2)
+        self._history: deque[ModelMessage] = deque(maxlen=config.max_history * 2)
 
     async def decide(self, screen: ScreenState, turn: int) -> RogueAction:
         prompt = f"=== State from turn {turn} ===\n\n{screen.dump()}"

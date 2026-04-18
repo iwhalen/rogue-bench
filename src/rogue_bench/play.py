@@ -9,6 +9,7 @@ from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path
 
+from rogue_bench.agent.base import LLMAgentConfig
 from rogue_bench.agent.naive import NaiveAgent
 from rogue_bench.config import ROGUE_VERSION, PlayerType, Settings
 from rogue_bench.game.base import PipeRogueGame
@@ -44,8 +45,10 @@ def play(config: Settings) -> None:
         player = HumanPlayer()
     elif config.player == PlayerType.LLM:
         agent = NaiveAgent(
-            model=config.model,
-            max_history=config.max_history,
+            LLMAgentConfig(
+                model=config.model,
+                max_history=config.max_history,
+            )
         )
         player = AgentPlayer(agent, action_delay=config.action_delay)
     else:

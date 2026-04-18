@@ -24,8 +24,43 @@ class RogueAction(BaseModel):
     )
 
 
+class AgentConfig(BaseModel):
+    """Base config for every RogueAgent. Concrete agents extend with their fields."""
+
+
+class LLMAgentConfig(AgentConfig):
+    """Shared config for LLM-backed agents."""
+
+    model: str = Field(
+        description=(
+            "Model identifier passed to Pydantic AI Agent constructor"
+            "(e.g. 'openai:gpt-5.4', 'anthropic:claude-sonnet-4-6')."
+        ),
+    )
+    max_history: int = Field(
+        default=25,
+        ge=0,
+        description=(
+            "Maximum number of request/response pairs retained across turns. "
+            "Older messages are evicted from the in-memory history deque."
+        ),
+    )
+    retries: int = Field(
+        default=5,
+        ge=1,
+        description=(
+            "Number of attempts for a single model call before giving up. "
+            "Retries trigger only on transient HTTP / connection errors with "
+            "exponential backoff."
+        ),
+    )
+
+
 class RogueAgent(ABC):
     """Contract for an agent that chooses actions from a Rogue screen."""
+
+    def __init__(self, config: AgentConfig) -> None:
+        self.config = config
 
     @abstractmethod
     async def decide(self, screen: ScreenState, turn: int) -> RogueAction:
