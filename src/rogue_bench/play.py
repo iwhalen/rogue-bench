@@ -14,7 +14,7 @@ from rogue_bench.config import ROGUE_VERSION, PlayerType, Settings
 from rogue_bench.game.base import PipeRogueGame
 from rogue_bench.game.docker import DockerRogueGame
 from rogue_bench.game.local import LocalRogueGame
-from rogue_bench.player.agent_player import AgentPlayer
+from rogue_bench.player.agent import AgentPlayer
 from rogue_bench.player.base import Player
 from rogue_bench.player.human import HumanPlayer
 
