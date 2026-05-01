@@ -9,6 +9,7 @@
 [project]
 
 docs_dir = "docs"
+repo_url = "https://github.com/iwhalen/rogue-bench"
 
 # The site_name is shown in the page header and the browser window title
 #
