@@ -8,21 +8,23 @@
 
 [project]
 
+docs_dir = "docs"
+
 # The site_name is shown in the page header and the browser window title
 #
 # Read more: https://zensical.org/docs/setup/basics/#site_name
-site_name = "Documentation"
+site_name = "Rogue-Bench"
 
 # The site_description is included in the HTML head and should contain a
 # meaningful description of the site content for use by search engines.
 #
 # Read more: https://zensical.org/docs/setup/basics/#site_description
-site_description = "A new project generated from the default template project."
+site_description = "The official documentation for the Rogue Bench project."
 
 # The site_author attribute. This is used in the HTML head element.
 #
 # Read more: https://zensical.org/docs/setup/basics/#site_author
-site_author = "<your name here>"
+site_author = "Ian Whalen"
 
 # The site_url is the canonical URL for your site. When building online
 # documentation you should set this.
@@ -33,9 +35,9 @@ site_author = "<your name here>"
 # fragment.
 #
 # Read more: https://zensical.org/docs/setup/basics/#copyright
-copyright = """
-Copyright &copy; 2026 The authors
-"""
+# copyright = """
+# Copyright &copy; 2026 The authors
+# """
 
 # Zensical supports both implicit navigation and explicitly defined navigation.
 # If you decide not to define a navigation here then Zensical will simply
@@ -44,10 +46,11 @@ Copyright &copy; 2026 The authors
 # can be defined using TOML syntax.
 #
 # Read more: https://zensical.org/docs/setup/navigation/
-# nav = [
-#   { "Get started" = "index.md" },
-#   { "Markdown in 5min" = "markdown.md" },
-# ]
+nav = [
+  { "Get started" = "index.md" },
+  { "Markdown in 5min" = "markdown.md" },
+  { "Blog" = "https://iwhalen.com/"}
+]
 
 # With the "extra_css" option you can add your own CSS styling to customize
 # your Zensical project according to your needs. You can add any number of
@@ -57,7 +60,7 @@ Copyright &copy; 2026 The authors
 #
 # Read more: https://zensical.org/docs/customization/#additional-css
 #
-#extra_css = ["stylesheets/extra.css"]
+extra_css = ["stylesheets/extra.css"]
 
 # With the `extra_javascript` option you can add your own JavaScript to your
 # project to customize the behavior according to your needs.
@@ -93,7 +96,7 @@ Copyright &copy; 2026 The authors
 # - https://zensical.org/docs/setup/logo-and-icons/#favicon
 # - https://developer.mozilla.org/en-US/docs/Glossary/Favicon
 #
-#favicon = "images/favicon.png"
+favicon = "assets/at.svg"
 
 # Zensical supports more than 60 different languages. This means that the
 # labels and tooltips that Zensical's templates produce are translated.
@@ -274,9 +277,9 @@ features = [
 # of suitably licensed fonts. There are options for a normal text font and for
 # a monospaced font used in code blocks.
 # ----------------------------------------------------------------------------
-#[project.theme.font]
-#text = "Inter"
-#code = "Jetbrains Mono"
+[project.theme.font]
+text = "Source Serif 4"
+code = "Fira Code"
 
 # ----------------------------------------------------------------------------
 # In the "palette" subsection you can configure options for the color scheme.
@@ -287,22 +290,22 @@ features = [
 # Read more:
 # - https://zensical.org/docs/setup/colors/
 # ----------------------------------------------------------------------------
-[[project.theme.palette]]
-scheme = "default"
-toggle.icon = "lucide/sun"
-toggle.name = "Switch to dark mode"
+# [[project.theme.palette]]
+# scheme = "default"
+# toggle.icon = "lucide/sun"
+# toggle.name = "Switch to dark mode"
 
 [[project.theme.palette]]
 scheme = "slate"
-toggle.icon = "lucide/moon"
-toggle.name = "Switch to light mode"
+# toggle.icon = "lucide/moon"
+# toggle.name = "Switch to light mode"
 
 # ----------------------------------------------------------------------------
 # The "extra" section contains miscellaneous settings.
 # ----------------------------------------------------------------------------
-#[[project.extra.social]]
-#icon = "fontawesome/brands/github"
-#link = "https://github.com/user/repo"
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/iwhalen/rogue-bench"
 
 # ----------------------------------------------------------------------------
 # In this section you can configure the Markdown extensions that are used when
