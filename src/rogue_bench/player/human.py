@@ -81,6 +81,8 @@ class HumanPlayer(PipeBasedPlayer):
 
         try:
             while game.is_running():
+                if self.stop_reason is not None:
+                    break
                 rlist, _, _ = select.select([frogue, fd_in], [], [], 0.1)
                 if not rlist:
                     continue
@@ -93,6 +95,7 @@ class HumanPlayer(PipeBasedPlayer):
                 if fd_in in rlist:
                     data = os.read(fd_in, 1024)
                     if not data or b"\x03" in data:
+                        self.request_stop("ctrl_c")
                         break
                     game.send_raw(_translate_keys(data))
         except KeyboardInterrupt:
