@@ -69,7 +69,7 @@ Initial release to do list is:
 - [x] Implement (better) LLM agent with pydantic ai 
 - [x] Make it easier to add custom agents / agent harnesses
 - [x] Add verbose output log options that allow verbose replays for LLM agents including reasoning
-- [ ] Implement Rogomatic as a baseline agent (requires C/C++ work)
+- [x] Implement Rogomatic as a baseline agent (requires C/C++ work)
 - [ ] Update how agent config is handled through the CLI
 - [ ] Add documentation + github pages integration
 
