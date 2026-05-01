@@ -10,6 +10,7 @@ COPY --from=builder /src/rogue-collection/build/release/rogue-collection-headles
 COPY --from=builder /src/rogue-collection/build/release/*.so ./
 COPY --from=builder /src/rogue-collection/rogue.opt ./
 COPY docker/entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
+COPY docker/rogomatic-entrypoint.sh /app/rogomatic-entrypoint.sh
+RUN chmod +x /app/entrypoint.sh /app/rogomatic-entrypoint.sh
 ENV LD_LIBRARY_PATH=/app/rogue
 ENTRYPOINT ["/app/entrypoint.sh"]

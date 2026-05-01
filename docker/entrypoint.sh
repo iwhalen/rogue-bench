@@ -1,4 +1,4 @@
-#!/bin/sh]
+#!/bin/sh
 # Docker entrypoint. Not meant to use outside docker.
 cd /app/rogue
 

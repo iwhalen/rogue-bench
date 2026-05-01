@@ -6,19 +6,6 @@ It focuses more on portability and making the proof of concept into a real agent
 
 If you just want to play Rogue, see the [Rogue Collection](https://github.com/mikeyk730/Rogue-Collection).
 
-My to do list is:
-- [x] Dockerize Rogue Collection for portability
-- [x] Implement headless version of Rogue for performance reasons
-- [x] Determine how to and then implement run seeding / saving
-- [x] Determine how to implement run saving in headless mode and when running in dockerized mode
-- [x] Determine how to output score as the "reward" signal (is it just total gold? Gold + amulet?)
-- [x] Implement (better) LLM agent with pydantic ai 
-- [x] Make it easier to add custom agents / agent harnesses
-- [x] Add verbose output log options that allow verbose replays for LLM agents including reasoning
-- [ ] Update how agent config is handled through the CLI
-- [ ] Implement Rogomatic as a baseline agent (requires C/C++ work)
-- [ ] Implement rogue-bench as a `verifiers` environment
-
 ## Quickstart
 
 Rogue-Bench has been tested locally on (WSL2) Ubuntu 24.04 and also provides a Docker setup.
@@ -68,3 +55,26 @@ See [here](https://ai.pydantic.dev/models/overview/) for more on setting up Pyda
 Note that the code for running Rogue-Bench in this repository is offered under the GPL-3.0 license.
 
 The modified Rogue executables are under the same license(s) as the [Rogue Collection](https://github.com/mikeyk730/Rogue-Collection). At the time of writing, this is a mix of GPL-3.0 and other licenses. 
+
+## Development
+
+This repo is still under active development. Though is close to an initial release soon.
+
+Initial release to do list is:
+- [x] Dockerize Rogue Collection for portability
+- [x] Implement headless version of Rogue for performance reasons
+- [x] Determine how to and then implement run seeding / saving
+- [x] Determine how to implement run saving in headless mode and when running in dockerized mode
+- [x] Determine how to output score as the "reward" signal (is it just total gold? Gold + amulet?)
+- [x] Implement (better) LLM agent with pydantic ai 
+- [x] Make it easier to add custom agents / agent harnesses
+- [x] Add verbose output log options that allow verbose replays for LLM agents including reasoning
+- [ ] Implement Rogomatic as a baseline agent (requires C/C++ work)
+- [ ] Update how agent config is handled through the CLI
+- [ ] Add documentation + github pages integration
+
+Wish list:
+- [ ] Rogue Python bindings (remove need for pipes, advance game through Python calls)
+- [ ] Precompiled binaries, remove docker workflow
+- [ ] Implement rogue-bench as a `verifiers` environment
+- [ ] Generate RL rollout data with rogomatic, train open-weight model

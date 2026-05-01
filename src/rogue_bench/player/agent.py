@@ -30,6 +30,7 @@ class AgentPlayer(PipeBasedPlayer):
         agent: RogueAgent,
         action_delay: float = 0.66,
     ) -> None:
+        super().__init__()
         self._agent = agent
         self._action_delay = action_delay
         self._turns: list[TurnPlayback] = []
@@ -70,6 +71,9 @@ class AgentPlayer(PipeBasedPlayer):
         try:
             while game.is_running():
                 if self._check_ctrl_c(fd_in):
+                    self.request_stop("ctrl_c")
+                    break
+                if self.stop_reason is not None:
                     break
 
                 spinner_task = asyncio.create_task(
@@ -123,6 +127,9 @@ class AgentPlayer(PipeBasedPlayer):
                         self._drain_game_output(game)
 
                     if self._check_ctrl_c(fd_in):
+                        self.request_stop("ctrl_c")
+                        break
+                    if self.stop_reason is not None:
                         break
 
                 self._turns.append(
@@ -149,9 +156,12 @@ class AgentPlayer(PipeBasedPlayer):
             os.write(stdout_fd, b"\x1b[2J\x1b[H\x1b[?25h")
 
     async def _watch_ctrl_c(self, fd_in: int) -> None:
-        """Poll stdin for Ctrl-C until detected or cancelled."""
+        """Poll stdin for Ctrl-C or external stop until cancelled."""
         while True:
             if self._check_ctrl_c(fd_in):
+                self.request_stop("ctrl_c")
+                return
+            if self.stop_reason is not None:
                 return
             await asyncio.sleep(0.1)
 

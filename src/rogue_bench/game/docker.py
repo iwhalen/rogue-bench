@@ -27,12 +27,20 @@ class DockerRogueGame(PipeRogueGame):
         self._args = args or []
         self._container_name: str | None = None
 
+    @property
+    def container_name(self) -> str | None:
+        """Name of the running Docker container, or ``None`` before start."""
+        return self._container_name
+
     def start(self) -> None:
         self._container_name = f"rogue-bench-{uuid.uuid4().hex[:12]}"
+        # No --rm: we need the container to outlive rogue so collectors
+        # (e.g. RogomaticPlayer.collect_artifacts) can docker cp log files
+        # after the game ends. _force_remove_container() handles cleanup
+        # unconditionally in both stop() and atexit paths.
         cmd = [
             "docker",
             "run",
-            "--rm",
             "-i",
             "--name",
             self._container_name,

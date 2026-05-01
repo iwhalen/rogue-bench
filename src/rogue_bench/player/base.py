@@ -4,9 +4,11 @@ import os
 import select
 import sys
 import termios
+import threading
 import tty
 from abc import abstractmethod
 from io import StringIO
+from pathlib import Path
 
 from rich.console import Console, Group, RenderableType
 from rich.panel import Panel
@@ -144,6 +146,35 @@ class PipeBasedPlayer:
     screen via Rich panels.  Subclasses implement :meth:`_io_loop` to
     define how input is sourced (keyboard vs. LLM).
     """
+
+    def __init__(self) -> None:
+        self._stop_lock = threading.Lock()
+        self._stop_reason: str | None = None
+
+    def request_stop(self, reason: str) -> None:
+        """Signal the io-loop to exit cleanly.
+
+        Thread-safe: intended for watchdog threads (e.g. --timeout).
+        Only the first reason sticks so Ctrl-C doesn't overwrite an
+        earlier timeout, or vice versa.
+        """
+        with self._stop_lock:
+            if self._stop_reason is None:
+                self._stop_reason = reason
+
+    @property
+    def stop_reason(self) -> str | None:
+        """Reason the io-loop exited, if set via :meth:`request_stop`."""
+        with self._stop_lock:
+            return self._stop_reason
+
+    def collect_artifacts(self, output_dir: Path) -> None:
+        """Copy any player-specific files into ``output_dir``.
+
+        Called while the game is still running (for backends like
+        Docker that need live access to container state).  No-op by
+        default; override in subclasses that produce side-car files.
+        """
 
     def play(self, game: PipeRogueGame) -> None:
         fd_in = sys.stdin.fileno()

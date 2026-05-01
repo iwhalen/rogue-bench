@@ -11,6 +11,7 @@ from rogue_bench.config import (
     DEFAULT_MAX_HISTORY,
     DEFAULT_MODEL,
     DEFAULT_ROGUE_PATH,
+    DEFAULT_TIMEOUT,
     PlayerType,
     Settings,
 )
@@ -99,6 +100,32 @@ def main(
             "When set, uses Docker instead of a local binary.",
         ),
     ] = None,
+    timeout: Annotated[
+        int,
+        typer.Option(
+            help="Maximum wall-clock seconds for a single game run.",
+        ),
+    ] = DEFAULT_TIMEOUT,
+    fresh_rogomatic_run: Annotated[
+        bool,
+        typer.Option(
+            help="Delete rogomatic's rlog/ directory before starting so state "
+            "from prior runs doesn't carry over. Local rogomatic only.",
+        ),
+    ] = True,
+    rogomatic_use_ltm: Annotated[
+        bool,
+        typer.Option(
+            help="Let rogomatic read/write long-term-memory files across runs.",
+        ),
+    ] = True,
+    rogomatic_genes: Annotated[
+        str | None,
+        typer.Option(
+            help="Fixed rogomatic knobs (9 space-separated integers). "
+            "When set, rogomatic skips its gene pool and uses these values.",
+        ),
+    ] = None,
 ) -> None:
     """Main CLI application. Starts the play session with the given options."""
     load_dotenv(".env", override=True)
@@ -116,6 +143,10 @@ def main(
         replay_speed=replay_speed,
         no_display=no_display,
         docker_image=docker_image,
+        timeout=timeout,
+        fresh_rogomatic_run=fresh_rogomatic_run,
+        rogomatic_use_ltm=rogomatic_use_ltm,
+        rogomatic_genes=rogomatic_genes,
     )
 
     if settings.input_path is not None:

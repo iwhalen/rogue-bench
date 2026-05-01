@@ -5,6 +5,7 @@ import os
 import random
 import struct
 import sys
+import threading
 from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path
@@ -18,6 +19,7 @@ from rogue_bench.game.local import LocalRogueGame
 from rogue_bench.player.agent import AgentPlayer
 from rogue_bench.player.base import PipeBasedPlayer
 from rogue_bench.player.human import HumanPlayer
+from rogue_bench.player.rogomatic import RogomaticPlayer
 
 # Environment key-value pairs matching C++ Environment::SetRogomaticValues().
 _ROGOMATIC_ENV: dict[str, str] = {
@@ -50,11 +52,18 @@ def play(config: Settings) -> None:
             )
         )
         player = AgentPlayer(agent, action_delay=config.action_delay)
+    elif config.player == PlayerType.ROGOMATIC:
+        player = RogomaticPlayer(config)
     else:
         raise NotImplementedError(f"Invalid player type: {config.player}")
 
     seed = config.seed if config.seed is not None else random.randint(0, 2**31 - 1)
-    args = [ROGUE_VERSION, "--seed", str(seed)]
+    # Rogomatic drives the game itself; rogue must not be pre-seeded with
+    # --seed in that case or it won't match the bot's own RNG.
+    if config.player == PlayerType.ROGOMATIC:
+        args = [ROGUE_VERSION]
+    else:
+        args = [ROGUE_VERSION, "--seed", str(seed)]
 
     resolved_dir = None
     if config.output_path:
@@ -63,19 +72,31 @@ def play(config: Settings) -> None:
 
     game = _create_game(config, args)
 
+    watchdog = threading.Timer(
+        config.timeout, lambda: player.request_stop("timeout")
+    )
+    watchdog.daemon = True
+    watchdog.start()
+
     try:
         with game:
-            player.play(game)
-            game.drain_remaining()
+            try:
+                player.play(game)
+                game.drain_remaining()
+            finally:
+                if resolved_dir is not None:
+                    player.collect_artifacts(resolved_dir)
     finally:
+        watchdog.cancel()
         if resolved_dir:
+            terminated = player.stop_reason or "completed"
             _write_save_file(
                 resolved_dir / "game.sav",
                 ROGUE_VERSION,
                 seed,
                 game.keylog,
             )
-            _write_metadata(resolved_dir, config, seed)
+            _write_metadata(resolved_dir, config, seed, terminated)
             _write_statistics(resolved_dir, game, player)
             _write_playback(resolved_dir, player)
 
@@ -145,7 +166,12 @@ def _write_short_string(f: object, s: str) -> None:
     f.write(encoded)  # type: ignore[union-attr]
 
 
-def _write_metadata(output_dir: Path, config: Settings, seed: int) -> None:
+def _write_metadata(
+    output_dir: Path,
+    config: Settings,
+    seed: int,
+    terminated: str,
+) -> None:
     """Write metadata.json for the game recording."""
     metadata = {
         "timestamp": datetime.now(UTC).isoformat(),
@@ -154,6 +180,7 @@ def _write_metadata(output_dir: Path, config: Settings, seed: int) -> None:
         "player": str(config.player),
         "model": config.model,
         "args": sys.argv,
+        "terminated": terminated,
     }
     (output_dir / "metadata.json").write_text(json.dumps(metadata, indent=2))
 

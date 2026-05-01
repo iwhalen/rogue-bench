@@ -19,6 +19,7 @@ DEFAULT_ROGUE_PATH = (
 class PlayerType(StrEnum):
     HUMAN = "human"
     LLM = "llm"
+    ROGOMATIC = "rogomatic"
 
 
 ROGUE_VERSION = "Unix Rogue 5.4.2"
@@ -31,6 +32,9 @@ DEFAULT_MAX_HISTORY = 25
 
 # Delay between executing LLM actions (in seconds).
 DEFAULT_ACTION_DELAY = 0.5
+
+# Maximum wall-clock seconds for a single game run.
+DEFAULT_TIMEOUT = 1200
 
 
 class Settings(BaseSettings):
@@ -82,10 +86,32 @@ class Settings(BaseSettings):
         description="Skip visual replay; run at max speed and "
         "print final statistics as JSON.",
     )
+    timeout: int = Field(
+        default=DEFAULT_TIMEOUT,
+        description="Maximum wall-clock seconds for a single game run. "
+        "Default: 20 minutes.",
+    )
     docker_image: str | None = Field(
         default=None,
         description="Docker image name for running Rogue in a container. "
         "When set, the game runs inside Docker instead of using a local binary.",
+    )
+    fresh_rogomatic_run: bool = Field(
+        default=False,
+        description="Delete the rogomatic rlog/ directory before starting, "
+        "so genetic pool and long-term memory from prior runs don't carry over. "
+        "Local rogomatic only (Docker runs always use a fresh container).",
+    )
+    rogomatic_use_ltm: bool = Field(
+        default=True,
+        description="Let rogomatic read and write its long-term-memory files "
+        "(per-seed monster knowledge). Disable to make each run independent.",
+    )
+    rogomatic_genes: str | None = Field(
+        default=None,
+        description="Fixed rogomatic knobs, as a space-separated string of "
+        "9 integers. When set, rogomatic skips its gene pool entirely and "
+        "uses these values, making runs deterministic per seed.",
     )
 
     @model_validator(mode="after")
