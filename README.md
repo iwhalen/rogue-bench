@@ -80,6 +80,7 @@ Initial release to do list is:
 - [x] Implement Rogomatic as a baseline agent (requires C/C++ work)
 - [ ] Update how agent config is handled through the CLI
 - [ ] Add documentation + github pages integration
+- [ ] Unit tests
 
 Wish list:
 - [ ] Rogue Python bindings (remove need for pipes, advance game through Python calls)
