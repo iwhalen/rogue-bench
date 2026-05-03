@@ -63,7 +63,7 @@ class AgentPlayer(PipeBasedPlayer):
         buf: StringIO,
     ) -> None:
         game.drain_initial()
-        self._redraw_llm(game, stdout_fd, console, buf)
+        self._redraw_agent(game, stdout_fd, console, buf)
 
         turn = 0
         last_reasoning: str | None = None
@@ -82,9 +82,7 @@ class AgentPlayer(PipeBasedPlayer):
                     )
                 )
                 ctrl_c_task = asyncio.create_task(self._watch_ctrl_c(fd_in))
-                decide_task = asyncio.create_task(
-                    self._agent.decide(game.screen, turn)
-                )
+                decide_task = asyncio.create_task(self._agent.decide(game.screen, turn))
                 try:
                     done, _ = await asyncio.wait(
                         [decide_task, ctrl_c_task],
@@ -109,7 +107,7 @@ class AgentPlayer(PipeBasedPlayer):
 
                 start_bytes = len(game.keylog)
                 for i, key in enumerate(keys):
-                    self._redraw_llm(
+                    self._redraw_agent(
                         game,
                         stdout_fd,
                         console,
@@ -140,7 +138,7 @@ class AgentPlayer(PipeBasedPlayer):
                     )
                 )
 
-                self._redraw_llm(
+                self._redraw_agent(
                     game,
                     stdout_fd,
                     console,
@@ -176,7 +174,7 @@ class AgentPlayer(PipeBasedPlayer):
         """Animate a Rich spinner while the agent is deciding."""
         spinner = Spinner("dots", text="Thinking...", style="cyan")
         while True:
-            self._redraw_llm(
+            self._redraw_agent(
                 game,
                 stdout_fd,
                 console,
@@ -187,7 +185,7 @@ class AgentPlayer(PipeBasedPlayer):
             await asyncio.sleep(0.1)
 
     @staticmethod
-    def _redraw_llm(
+    def _redraw_agent(
         game: PipeRogueGame,
         stdout_fd: int,
         console: Console,
@@ -209,4 +207,3 @@ class AgentPlayer(PipeBasedPlayer):
             spinner=spinner,
         )
         os.write(stdout_fd, frame)
-

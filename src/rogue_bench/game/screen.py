@@ -91,17 +91,6 @@ class ScreenState:
         """Return the message area (row 0) as a string, trailing spaces stripped."""
         return "".join(self.characters[0]).rstrip()
 
-    def find_player(self) -> tuple[int, int] | None:
-        """Locate the player '@' in the map area (rows 1-22).
-
-        Returns (row, col) or None if not found.
-        """
-        for r in range(1, self.STATUS_ROW):
-            for c in range(self.COLS):
-                if self.characters[r][c] == "@":
-                    return (r, c)
-        return None
-
     def parse_final_score(self) -> int | None:
         """Parse the player's score from the Rogue score table screen.
 

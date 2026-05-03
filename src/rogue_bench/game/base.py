@@ -47,11 +47,6 @@ class RogueInterface(ABC):
     def is_running(self) -> bool:
         """Return True if the Rogue process is still alive."""
 
-    def send_command(self, command: str) -> None:
-        """Send a multi-character command string, one keypress at a time."""
-        for key in command:
-            self.send_keypress(key)
-
     def __enter__(self) -> Self:
         self.start()
         return self
@@ -89,13 +84,6 @@ class PipeRogueGame(RogueInterface):
         if self._frogue_fd is None:
             raise RuntimeError("Rogue process is not running")
         return self._frogue_fd
-
-    @property
-    def input_fd(self) -> int:
-        """File descriptor for the trogue (player -> game) write end."""
-        if self._trogue_fd is None:
-            raise RuntimeError("Rogue process is not running")
-        return self._trogue_fd
 
     @abstractmethod
     def start(self) -> None:
@@ -145,13 +133,6 @@ class PipeRogueGame(RogueInterface):
     def has_amulet(self) -> bool:
         """Whether the player has picked up the Amulet of Yendor."""
         return self._has_amulet
-
-    @property
-    def score(self) -> int | None:
-        """Current score during gameplay (equals gold from the status bar)."""
-        if self._last_status is not None:
-            return self._last_status.gold
-        return None
 
     @property
     def final_score(self) -> int | None:

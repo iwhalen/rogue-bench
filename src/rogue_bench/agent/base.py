@@ -32,6 +32,7 @@ class LLMAgentConfig(AgentConfig):
     """Shared config for LLM-backed agents."""
 
     model: str = Field(
+        default="openai:gpt-5.4-nano",
         description=(
             "Model identifier passed to Pydantic AI Agent constructor"
             "(e.g. 'openai:gpt-5.4', 'anthropic:claude-sonnet-4-6')."

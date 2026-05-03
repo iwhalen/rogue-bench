@@ -18,19 +18,13 @@ DEFAULT_ROGUE_PATH = (
 
 class PlayerType(StrEnum):
     HUMAN = "human"
-    LLM = "llm"
+    AGENT = "agent"
     ROGOMATIC = "rogomatic"
 
 
 ROGUE_VERSION = "Unix Rogue 5.4.2"
 
-# Must be a valid Pydantic AI model that support structured output.
-DEFAULT_MODEL = "anthropic:claude-sonnet-4-6"
-
-# Maximum number of previous frames in LLM prompt.
-DEFAULT_MAX_HISTORY = 25
-
-# Delay between executing LLM actions (in seconds).
+# Delay between executing agent actions (in seconds).
 DEFAULT_ACTION_DELAY = 0.5
 
 # Maximum wall-clock seconds for a single game run.
@@ -47,17 +41,17 @@ class Settings(BaseSettings):
         default=DEFAULT_ROGUE_PATH,
         description="Path to the rogue-collection headless executable.",
     )
-    model: str = Field(
-        default=DEFAULT_MODEL,
-        description="PydanticAI compatible model string.",
+    agent_class: str | None = Field(
+        default=None,
+        description="Import path for the RogueAgent class to use in agent mode.",
     )
-    max_history: int = Field(
-        default=DEFAULT_MAX_HISTORY,
-        description="Number of recent action/result pairs to retain in AI context.",
+    agent_config_path: Path | None = Field(
+        default=None,
+        description="Path to the config object for the agent.",
     )
     action_delay: float = Field(
         default=DEFAULT_ACTION_DELAY,
-        description="Seconds to wait between actions in LLM mode.",
+        description="Seconds to wait between actions in agent mode.",
     )
     seed: int | None = Field(
         default=None,
@@ -118,4 +112,6 @@ class Settings(BaseSettings):
     def check_path_exclusivity(self) -> Self:
         if self.input_path is not None and self.output_path is not None:
             raise ValueError("--input-path and --output-path are mutually exclusive")
+        if self.player == PlayerType.AGENT and self.agent_class is None:
+            raise ValueError("--agent-class is required when --player agent")
         return self
