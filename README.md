@@ -46,9 +46,17 @@ Again, this will start in "human" mode.
 There are currently three player types for executing Rogue runs:
 
 - `human`: inputs taken from terminal. You are in the driver's seat.
-- `llm`: inputs taken from LLM-powered agent. Uses Pydantic AI identifiers to set LLM.
+- `agent`: inputs taken from a pluggable agent class. Requires `--agent-class`
+  and can optionally use a JSON agent config file such as `config/naive.json`.
+- `rogomatic`: inputs taken from the classic Rogomatic bot.
 
 See [here](https://ai.pydantic.dev/models/overview/) for more on setting up Pydantic AI models.
+
+For example:
+
+``` bash
+uv run rogue-bench --player agent --agent-class naive.NaiveAgent --agent-config config/naive.json
+```
 
 ## License
 

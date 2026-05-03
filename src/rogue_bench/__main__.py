@@ -8,8 +8,6 @@ from dotenv import load_dotenv
 
 from rogue_bench.config import (
     DEFAULT_ACTION_DELAY,
-    DEFAULT_MAX_HISTORY,
-    DEFAULT_MODEL,
     DEFAULT_ROGUE_PATH,
     DEFAULT_TIMEOUT,
     PlayerType,
@@ -29,29 +27,32 @@ def main(
             help="Type of player.",
             case_sensitive=False,
         ),
-    ] = PlayerType.LLM,
+    ] = PlayerType.HUMAN,
     rogue_path: Annotated[
         Path,
         typer.Option(
             help="Path to the rogue executable.",
         ),
     ] = DEFAULT_ROGUE_PATH,
-    model: Annotated[
-        str,
+    agent_class: Annotated[
+        str | None,
         typer.Option(
-            help="Pydantic AI compatible Agent model string.",
+            help=(
+                "Import path for the RogueAgent class to use in agent mode. "
+                "Short paths are resolved under rogue_bench.agent."
+            ),
         ),
-    ] = DEFAULT_MODEL,
-    max_history: Annotated[
-        int,
+    ] = None,
+    agent_config: Annotated[
+        Path | None,
         typer.Option(
-            help="Number of recent action/result pairs to retain in AI context.",
+            help="Optional path to a JSON config object for the agent.",
         ),
-    ] = DEFAULT_MAX_HISTORY,
+    ] = None,
     action_delay: Annotated[
         float,
         typer.Option(
-            help="Seconds to wait between actions in LLM mode.",
+            help="Seconds to wait between actions in agent mode.",
         ),
     ] = DEFAULT_ACTION_DELAY,
     seed: Annotated[
@@ -133,8 +134,8 @@ def main(
     settings = Settings(
         player=player,
         rogue_path=rogue_path,
-        model=model,
-        max_history=max_history,
+        agent_class=agent_class,
+        agent_config_path=agent_config,
         action_delay=action_delay,
         seed=seed,
         output_path=output_path,
