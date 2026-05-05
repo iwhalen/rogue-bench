@@ -1,93 +1,25 @@
 <p align="center">
-  <picture>
-    <source srcset="https://raw.githubusercontent.com/iwhalen/rogue-bench/main/docs/assets/rogue-bench.png">
-  </picture>
+  <img src="https://github.com/iwhalen/rogue-bench/blob/main/docs/assets/rogue-bench.png?raw=true" alt="Rogue-Bench logo">
 </p>
 
-This is a work in progress repository that forked my original project [here](https://github.com/iwhalen/rogomatic-llm).
+<p align="center">
+  <strong>
+    A benchmark where agents play <a href="https://en.wikipedia.org/wiki/Rogue_(video_game)">Rogue</a>.
+  </strong>
+</p>
 
-It focuses more on portability and making the proof of concept into a real agent benchmark.
+<p align="center">
+  Visit the documentation <a href="https://iwhalen.github.io/rogue-bench/">here</a>.
+</p>
 
-If you just want to play Rogue, see the [Rogue Collection](https://github.com/mikeyk730/Rogue-Collection).
+## Rogue Collection
 
-## Quickstart
+This work would not be possible without the excellent contributions of the folks over at the [Rogue Collection](https://github.com/mikeyk730/Rogue-Collection)
 
-Rogue-Bench has been tested locally on (WSL2) Ubuntu 24.04 and also provides a Docker setup.
-
-### Local
-
-To run locally on Ubuntu 24.04, execute:
-
-``` bash
-git clone --recursive https://github.com/iwhalen/rogue-bench.git 
-make install  # Install system level dependencies
-make build  # Compile the custom headless Rogue executable
-uv run rogue-bench --player human
-```
-
-This will start a "human" session where you can control Rogue with keyboard inputs.
-
-For all command line options, see:
-
-``` bash
-uv run rogue-bench --help
-```
-
-### Docker
-
-To run in Docker, execute:
-
-``` bash
-git clone --recursive https://github.com/iwhalen/rogue-bench.git
-make build-docker
-uv run rogue-bench --docker-image rogue-bench --player human
-```
-
-Again, this will start in "human" mode.
-
-## Player types
-
-There are currently three player types for executing Rogue runs:
-
-- `human`: inputs taken from terminal. You are in the driver's seat.
-- `agent`: inputs taken from a pluggable agent class. Requires `--agent-class`
-  and can optionally use a JSON agent config file such as `config/naive.json`.
-- `rogomatic`: inputs taken from the classic Rogomatic bot.
-
-See [here](https://ai.pydantic.dev/models/overview/) for more on setting up Pydantic AI models.
-
-For example:
-
-``` bash
-uv run rogue-bench --player agent --agent-class naive.NaiveAgent --agent-config config/naive.json
-```
+If you just want to play Rogue, head over there.
 
 ## License
 
 Note that the code for running Rogue-Bench in this repository is offered under the GPL-3.0 license.
 
 The modified Rogue executables are under the same license(s) as the [Rogue Collection](https://github.com/mikeyk730/Rogue-Collection). At the time of writing, this is a mix of GPL-3.0 and other licenses. 
-
-## Development
-
-This repo is still under active development. Though is close to an initial release soon.
-
-Initial release to do list is:
-- [x] Dockerize Rogue Collection for portability
-- [x] Implement headless version of Rogue for performance reasons
-- [x] Determine how to and then implement run seeding / saving
-- [x] Determine how to implement run saving in headless mode and when running in dockerized mode
-- [x] Determine how to output score as the "reward" signal (is it just total gold? Gold + amulet?)
-- [x] Implement (better) LLM agent with pydantic ai 
-- [x] Make it easier to add custom agents / agent harnesses
-- [x] Add verbose output log options that allow verbose replays for LLM agents including reasoning
-- [x] Implement Rogomatic as a baseline agent (requires C/C++ work)
-- [x] Update how agent config is handled through the CLI
-- [ ] Add documentation + github pages integration
-- [ ] Unit tests
-
-Wish list:
-- [ ] Rogue Python bindings (remove need for pipes, advance game through Python calls)
-- [ ] Precompiled binaries, remove docker workflow
-- [ ] Implement rogue-bench as a `verifiers` environment
-- [ ] Generate RL rollout data with rogomatic, train open-weight model

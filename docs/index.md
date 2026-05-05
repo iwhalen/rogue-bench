@@ -8,172 +8,86 @@ icon: lucide/rocket
     Documentation coming soon. Stay tuned...
 
 
-# Get started
+## Quickstart
 
-For full documentation visit [zensical.org](https://zensical.org/docs/).
+Rogue-Bench has been tested locally on (WSL2) Ubuntu 24.04 and also provides a Docker setup.
 
-## Commands
+### Local
 
-* [`zensical new`][new] - Create a new project
-* [`zensical serve`][serve] - Start local web server
-* [`zensical build`][build] - Build your site
+To run locally on Ubuntu 24.04, execute:
 
-  [new]: https://zensical.org/docs/usage/new/
-  [serve]: https://zensical.org/docs/usage/preview/
-  [build]: https://zensical.org/docs/usage/build/
-
-## Examples
-
-### Admonitions
-
-> Go to [documentation](https://zensical.org/docs/authoring/admonitions/)
-
-!!! note
-
-    This is a **note** admonition. Use it to provide helpful information.
-
-!!! warning
-
-    This is a **warning** admonition. Be careful!
-
-### Details
-
-> Go to [documentation](https://zensical.org/docs/authoring/admonitions/#collapsible-blocks)
-
-??? info "Click to expand for more info"
-
-    This content is hidden until you click to expand it.
-    Great for FAQs or long explanations.
-
-## Code Blocks
-
-> Go to [documentation](https://zensical.org/docs/authoring/code-blocks/)
-
-``` python hl_lines="2" title="Code blocks"
-def greet(name):
-    print(f"Hello, {name}!") # (1)!
-
-greet("Python")
+``` bash
+git clone --recursive https://github.com/iwhalen/rogue-bench.git 
+make install  # Install system level dependencies
+make build  # Compile the custom headless Rogue executable
+uv run rogue-bench --player human
 ```
 
-1.  > Go to [documentation](https://zensical.org/docs/authoring/code-blocks/#code-annotations)
+This will start a "human" session where you can control Rogue with keyboard inputs.
 
-    Code annotations allow to attach notes to lines of code.
+For all command line options, see:
 
-Code can also be highlighted inline: `#!python print("Hello, Python!")`.
-
-## Content tabs
-
-> Go to [documentation](https://zensical.org/docs/authoring/content-tabs/)
-
-=== "Python"
-
-    ``` python
-    print("Hello from Python!")
-    ```
-
-=== "Rust"
-
-    ``` rs
-    println!("Hello from Rust!");
-    ```
-
-## Diagrams
-
-> Go to [documentation](https://zensical.org/docs/authoring/diagrams/)
-
-``` mermaid
-graph LR
-  A[Start] --> B{Error?};
-  B -->|Yes| C[Hmm...];
-  C --> D[Debug];
-  D --> B;
-  B ---->|No| E[Yay!];
+``` bash
+uv run rogue-bench --help
 ```
 
-## Footnotes
+### Docker
 
-> Go to [documentation](https://zensical.org/docs/authoring/footnotes/)
+To run in Docker, execute:
 
-Here's a sentence with a footnote.[^1]
+``` bash
+git clone --recursive https://github.com/iwhalen/rogue-bench.git
+make build-docker
+uv run rogue-bench --docker-image rogue-bench --player human
+```
 
-Hover it, to see a tooltip.
+Again, this will start in "human" mode.
 
-[^1]: This is the footnote.
+## Player types
 
+There are currently three player types for executing Rogue runs:
 
-## Formatting
+- `human`: inputs taken from terminal. You are in the driver's seat.
+- `agent`: inputs taken from a pluggable agent class. Requires `--agent-class`
+  and can optionally use a JSON agent config file such as `config/naive.json`.
+- `rogomatic`: inputs taken from the classic Rogomatic bot.
 
-> Go to [documentation](https://zensical.org/docs/authoring/formatting/)
+See [here](https://ai.pydantic.dev/models/overview/) for more on setting up Pydantic AI models.
 
-- ==This was marked (highlight)==
-- ^^This was inserted (underline)^^
-- ~~This was deleted (strikethrough)~~
-- H~2~O
-- A^T^A
-- ++ctrl+alt+del++
+For example:
 
-## Icons, Emojis
+``` bash
+uv run rogue-bench --player agent --agent-class naive.NaiveAgent --agent-config config/naive.json
+```
 
-> Go to [documentation](https://zensical.org/docs/authoring/icons-emojis/)
+## License
 
-* :sparkles: `:sparkles:`
-* :rocket: `:rocket:`
-* :tada: `:tada:`
-* :memo: `:memo:`
-* :eyes: `:eyes:`
+Note that the code for running Rogue-Bench in this repository is offered under the GPL-3.0 license.
 
-## Maths
+The modified Rogue executables are under the same license(s) as the [Rogue Collection](https://github.com/mikeyk730/Rogue-Collection). At the time of writing, this is a mix of GPL-3.0 and other licenses. 
 
-> Go to [documentation](https://zensical.org/docs/authoring/math/)
+## Development
 
-$$
-\cos x=\sum_{k=0}^{\infty}\frac{(-1)^k}{(2k)!}x^{2k}
-$$
+This repo is still under active development. Though is close to an initial release soon.
 
-!!! warning "Needs configuration"
-    Note that MathJax is included via a `script` tag on this page and is not
-    configured in the generated default configuration to avoid including it
-    in a pages that do not need it. See the documentation for details on how
-    to configure it on all your pages if they are more Maths-heavy than these
-    simple starter pages.
+Initial release to do list is:
 
-<script id="MathJax-script" src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [["\\(", "\\)"]],
-      displayMath: [["\\[", "\\]"]],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-      ignoreHtmlClass: ".*|",
-      processHtmlClass: "arithmatex"
-    }
-  };
+- [x] Dockerize Rogue Collection for portability
+- [x] Implement headless version of Rogue for performance reasons
+- [x] Determine how to and then implement run seeding / saving
+- [x] Determine how to implement run saving in headless mode and when running in dockerized mode
+- [x] Determine how to output score as the "reward" signal (is it just total gold? Gold + amulet?)
+- [x] Implement (better) LLM agent with pydantic ai 
+- [x] Make it easier to add custom agents / agent harnesses
+- [x] Add verbose output log options that allow verbose replays for LLM agents including reasoning
+- [x] Implement Rogomatic as a baseline agent (requires C/C++ work)
+- [x] Update how agent config is handled through the CLI
+- [ ] Add documentation + github pages integration
+- [ ] Unit tests
 
-  document$.subscribe(() => {
-    MathJax.startup.output.clearCache()
-    MathJax.typesetClear()
-    MathJax.texReset()
-    MathJax.typesetPromise()
-  })
-</script>
+Wish list:
 
-## Task Lists
-
-> Go to [documentation](https://zensical.org/docs/authoring/lists/#using-task-lists)
-
-* [x] Install Zensical
-* [x] Configure `zensical.toml`
-* [x] Write amazing documentation
-* [ ] Deploy anywhere
-
-## Tooltips
-
-> Go to [documentation](https://zensical.org/docs/authoring/tooltips/)
-
-[Hover me][example]
-
-  [example]: https://example.com "I'm a tooltip!"
+- [ ] Rogue Python bindings (remove need for pipes, advance game through Python calls)
+- [ ] Precompiled binaries, remove docker workflow
+- [ ] Implement rogue-bench as a `verifiers` environment
+- [ ] Generate RL rollout data with rogomatic, train open-weight model
