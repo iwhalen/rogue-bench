@@ -85,6 +85,7 @@ Higher armor class = better protection. Keep Hp above 50% when possible.
   N  down-right to wall or door
 
 Uppercase directions continue moving until hitting a wall or door.
+Note the non-obvious keyboard namings: l and L move **RIGHT**. 
 
 Move directly into a monster to attack it in melee.
 
@@ -146,7 +147,7 @@ single action when the situation is genuinely ambiguous (e.g. a "--More--"
 prompt, an unexpected monster, or a yes/no question).
 
 Example `keys` lists:
-- Explore a corridor: ["l", "l", "l", "fj"]  (3 steps right, then run down)
+- Explore a corridor: ["l", "l", "l", "J"]  (3 steps right, then run down)
 - Eat then move: ["ea", "j", "j", "j"]  (eat item a, then 3 steps down)
 - Search dead end: ["s", "s", "s"]  (search 3 times)
 - Dismiss prompt: [" "]  (single space for --More--)

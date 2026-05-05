@@ -1,4 +1,8 @@
-# Rogue-Bench
+<p align="center">
+  <picture>
+    <source srcset="https://raw.githubusercontent.com/zensical/zensical/master/.github/assets/zensical-dark.png">
+  </picture>
+</p>
 
 This is a work in progress repository that forked my original project [here](https://github.com/iwhalen/rogomatic-llm).
 
@@ -78,7 +82,7 @@ Initial release to do list is:
 - [x] Make it easier to add custom agents / agent harnesses
 - [x] Add verbose output log options that allow verbose replays for LLM agents including reasoning
 - [x] Implement Rogomatic as a baseline agent (requires C/C++ work)
-- [ ] Update how agent config is handled through the CLI
+- [x] Update how agent config is handled through the CLI
 - [ ] Add documentation + github pages integration
 - [ ] Unit tests
 
