@@ -20,7 +20,7 @@ If you just want to play Rogue, head over there.
 
 ## License
 
-Note that the code for running Rogue-Bench in this repository is offered under the GPL-3.0 license.
+Note that the Python code for running Rogue-Bench in this repository is offered under the GPL-3.0 license.
 
 The modified Rogue executables are under the same license(s) as the [Rogue Collection](https://github.com/mikeyk730/Rogue-Collection). At the time of writing, this is a mix of GPL-3.0 and other licenses. 
 
