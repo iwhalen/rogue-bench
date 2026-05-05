@@ -1,6 +1,6 @@
 <p align="center">
   <picture>
-    <source srcset="https://raw.githubusercontent.com/zensical/zensical/master/.github/assets/zensical-dark.png">
+    <source srcset="https://raw.githubusercontent.com/iwhalen/rogue-bench/main/docs/assets/rogue-bench.png">
   </picture>
 </p>
 
