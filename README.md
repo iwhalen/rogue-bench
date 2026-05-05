@@ -24,4 +24,4 @@ Note that the code for running Rogue-Bench in this repository is offered under t
 
 The modified Rogue executables are under the same license(s) as the [Rogue Collection](https://github.com/mikeyk730/Rogue-Collection). At the time of writing, this is a mix of GPL-3.0 and other licenses. 
 
-Rogue (1980) is a trademark of Epyx, Inc. This repository is not associated with Epyx in any way.
+Rogue is a trademark of Epyx, Inc. This repository is not associated with Epyx in any way.
