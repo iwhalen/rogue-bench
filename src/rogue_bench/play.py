@@ -72,9 +72,7 @@ def play(config: Settings) -> None:
 
     game = create_game(config, args)
 
-    watchdog = threading.Timer(
-        config.timeout, lambda: player.request_stop("timeout")
-    )
+    watchdog = threading.Timer(config.timeout, lambda: player.request_stop("timeout"))
     watchdog.daemon = True
     watchdog.start()
 
@@ -281,9 +279,7 @@ def write_playback(output_dir: Path, player: PipeBasedPlayer) -> None:
     log = player.playback_log()
     if log is None or not log.turns:
         return
-    (output_dir / "playback.json").write_text(
-        json.dumps(log.model_dump(), indent=2)
-    )
+    (output_dir / "playback.json").write_text(json.dumps(log.model_dump(), indent=2))
 
 
 def write_statistics(

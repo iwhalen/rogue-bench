@@ -99,13 +99,9 @@ def render_llm_frame(
     if spinner is not None:
         actions_content = spinner
     elif actions is not None:
-        actions_content = _actions_text(
-            [repr(k) for k in actions], executed_count
-        )
+        actions_content = _actions_text([repr(k) for k in actions], executed_count)
     elif queue_length is not None:
-        actions_content = _actions_text(
-            ["\u2022"] * queue_length, executed_count
-        )
+        actions_content = _actions_text(["\u2022"] * queue_length, executed_count)
     else:
         actions_content = Text("Waiting...", style="dim")
 

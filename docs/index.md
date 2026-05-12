@@ -1,29 +1,40 @@
 ---
-icon: lucide/rocket
+title: ""
 ---
 
+<p align="center">
+  <img src="assets/rogue-bench.png" alt="Rogue-Bench logo">
+</p>
 
-!!! Warning
+Rogue-Bench is a benchmark where agents play [Rogue]("https://en.wikipedia.org/wiki/Rogue_(video_game)").
 
-    Documentation coming soon. Stay tuned...
+This work would not be possible without [Rogue Collection](https://github.com/mikeyk730/Rogue-Collection). If you just want to play Rogue, head over there.
 
+Rogue-Bench seeks to test large language models' abilities playing a classic text based dungeon crawler. Once set up, you should be able to produce a result like this:
 
-## Quickstart
+<p align="center">
+  <img src="assets/demo.gif" alt="Example Rogue-Bench run with GPT-5.4-mini">
+</p>
 
-Rogue-Bench has been tested locally on (WSL2) Ubuntu 24.04 and also provides a Docker setup.
+## Get started
+
+!!! note
+    
+    Rogue-Bench compilation and runs have been tested on (WSL2) Ubuntu 24.04. If you are struggling to get something working locally, try the Docker setup.
 
 ### Local
 
-To run locally on Ubuntu 24.04, execute:
+To run locally, execute:
 
 ``` bash
 git clone --recursive https://github.com/iwhalen/rogue-bench.git 
+cd rogue-bench
 make install  # Install system level dependencies
-make build  # Compile the custom headless Rogue executable
+make build    # Compile the custom headless Rogue executable
 uv run rogue-bench --player human
 ```
 
-This will start a "human" session where you can control Rogue with keyboard inputs.
+This will start a "human" session where you can control Rogue with keyboard inputs. This is a good sanity check before setting up a real agent.
 
 For all command line options, see:
 
@@ -31,63 +42,38 @@ For all command line options, see:
 uv run rogue-bench --help
 ```
 
+For more on the Rogue-Bench CLI, see [here](cli.md).
+
 ### Docker
 
-To run in Docker, execute:
+To run Rogue in Docker, execute:
 
 ``` bash
 git clone --recursive https://github.com/iwhalen/rogue-bench.git
+cd rogue-bench
 make build-docker
 uv run rogue-bench --docker-image rogue-bench --player human
 ```
 
 Again, this will start in "human" mode.
 
-## Player types
+## How it works
 
-There are currently three player types for executing Rogue runs:
+Rogue-Bench runs a slightly modified, headless Rogue executable and communicates with it
+over pipes. The Python library reads Rogue's terminal output, (optionally) parses it into a screen
+state, and sends keystrokes back to the game.
 
-- `human`: inputs taken from terminal. You are in the driver's seat.
-- `agent`: inputs taken from a pluggable agent class. Requires `--agent-class`
-  and can optionally use a JSON agent config file such as `config/naive.json`.
-- `rogomatic`: inputs taken from the classic Rogomatic bot.
+No Rogue gameplay elements have been changed. Specifically, the version of Rogue is fixed to Unix Rogue 5.4.2.
 
-See [here](https://ai.pydantic.dev/models/overview/) for more on setting up Pydantic AI models.
+Runs will accumulate statistics, metadata, and log keystrokes. This allows post-hoc analysis
+as well as the ability to replay an entire run.
 
-For example:
-
-``` bash
-uv run rogue-bench --player agent --agent-class naive.NaiveAgent --agent-config config/naive.json
-```
+For more specifics on the implementation, see the [Github repository](https://github.com/iwhalen/rogue-bench).
 
 ## License
 
-Note that the code for running Rogue-Bench in this repository is offered under the GPL-3.0 license.
+Note that the Python code for running Rogue-Bench is offered under the GPL-3.0 license.
 
 The modified Rogue executables are under the same license(s) as the [Rogue Collection](https://github.com/mikeyk730/Rogue-Collection). At the time of writing, this is a mix of GPL-3.0 and other licenses. 
 
-## Development
-
-This repo is still under active development. Though is close to an initial release soon.
-
-Initial release to do list is:
-
-- [x] Dockerize Rogue Collection for portability
-- [x] Implement headless version of Rogue for performance reasons
-- [x] Determine how to and then implement run seeding / saving
-- [x] Determine how to implement run saving in headless mode and when running in dockerized mode
-- [x] Determine how to output score as the "reward" signal (is it just total gold? Gold + amulet?)
-- [x] Implement (better) LLM agent with pydantic ai 
-- [x] Make it easier to add custom agents / agent harnesses
-- [x] Add verbose output log options that allow verbose replays for LLM agents including reasoning
-- [x] Implement Rogomatic as a baseline agent (requires C/C++ work)
-- [x] Update how agent config is handled through the CLI
-- [ ] Add documentation + github pages integration
-- [ ] Unit tests
-
-Wish list:
-
-- [ ] Rogue Python bindings (remove need for pipes, advance game through Python calls)
-- [ ] Precompiled binaries, remove docker workflow
-- [ ] Implement rogue-bench as a `verifiers` environment
-- [ ] Generate RL rollout data with rogomatic, train open-weight model
+Rogue is a trademark of Epyx, Inc. Rogue-Bench is not associated with Epyx in any way.

@@ -85,7 +85,7 @@ Higher armor class = better protection. Keep Hp above 50% when possible.
   N  down-right to wall or door
 
 Uppercase directions continue moving until hitting a wall or door.
-Note the non-obvious keyboard namings: l and L move **RIGHT**. 
+Note the non-obvious keyboard namings: l and L move **RIGHT**.
 
 Move directly into a monster to attack it in melee.
 

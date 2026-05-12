@@ -58,9 +58,7 @@ def replay(settings: Settings) -> None:
     assert settings.input_path is not None
     sav_path = settings.input_path / "game.sav"
     if not sav_path.exists():
-        raise FileNotFoundError(
-            f"No game.sav found in {settings.input_path}"
-        )
+        raise FileNotFoundError(f"No game.sav found in {settings.input_path}")
 
     game_name, env, keylog = _parse_save_file(sav_path)
     seed = env.get("seed", "0")
@@ -75,9 +73,7 @@ def replay(settings: Settings) -> None:
         if settings.no_display:
             _replay_headless(game, keylog)
         else:
-            _replay_visual(
-                game, keylog, settings.replay_speed, playback
-            )
+            _replay_visual(game, keylog, settings.replay_speed, playback)
 
 
 def _create_replay_game(
@@ -172,13 +168,24 @@ def _replay_visual(
 
         if playback is not None and playback.turns:
             _replay_visual_with_playback(
-                game, keylog, replay_speed, playback,
-                fd_in, stdout_fd, console, buf,
+                game,
+                keylog,
+                replay_speed,
+                playback,
+                fd_in,
+                stdout_fd,
+                console,
+                buf,
             )
         else:
             _replay_visual_plain(
-                game, keylog, replay_speed,
-                fd_in, stdout_fd, console, buf,
+                game,
+                keylog,
+                replay_speed,
+                fd_in,
+                stdout_fd,
+                console,
+                buf,
             )
     finally:
         termios.tcsetattr(fd_in, termios.TCSADRAIN, old_settings)
@@ -242,7 +249,9 @@ def _replay_visual_with_playback(
 
     actions, queue_length, reasoning, byte_length = current()
     frame = render_llm_frame(
-        console, buf, game.screen.characters,
+        console,
+        buf,
+        game.screen.characters,
         actions=actions,
         queue_length=queue_length,
         executed_count=0,
@@ -251,7 +260,8 @@ def _replay_visual_with_playback(
     os.write(stdout_fd, frame)
 
     total_steps = (
-        len(actions) if actions is not None
+        len(actions)
+        if actions is not None
         else (queue_length if queue_length is not None else 0)
     )
 
@@ -265,7 +275,9 @@ def _replay_visual_with_playback(
             executed_in_turn = min(executed_in_turn + 1, total_steps)
 
         frame = render_llm_frame(
-            console, buf, game.screen.characters,
+            console,
+            buf,
+            game.screen.characters,
             actions=actions,
             queue_length=queue_length,
             executed_count=executed_in_turn,
@@ -280,7 +292,8 @@ def _replay_visual_with_playback(
             executed_in_turn = 0
             actions, queue_length, reasoning, byte_length = current()
             total_steps = (
-                len(actions) if actions is not None
+                len(actions)
+                if actions is not None
                 else (queue_length if queue_length is not None else 0)
             )
 
