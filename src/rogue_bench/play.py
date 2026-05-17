@@ -17,7 +17,7 @@ from typing import cast, get_type_hints
 from pydantic import ValidationError
 
 from rogue_bench.agent.base import AgentConfig, RogueAgent
-from rogue_bench.config import ROGUE_VERSION, PlayerType, Settings
+from rogue_bench.config import ROGUE_VERSION, PlayerType, RogomaticConfig, Settings
 from rogue_bench.game.base import PipeRogueGame
 from rogue_bench.game.docker import DockerRogueGame
 from rogue_bench.game.local import LocalRogueGame
@@ -47,17 +47,24 @@ _ROGOMATIC_ENV: dict[str, str] = {
 
 def play(config: Settings) -> None:
     """Play a game of Rogue given the config."""
+    seed = config.seed if config.seed is not None else random.randint(0, 2**31 - 1)
+
     if config.player == PlayerType.HUMAN:
         player = HumanPlayer()
     elif config.player == PlayerType.AGENT:
         agent = load_agent(config)
         player = AgentPlayer(agent, action_delay=config.action_delay)
     elif config.player == PlayerType.ROGOMATIC:
-        player = RogomaticPlayer(config)
+        rogomatic_config = load_rogomatic_config(config.rogomatic_config_path)
+        gene_seed = (
+            rogomatic_config.random_gene_seed
+            if rogomatic_config.random_gene_seed is not None
+            else seed
+        )
+        player = RogomaticPlayer(config, rogomatic_config, gene_seed=gene_seed)
     else:
         raise NotImplementedError(f"Invalid player type: {config.player}")
 
-    seed = config.seed if config.seed is not None else random.randint(0, 2**31 - 1)
     # Rogomatic drives the game itself; rogue must not be pre-seeded with
     # --seed in that case or it won't match the bot's own RNG.
     if config.player == PlayerType.ROGOMATIC:
@@ -183,18 +190,25 @@ def write_metadata(
             if config.agent_config_path is not None
             else None
         ),
-        "config": agent_config_metadata(player),
+        "rogomatic_config_path": (
+            str(config.rogomatic_config_path)
+            if config.rogomatic_config_path is not None
+            else None
+        ),
+        "config": player_config_metadata(player),
         "args": sys.argv,
         "terminated": terminated,
     }
     (output_dir / "metadata.json").write_text(json.dumps(metadata, indent=2))
 
 
-def agent_config_metadata(player: PipeBasedPlayer) -> dict[str, object]:
-    """Return the agent config for metadata output, if this run used an agent."""
-    if not isinstance(player, AgentPlayer):
-        return {}
-    return player.agent.config.model_dump(mode="json")
+def player_config_metadata(player: PipeBasedPlayer) -> dict[str, object]:
+    """Return the player config for metadata output, when one exists."""
+    if isinstance(player, AgentPlayer):
+        return player.agent.config.model_dump(mode="json")
+    if isinstance(player, RogomaticPlayer):
+        return player.config.model_dump(mode="json")
+    return {}
 
 
 def load_agent(config: Settings) -> RogueAgent:
@@ -271,6 +285,26 @@ def load_agent_config(
     except ValidationError as exc:
         raise ValueError(
             f"Agent config file failed validation for {config_class.__name__}: {path}"
+        ) from exc
+
+
+def load_rogomatic_config(path: Path | None) -> RogomaticConfig:
+    """Load and validate a JSON Rog-O-Matic config file, or instantiate defaults."""
+    if path is None:
+        return RogomaticConfig()
+
+    try:
+        config_data = json.loads(path.read_text())
+    except FileNotFoundError as exc:
+        raise FileNotFoundError(f"Rog-O-Matic config file not found: {path}") from exc
+    except JSONDecodeError as exc:
+        raise ValueError(f"Rog-O-Matic config file is not valid JSON: {path}") from exc
+
+    try:
+        return RogomaticConfig.model_validate(config_data)
+    except ValidationError as exc:
+        raise ValueError(
+            f"Rog-O-Matic config file failed validation: {path}"
         ) from exc
 
 

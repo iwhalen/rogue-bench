@@ -136,18 +136,19 @@ Use `--seed` to replay a specific Rogue seed:
 rogue-bench --player rogomatic --seed 1234
 ```
 
-Rog-O-Matic also has a few options of its own:
+The `--rogomatic-config` option should point to a JSON file. For Rog-O-Matic, the config fields are:
 
-- `--fresh-rogomatic-run`: delete Rog-O-Matic's local `rlog/` directory before starting.
-- `--rogomatic-use-ltm` / `--no-rogomatic-use-ltm`: allow or block long-term-memory files across runs.
-- `--rogomatic-genes`: use fixed Rog-O-Matic knobs instead of the gene pool.
+- `fresh_run`: delete Rog-O-Matic's local `rlog/` directory before starting.
+- `use_ltm`: allow long-term-memory files across runs.
+- `genes`: 8 fixed Rog-O-Matic knobs instead of the gene pool.
+- `random_gene_seed`: seed used for gene generation/selection. If this is omitted, `--seed` is used.
 
 For example:
 
 ``` bash
 rogue-bench --player rogomatic \
   --seed 1755847237 \
-  --rogomatic-genes "26 73 5 1 0 39 36 61 8"
+  --rogomatic-config config/rogomatic.json
 ```
 
 When `--output-path` is set, Rogue-Bench saves the normal run files and also copies Rog-O-Matic's debug files when they are available:

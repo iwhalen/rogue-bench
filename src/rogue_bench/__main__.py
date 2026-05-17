@@ -107,24 +107,10 @@ def main(
             help="Maximum wall-clock seconds for a single game run.",
         ),
     ] = DEFAULT_TIMEOUT,
-    fresh_rogomatic_run: Annotated[
-        bool,
+    rogomatic_config: Annotated[
+        Path | None,
         typer.Option(
-            help="Delete rogomatic's rlog/ directory before starting so state "
-            "from prior runs doesn't carry over. Local rogomatic only.",
-        ),
-    ] = True,
-    rogomatic_use_ltm: Annotated[
-        bool,
-        typer.Option(
-            help="Let rogomatic read/write long-term-memory files across runs.",
-        ),
-    ] = True,
-    rogomatic_genes: Annotated[
-        str | None,
-        typer.Option(
-            help="Fixed rogomatic knobs (9 space-separated integers). "
-            "When set, rogomatic skips its gene pool and uses these values.",
+            help="Optional path to a JSON config object for Rog-O-Matic.",
         ),
     ] = None,
 ) -> None:
@@ -145,9 +131,7 @@ def main(
         no_display=no_display,
         docker_image=docker_image,
         timeout=timeout,
-        fresh_rogomatic_run=fresh_rogomatic_run,
-        rogomatic_use_ltm=rogomatic_use_ltm,
-        rogomatic_genes=rogomatic_genes,
+        rogomatic_config_path=rogomatic_config,
     )
 
     if settings.input_path is not None:

@@ -21,10 +21,20 @@ if TYPE_CHECKING:
 
     from rich.console import Console
 
-    from rogue_bench.config import Settings
+    from rogue_bench.config import RogomaticConfig, Settings
     from rogue_bench.game.base import PipeRogueGame
 
 _ROGOMATIC_LOG_FILES = ("rogomatic.log", "rogomatic.frogue")
+_ROGOMATIC_BUG_FIXES = "15"
+
+
+def _rogomatic_genes_env(genes: list[int] | None) -> str | None:
+    """Return the internal GENES value expected by Rog-O-Matic."""
+    if genes is None:
+        return None
+    values = [str(gene) for gene in genes]
+    values.append(_ROGOMATIC_BUG_FIXES)
+    return " ".join(values)
 
 
 class RogomaticLauncher(ABC):
@@ -153,8 +163,9 @@ class LocalRogomaticLauncher(RogomaticLauncher):
 class DockerExecRogomaticLauncher(RogomaticLauncher):
     """Run rogomatic via ``docker exec`` inside the rogue container."""
 
-    def __init__(self, container_name: str) -> None:
+    def __init__(self, container_name: str, env: dict[str, str] | None = None) -> None:
         self._container_name = container_name
+        self._env = env or {}
         self._process: subprocess.Popen[bytes] | None = None
 
     def start(self, game_name: str, seed: int) -> None:
@@ -163,12 +174,18 @@ class DockerExecRogomaticLauncher(RogomaticLauncher):
             "docker",
             "exec",
             "-i",
-            self._container_name,
-            "/app/rogomatic-entrypoint.sh",
-            "--seed",
-            str(seed),
-            game_name,
         ]
+        for key, value in self._env.items():
+            cmd.extend(["-e", f"{key}={value}"])
+        cmd.extend(
+            [
+                self._container_name,
+                "/app/rogomatic-entrypoint.sh",
+                "--seed",
+                str(seed),
+                game_name,
+            ]
+        )
         self._process = subprocess.Popen(
             cmd,
             stdin=subprocess.PIPE,
@@ -245,30 +262,57 @@ class DockerExecRogomaticLauncher(RogomaticLauncher):
 class RogomaticPlayer(PipeBasedPlayer):
     """Drive a Rogue game by proxying bytes to/from a rogomatic subprocess."""
 
-    def __init__(self, settings: Settings) -> None:
+    def __init__(
+        self,
+        settings: Settings,
+        rogomatic_config: RogomaticConfig,
+        gene_seed: int,
+    ) -> None:
         super().__init__()
         self._settings = settings
+        self._rogomatic_config = rogomatic_config
+        self._gene_seed = gene_seed
         self._launcher: RogomaticLauncher | None = None
+
+    @property
+    def config(self) -> RogomaticConfig:
+        return self._rogomatic_config
 
     def _build_launcher(self, game: PipeRogueGame) -> RogomaticLauncher:
         if isinstance(game, DockerRogueGame):
             name = game.container_name
             if name is None:
                 raise RuntimeError("Docker container not started before rogomatic")
-            return DockerExecRogomaticLauncher(name)
+            return DockerExecRogomaticLauncher(
+                name,
+                env=self._rogomatic_env(),
+            )
         if isinstance(game, LocalRogueGame):
             rogue_path = self._settings.rogue_path.resolve()
             rogue_dir = str(rogue_path.parent)
             env = os.environ.copy()
             env["LD_LIBRARY_PATH"] = rogue_dir
+            env.pop("GENES", None)
+            env.pop("NOLTM", None)
+            env.update(self._rogomatic_env())
             # cwd must be rogue_dir: RunGame dlopens "./lib-rogomatic-player.so"
             # as a relative path, so the .so must be in the process's cwd.
             return LocalRogomaticLauncher(
                 rogue_executable=str(rogue_path),
                 env=env,
                 cwd=rogue_dir,
+                fresh_run=self._rogomatic_config.fresh_run,
             )
         raise TypeError(f"Unsupported game backend for rogomatic: {type(game)}")
+
+    def _rogomatic_env(self) -> dict[str, str]:
+        env: dict[str, str] = {}
+        rogomatic_genes = _rogomatic_genes_env(self._rogomatic_config.genes)
+        if rogomatic_genes is not None:
+            env["GENES"] = rogomatic_genes
+        if not self._rogomatic_config.use_ltm:
+            env["NOLTM"] = "1"
+        return env
 
     def collect_artifacts(self, output_dir: Path) -> None:
         if self._launcher is not None:
@@ -285,9 +329,8 @@ class RogomaticPlayer(PipeBasedPlayer):
         # Start rogomatic *before* draining any bytes so rogomatic sees
         # the full VT100 stream from rogue, byte-for-byte identical to
         # what our parser receives.
-        seed = self._settings.seed if self._settings.seed is not None else 0
         self._launcher = self._build_launcher(game)
-        self._launcher.start(game_name="Unix Rogue 5.4.2", seed=seed)
+        self._launcher.start(game_name="Unix Rogue 5.4.2", seed=self._gene_seed)
         frogue_w = self._launcher.frogue_write_fd
         trogue_r = self._launcher.trogue_read_fd
 

@@ -4,7 +4,7 @@ from enum import StrEnum
 from pathlib import Path
 from typing import Self
 
-from pydantic import Field, model_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 from pydantic_settings import BaseSettings
 
 DEFAULT_ROGUE_PATH = (
@@ -29,6 +29,39 @@ DEFAULT_ACTION_DELAY = 0.5
 
 # Maximum wall-clock seconds for a single game run.
 DEFAULT_TIMEOUT = 1200
+
+
+class RogomaticConfig(BaseModel):
+    """Config for the Rog-O-Matic player."""
+
+    fresh_run: bool = Field(
+        default=True,
+        description="Delete the rogomatic rlog/ directory before starting. "
+        "Local rogomatic only (Docker runs always use a fresh container).",
+    )
+    use_ltm: bool = Field(
+        default=True,
+        description="Let rogomatic read and write its long-term-memory files.",
+    )
+    genes: list[int] | None = Field(
+        default=None,
+        description="Fixed rogomatic knobs. When set, must contain exactly "
+        "8 integers.",
+    )
+    random_gene_seed: int | None = Field(
+        default=None,
+        description="Seed used for rogomatic gene generation/selection. "
+        "Defaults to --seed when omitted.",
+    )
+
+    @field_validator("genes")
+    @classmethod
+    def validate_genes(cls, value: list[int] | None) -> list[int] | None:
+        if value is None:
+            return None
+        if len(value) != 8:
+            raise ValueError("rogomatic genes must contain exactly 8 integers")
+        return value
 
 
 class Settings(BaseSettings):
@@ -90,22 +123,9 @@ class Settings(BaseSettings):
         description="Docker image name for running Rogue in a container. "
         "When set, the game runs inside Docker instead of using a local binary.",
     )
-    fresh_rogomatic_run: bool = Field(
-        default=False,
-        description="Delete the rogomatic rlog/ directory before starting, "
-        "so genetic pool and long-term memory from prior runs don't carry over. "
-        "Local rogomatic only (Docker runs always use a fresh container).",
-    )
-    rogomatic_use_ltm: bool = Field(
-        default=True,
-        description="Let rogomatic read and write its long-term-memory files "
-        "(per-seed monster knowledge). Disable to make each run independent.",
-    )
-    rogomatic_genes: str | None = Field(
+    rogomatic_config_path: Path | None = Field(
         default=None,
-        description="Fixed rogomatic knobs, as a space-separated string of "
-        "9 integers. When set, rogomatic skips its gene pool entirely and "
-        "uses these values, making runs deterministic per seed.",
+        description="Path to the config object for Rog-O-Matic.",
     )
 
     @model_validator(mode="after")
