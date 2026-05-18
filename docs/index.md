@@ -6,14 +6,18 @@ title: ""
   <img src="assets/rogue-bench.png" alt="Rogue-Bench logo">
 </p>
 
-Rogue-Bench is a benchmark where agents play [Rogue]("https://en.wikipedia.org/wiki/Rogue_(video_game)").
+Rogue-Bench is a benchmark where agents play [Rogue]("https://en.wikipedia.org/wiki/Rogue_(video_game)"). Specifically, how well LLMs can play the classic dungeon crawler.
 
-This work would not be possible without [Rogue Collection](https://github.com/mikeyk730/Rogue-Collection). If you just want to play Rogue, head over there.
+This work would not be possible without [Rogue Collection](https://github.com/mikeyk730/Rogue-Collection). If you just want to play Rogue, head over there. 
 
-Rogue-Bench seeks to test large language models' abilities playing a classic text based dungeon crawler. Once set up, you should be able to produce a result like this:
+Once set up, you should be able to produce a result like this:
 
 <p align="center">
   <img src="assets/demo.gif" alt="Example Rogue-Bench run with GPT-5.4-mini">
+</p>
+
+<p align="center">
+  <i>GPT-5.4-mini playing Rogue.</i>
 </p>
 
 ## Get started
