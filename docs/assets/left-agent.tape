@@ -2,7 +2,7 @@
 # VHS .tape file for generating a gif of an LLM playing Rogue.
 #
 
-Output demo.gif
+Output left-agent.gif
 
 Set FontSize 12
 Set Width 750
@@ -15,12 +15,18 @@ Type "clear" Enter
 Sleep 100 ms
 Show
 
-Type "uv run rogue-bench --player agent --agent-class naive.NaiveAgent --seed 9"
+Type "uv run rogue-bench --player agent \"
+Enter 
+Type "--agent-class left.LeftAgent \"
+Enter
+Type "--agent-config config/left.json \"
+Enter
+Type "--seed 8"
 
 Sleep 500ms
 
 Enter
 
-Sleep 30s
+Sleep 10s
 
 Ctrl+C

@@ -6,7 +6,7 @@ Of course, you can run `rogue-bench --help` for the short version of this inform
 
 ## TL;DR
 
-If you are experimenting with LLMs in Rogue, most of your commands will look like:
+If you are experimenting with LLMs playing Rogue, most of your commands will look like:
 
 ``` bash
 rogue-bench --player agent \ 
