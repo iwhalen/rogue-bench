@@ -1,0 +1,1750 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "reasoning": "We\u2019re in a small room with an enemy E adjacent above-left? Actually the rogue is near the center, with E in the same room and a stairs '%' visible in the upper-left area. Best immediate play is to attack or reposition carefully, but since the map shows the monster directly adjacent and no corridor safety needed yet, I\u2019ll step toward the stairs/clear the room while avoiding unnecessary wandering. The corridor/door on the right suggests a room exit nearby if needed.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The enemy E is adjacent and blocking the room. We should continue melee rather than waste time moving around. One attack step is safest to reassess after combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We missed and took damage from the emu, but HP is still okay. Since the monster is adjacent and we\u2019re in a small enclosed room, keep pressing the attack until it dies rather than retreating into unknown territory.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The emu is dead and we are now standing on the stairs '%' with only minor damage. The best move is to descend immediately to continue progress while the level is clear enough.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019re not actually on stairs; the '%' is a separate tile above/left of us. We need to step onto it first, then descend. The safest next action is to move onto the stairs tile.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Now we are adjacent to the stairs tile and should move onto it, then descend on the following turn. Since the user state shows us one step away from '%', a direct move down is the correct next action.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We appear to have moved off the stairs tile and are back in the room; the safest next step is to search for hidden doors or find the corridor exit since the level area is tiny and likely a simple room layout. I\u2019ll probe with a search rather than wandering blindly.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "We\u2019re in a tiny room with no immediate threat visible. The most likely way forward is to continue searching the surrounding walls for hidden doors or passages, since the stairs seem to be on this level but not currently useful from our position.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "The stairs are now directly to our left and we\u2019re adjacent to them. We should step onto the staircase and then descend on the next turn to continue exploring deeper.",
+      "queue_length": 2,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "We\u2019re still not standing on the stairs; the map shows the '%' immediately below-left of us with @ adjacent. The correct next move is to step onto the stairs tile, then descend on the following turn if possible.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are now adjacent to the stairs with the '%' directly above us. The correct move is to step onto the stairs tile, then descend on the next turn if the game allows. No other threats are visible.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019re back in the room adjacent to the staircase area, with no monster visible and only moderate HP loss. Since the precise stair position has been finicky, the safest immediate plan is to search the nearby walls/doorway to locate the hidden path or exact stair access, rather than wandering randomly.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "The staircase '%' is immediately to our left, and we are adjacent to it. This is the right moment to step onto the stairs and then descend next turn.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are standing on the staircase tile now, so the correct action is to descend immediately to the next dungeon level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019re still not successfully descending because the game indicates we are not on the stairs. The map suggests the '%' is adjacent, so the next best move is to step onto it again and then use '>' once the character is definitely standing there. I\u2019ll continue with the simple step onto the staircase tile.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019re adjacent to the staircase area again, but the level layout keeps shifting between being on/off the stairs. The most useful immediate action is to move right one step toward the room/corridor and reassess from there rather than repeatedly trying to descend from the wrong tile.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The staircase '%' is visible immediately left of @, so the safest move is to step onto it from our current position. Once on the stairs, we can descend on the next turn if needed.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019re back in the room and the staircase interaction has been unreliable. The most sensible next step is to move right to re-center in the room and look for the correct stair alignment or a path out, instead of spamming the same action.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map shows the stairs '%' immediately left of @ again, so the correct move is to step onto the staircase tile from the current position. Once there, a subsequent turn can use '>' to descend.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019re at the same small room state again with no immediate threat, and prior attempts suggest we need to keep moving rather than overthinking the staircase. The most reasonable next action is to step right and continue exploring/realigning in the room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The character is adjacent to the visible staircase tile '%' on the left, and the goal is to get onto it so we can descend. The most relevant move is to step left onto the stairs.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019re in the same room state with the staircase interaction unresolved. The best immediate action is to continue searching/moving cautiously rather than repeat a likely-noop; step right to re-establish position and reassess next turn.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map again shows the staircase '%' immediately left of @, so the correct move is to step onto it from the current position. After that, we can attempt descent on the next turn.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still in the same confined area with no visible threats, and the previous staircase attempts have not reliably changed state. The best immediate move is to shift right once more to keep exploring and re-evaluate the room/corridor alignment afterward.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The safest and most relevant move is to step onto the clearly visible staircase tile immediately to the left of the player, since the dungeon state continues to show the staircase adjacent and this is the intended progression action.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map remains in the same state with no visible hazards, and we need to make a deterministic move. Since the staircase is repeatedly adjacent on the left in the displayed map, the best next action is to step left again to try to land on it and continue progression.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The safest immediate move is to step left again toward the staircase area, since the map consistently shows the stairs adjacent on that side and we need to resolve positioning before descending.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The visible state is unchanged and the staircase interaction has not progressed; the most likely issue is that we need a different tactical move rather than repeating the same step. Since the map shows a passable interior and no immediate threats, I\u2019ll move right to continue exploring and reorient our position for a later descent.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map again shows the staircase immediately to the left of the player. To continue progressing, the most relevant action is to step left onto the staircase tile.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We need to make a move from the current repeated room state. The staircase has been inconsistently indicated, but the only clear actionable progression is to move left toward the visible '%' side and attempt to get onto the stairs again.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map shows the player adjacent to the staircase area again, and the immediate objective is to get onto the staircase tile to allow descending. I will continue with the left move, which is the consistent action toward the visible '%' marker.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The repeated left/right toggling suggests the avatar is not actually being moved onto the stairs with the currently selected action. Given the visible map state, the most useful immediate action is to press the descent command directly, since if we are on the staircase it will advance, and if not it will confirm that we need a different positioning step next.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We successfully descended to Level 2 and are now in a tiny new room with the player near the center. The next sensible action is to inspect/move east into the only apparent open space and discover the layout of this floor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019ve moved one step east in the new room, and the updated map now shows open space further to the east with a likely corridor beyond. The best next action is to continue east to probe the floor layout and avoid getting stuck in the entry room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map did not change after the last east move, which suggests east may be blocked or the room has a constrained layout. The most sensible next action is to try moving north to test for an exit or corridor and continue mapping the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The player has moved north within the Level 2 room, and the updated map suggests there may be more structure to the north/east to discover. The best next action is to continue exploring with another northward step to see if this opens into a corridor or important feature.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "A new symbol '#' has appeared just north of the player, likely indicating a door, trap, or special terrain. The immediate safest exploration move is to step onto or investigate that tile by moving north.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The player appears to have taken damage and is now standing adjacent to two '#' tiles, suggesting a hazard or obstacle ahead. To minimize risk and preserve HP while we assess the situation, the best move is to step back south into the room and avoid pressing into the unknown.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We stepped south and are now back in the lower part of the room with the hazard cluster still visible above. Since north is dangerous and east/west are bounded, the next rational action is to continue retreating south to create space and see whether a safer path opens.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019re back in the room and the hazard remains only to the north. The best next step is to move east to test the room boundary and look for a safer route around the obstacle cluster.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The east move did not change the map, so east is likely blocked. Since the north area appears hazardous and the room is confined, the best next move is to probe west for an alternate exit or safe path.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are now positioned farther west in the room, with the hazardous '#' cluster still north and no immediate movement apparent. The most useful next action is to continue probing west, since that is the only direction not yet conclusively blocked and may reveal the level layout or an exit route.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The current view suggests the player is against the west wall and further west is likely blocked. Since the hazard remains north and movement has become constrained, the most informative next action is to try moving south to search for any hidden passage or alternate route in the room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have shifted south into the lower part of the room and still have no clear exit. The next logical exploration move is to continue south once more, since the visible upper hazards are being avoided and any passage from this cramped room is most likely below.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The player is back in the lower part of the cramped Level 2 room, with the hazardous cluster still north and no evidence of an open route in the other directions. Since repeated movement has only repositioned within the same chamber, the best next step is to head south again to continue checking for any passage out of this dead end.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The room layout has not meaningfully changed and the player appears constrained in the lower portion of a tiny chamber. Since further repetition of the same move is not informative, the best next action is to attempt to move west to verify the boundary and see if there is any hidden opening or alternate corridor on that side.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The west move revealed a new '#' directly to the left, meaning that side is also constrained or hazardous. The safest productive course is to back away east into the room and reassess, since the current position may be trapped between hazards and walls.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are now adjacent to a visible '#' on the west side and the room still appears tightly bounded. The safest move is to continue east, keeping distance from the hazard while checking whether the eastern side opens into a corridor or stair route.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The eastern move placed us against a visible hazard on the west side, but we are still confined in the same small area. Since the east direction appears to be the only potentially safe lane remaining, continue east to test for an exit or corridor beyond the cramped room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The character is pinned in a tiny chamber with hazards to the west and no visible benefit from repeated eastward moves. The map suggests the safest meaningful action is to try moving north to probe the remaining unexplored edge and see if a passage or staircase is hidden there.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still in the same cramped Level 2 room and moving north appears to be the only unexplored direction that might reveal a passage or interact with the visible boundary/hazard cluster. Continue north to test whether this is the way out.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The latest move north brought the player into the upper boundary area again, with the hazardous '#' cluster still visible and no clear new passage discovered. Since north seems to be the only promising direction left to test for a breakthrough, continue north once more to see if the layout opens or reveals a stair/door.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The player is now on the top row of the visible room and likely cannot progress further north, while the layout to the south remains the only accessible interior space. The most sensible action is to move south to re-center in the room and avoid getting pinned at the boundary.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are at the top boundary again and the visible chamber below is the only accessible area. Since north is blocked and repeated probing has not found an exit, the best next move is to step south back into the room to continue searching from a safer central position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are back in the lower-center of the small room, with the upper hazards still present and no exit found. Since the south side remains the only untested direction in the current position and may reveal a passage or doorway beyond the visible chamber, move south again to continue exploration.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have continued to explore the same tiny room without finding an exit, and the current position shows us slightly east of center with the west side blocked by a hazard marker. The most likely productive move is to continue east, since it is the only direction that may still open space rather than the blocked or dangerous edges.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The current state shows no meaningful progress from repeated lateral probing, so the safest next action is to keep pressure toward the only direction that may still reveal a passage: east. This also avoids lingering against the hazardous west side.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same cramped room with no visible progress from prior eastward attempts. Since east is still the only potentially open direction and the immediate goal is to keep exploring for an exit, repeat the east move once more.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still in the same constrained position and prior eastward actions have not changed the map. The next practical step is to keep moving east in case the corridor continues just beyond the current visible edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map still shows the avatar trapped in the same small room, and repeated eastward moves have not altered the state, suggesting the path may be blocked or the turn resolution is not advancing visibly. A reasonable next attempt is to move north again to check whether the upper boundary has any alternate opening or trigger not yet activated.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has shifted to the upper-center of the small room, indicating northward movement is still being accepted and may be the only way to probe for an opening. Continue north once more to test the upper boundary and see whether a stair or passage is just beyond the visible area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The player is back at the top boundary of the tiny chamber with no new information from repeated probing. Since north seems to keep reaching the same edge, the next sensible move is to step south to re-enter the room and continue searching from the interior rather than staying pinned at the boundary.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are again inside the same small chamber and the repeated north/south probing suggests a dead end near the current edge. To continue methodical exploration, the best next action is to test the west side once more from this interior position, since it may reveal a passage or hidden boundary interaction not visible from the north edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are now one step west of the prior center position, indicating westward movement is available and may be the correct way to continue tracing the room perimeter. Since the map remains cramped and we need to find an actual exit or transition, move west again to test whether this side opens into a corridor or wall boundary.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have reached the west side of the cramped chamber, and further westward probing is the most likely way to discover whether this is a true wall or a concealed opening. Continue west to test the boundary and advance exploration.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now at the western edge of the room, so another west move is the most direct way to test whether there is a passage beyond the boundary or whether this is a hard wall. Since no other visible route is more promising from the current cramped position, continue west.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are at the western edge of the small room and prior westward moves have not produced a visible transition, suggesting we may be boxed in on this side. The best next test is to move east, back toward the room interior, so we can reassess and avoid being stuck against the boundary.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019ve moved back toward the room interior, which is the most stable place to continue exploration. From here, the next logical step is to press east again to keep tracing the chamber and look for an opening or transition beyond the visible map edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same small chamber and eastward movement has not yet revealed a new area, but it remains the best candidate direction for discovering a passage from the current position. Continue east once more to test whether the corridor extends beyond the visible boundary.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The state has not changed across several eastward attempts, which suggests we may be bumping into a wall or should probe a different axis to find a transition. The most informative next step is to move south from the current interior position and check whether there is an opening below the small chamber.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have successfully moved south and gained 1 HP, indicating this direction is safe and likely leads through a healing or favorable area. Since the lower side is now the most promising route and the room remains unresolved, continue south to keep progressing downward through the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Southward movement previously resulted in a beneficial HP increase, so it is the best supported direction to continue testing. The map still shows no new corridor elsewhere, and maintaining the downward exploration path is the most likely way to advance beyond this chamber.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Southward movement has already proven safe and slightly beneficial, and the avatar is still positioned to continue probing the lower boundary of this chamber. The most relevant next step is to keep moving south to see whether a passage or transition exists below.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "South remains the only direction that has recently yielded progress without any visible danger, and the current state suggests we are still on the same navigable path. Continue south to keep searching for the exit or next room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The repeated south moves have not changed the visible layout, but they remain the only path that has shown any forward progress and safety. Continue south once more to keep probing for an opening beneath the current chamber.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The repeated southward probing has produced no further visible transition, suggesting we are likely at or near a boundary again. To avoid getting stuck, the best immediate test is to step east from the current position and see whether that reveals a different corridor or chamber edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has remained in the same compact area with no new visible progress from repeated south/east probing, so the most useful next step is to switch to a different direction and test the west side again in case a passage lies there. This is a low-risk exploration move that may reveal the actual route forward.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have moved west and are now adjacent to the likely lower-left corridor edge, with the room still showing no alternate exits. The next best move is to continue west to test whether this side opens into a passage or stairway, since east/south have not produced new terrain.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have successfully shifted farther west and now appear to be at the left edge of the explored chamber. Since previous west moves have sometimes advanced position and the map still lacks a clear exit, the next rational move is to keep pressing west to determine whether there is a passage, staircase, or wall boundary immediately beyond this side.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has now shifted to the far left side of the visible area, with no new terrain revealed by repeated west moves. Since the chamber layout still looks unresolved and the left edge appears to be the last untested boundary, the best next action is to keep moving west one more time to see whether we can break into an adjacent space or confirm a wall.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are at the far left side of the narrow corridor-like chamber, and the visible layout suggests the left boundary has now been fully probed. Since repeated west movement has finally shifted the avatar and the area still appears constrained, the most sensible next move is north to test whether there is an opening upward from this left edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has not changed position with the last move, implying north is likely blocked from here. Since west/east/south probing has already shown some movement and the left edge remains the clearest unresolved boundary, the safest next attempt is to continue west one more step to confirm whether there is any remaining passage on this side.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019ve now hit a denser left-side boundary, indicating the chamber is ending or blocked on this side. Since west is no longer productive and the map suggests the safest escape from this cramped area is to reverse direction and search for the more open side again, move east.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have reversed east from the left boundary and are now back in the narrow chamber near the center-left. Since the layout remains unchanged and the rightward side is the only direction that has previously shown any chance of returning toward open space, continue east to keep searching for a real exit or transition.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still in the same narrow corridor segment, now closer to the right side after repeated eastward probing. Since this direction has consistently been the only one that re-centers us toward the more open part of the room, continue east to keep tracing the passage and look for the next navigable area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now at the far right side of the narrow corridor segment, and the map suggests the next logical step is to push further right to determine whether this connects to a broader room, passage, or wall. Since eastward movement has been steadily advancing us through the visible structure, continue east.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are now at the right end of the visible corridor, and the repeated east progression indicates we\u2019ve been traversing this strip successfully. The next move should continue east to test whether there is an opening or boundary immediately beyond the current right edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are at the right edge of the current corridor segment, and the last eastward step has brought us into the clearest open position so far. The most sensible next action is to continue east to see whether the corridor continues or if this is the transition point to a new space.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears to have reached the rightmost boundary of the corridor segment, and repeated eastward moves have been the consistent way to advance through this structure. To keep exploring and test for any continuation or exit beyond the current edge, continue east once more.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the rightmost edge of the visible corridor, and prior east moves have been the most consistently productive. Since the map hasn\u2019t revealed a new branch yet, the best immediate action remains to continue east and probe for whatever lies beyond this boundary.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still at the right end of the corridor-like area, and eastward motion has been the only reliable way to test for further continuation. Since the last state shows no new branch yet, keep moving east to probe beyond the current boundary.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains pinned at the same right-edge position, indicating the repeated east attempts are no longer producing visible movement. Since there\u2019s no new information from continuing in place, the best immediate action is to switch to a vertical probe and try north to see whether an exit or alternate passage lies above this corridor end.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has moved into a slightly different tile configuration, and the corridor still appears to extend to the right. Since the north probe did reveal a changed local layout but not a clear exit, the most informative next step is to continue east, which should help determine whether this is a traversable hallway leading onward or just a dead-end pocket.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar hasn\u2019t advanced with the last east move, suggesting we may be at or near a blockage on this side. The corridor still looks constrained, so the next best exploratory action is to step south to test for a lower opening or to re-center within the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The last south move did not change the avatar\u2019s position, so that direction is likely blocked. We are still in the same constrained corridor segment, and the most likely way forward is to keep probing the only side that has intermittently moved us through this area: east.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019re stuck at the same right-side corridor position, and the map suggests the eastward path may still be the only plausible continuation even though recent movement hasn\u2019t visibly changed the layout. Since the immediate goal is to keep probing for a passage or exit, try east again.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same corridor position after another east attempt, so progress is likely blocked in this direction. Given the cramped layout and the need to find a new navigable space, the best next action is to probe west to see if we can backtrack into a better branch or open area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019ve moved one step west, confirming backtracking is still possible and that the corridor has some remaining width to the left. Since the right side appears blocked or unhelpful and westward movement is currently the only demonstrated way to reposition, continue west to retreat toward the previous, potentially more open section.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We successfully backtracked west one step, so the corridor is still traversable in that direction. Since the east side appears to have stalled and west is reopening the path toward the earlier area, continue west to keep retreating toward the broader section and avoid wasting turns at a dead end.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have just moved west and are now one step closer to the left side of the corridor. The visible layout still suggests the passage continues, and since westward retreat has been consistently effective for repositioning away from the stalled right edge, continue west to keep backing toward the broader area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are continuing to retreat west from the stalled corridor end, and the avatar has just moved left again, bringing us further toward the earlier, more open section. Since westward movement is still working and the right side appears exhausted, keep moving west.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have continued successfully westward, and the avatar is now further left in the same corridor. Since the left side is the only direction that has consistently changed position and may lead back into the broader explored area, keep moving west one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019ve successfully retreated left multiple steps and are now approaching the left side of the corridor. Since west has been the only productive movement and the layout suggests there may still be more of the passage to the left, continue west to keep returning toward the more open area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have now reached a more open-looking leftward position and even recovered to full HP, indicating this route is safer than the stalled right edge. Since westward retreat has been making progress and likely leads back into the explored hub, keep moving west to continue leaving the dead-end corridor and search for the next branch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have continued moving west and remain healthy, but the map now suggests we are near a more open transition point rather than the dead-end side we were probing before. The safest and most informative next move is to keep going west to fully clear this corridor segment and see what branch or room lies beyond.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still moving west and have not encountered danger; the corridor seems to be opening up to the left, so continuing west is the most direct way to leave this stretch and discover the next area. Since westward steps have been consistently productive, keep going west.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor stretch, and westward movement has been steadily progressing us toward the broader area without any sign of danger. Since the left side continues to look like the exit from this narrow section, continue west to fully clear it and reveal the next branch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have been successfully backing west through the corridor and are now at the leftward extent of this run. The map still shows the passage continuing, so the correct next move is to keep heading west and see whether it opens into the next room or intersection.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor keeps extending left, and the avatar has been steadily making progress by moving west. There\u2019s no indication of a new branch yet, so the most sensible action is to continue west and see whether this passage opens into a room or intersection.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still advancing west through the same corridor and have not yet hit a clear junction or obstacle. Since westward movement has been consistently productive and the passage appears to continue left, keep going west to fully exit this narrow stretch and reach the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019ve been steadily shifting west and the map still shows the corridor extending in that direction, with no sign that we\u2019ve reached a solid wall or an alternate branch. Continue west to keep clearing this passage and reach whatever lies beyond it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor continues to open to the west, and the avatar has been making uninterrupted progress in that direction. There\u2019s still no visible reason to change course, so keep moving west to continue toward the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still moving west successfully and the corridor continues to extend left. Since no obstacle or branch has appeared yet, the best immediate action remains to keep heading west and see whether the passage opens into a new area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have been steadily moving west and are still not at a clear termination point; the corridor appears to continue left. The most consistent action remains to keep moving west and push through to the next area or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached a new visible edge of the corridor, and the repeated westward progression has likely brought us to the end of this stretch or into a transition point. Since the passage still seems open and west has been the successful direction throughout, continue west one more step to discover whether the corridor opens up or ends.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still in the same westward corridor and have not encountered a reason to turn back; the avatar has been successfully advancing left for many turns. The safest continuation is to keep moving west and see whether this passage finally opens into a room or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still making westward progress in the corridor, and the visible map has not introduced any new obstacle or alternative branch that would justify changing direction. Continuing west remains the most consistent move to exit this stretch and find the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still in the same westward corridor and have been successfully advancing left every turn. No new branch or hazard is visible, so the best immediate action is to continue west to keep pushing toward the next open area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "A new wall/structure has appeared on the left side of the corridor, suggesting the westward path is no longer simply open space. Since continuing west may now be blocked or less informative, it\u2019s time to test a different direction and assess the surrounding corridor, with south being the most plausible next exploration from this position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The attempted south move did not change the state, which suggests that direction is blocked or otherwise ineffective here. We\u2019re at a left-side boundary with a visible structure above and no progress south, so the next sensible move is to try north to probe for a passage around the barrier.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "North also failed to move us, which means we\u2019re likely pinned at an intersection or blocked on multiple sides. Since west had been the only direction producing clear progress and the visible layout still suggests open corridor to the left, return to moving west to continue through the known passable route.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019ve now shifted one step further west, confirming the leftward path is still open and navigable. Since the corridor continues to extend in that direction and we have not found a better branch yet, keep moving west to press onward through the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The leftward corridor now appears to have reached a stable boundary, and the repeated west moves are no longer changing the map meaningfully. Since nearby vertical movement previously had no effect, the most likely next useful direction is to probe the open side of the junction to the east, which may reveal the connected room or reset the position along the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The eastward move did not alter the state, so the avatar is likely still boxed within the same corridor segment. Since west had been the only clearly advancing direction and the map still indicates the path continues there, continue west to keep following the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We remain in the same corridor with west as the only direction that had been making progress, and the latest move did not change the map in a way that suggests a new branch. Continue west to keep traversing the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map has not changed in a way that reveals a better option, but the avatar is still positioned at the corridor edge with west being the direction that has been traversable throughout. Continue west to keep probing for the exit or next junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears to be stuck at a corridor edge with repeated west moves no longer changing the situation. Since the map still shows open space on the right side of the corridor and we need to reorient, the best next action is to try moving east to see if that returns us to the connected passage or a new junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The east move restored the earlier corridor position, confirming the passage loops back and that we can use the corridor to reposition. Since west had been the direction of exploration and the right-side return suggests the corridor is navigable in both directions, continue west again to push toward the unexplored end.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are back at the corridor position where west is the only direction that has been advancing the exploration. The layout suggests the passage continues left, so keep moving west to keep scanning for the next room or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor position is unchanged and west has consistently been the only productive exploration direction. Since there is still no sign of a new branch or obstacle that would justify changing course, continue west to advance the exploration.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map remains unchanged and the avatar is still in the same corridor segment. Since west has been the only consistently useful direction to probe for new territory, continue west once more to keep advancing exploration.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still in the same corridor, but repeated westward moves have not produced any visible change, suggesting we may now be at or near the limit of the map in that direction. Since east previously repositioned us along the corridor and the right side remains the only plausible alternative path, attempt east again to confirm whether the corridor can be traversed back toward the junction or a new area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The eastward repositioning succeeded again, placing us back at the corridor intersection. Since the leftward exploration appears to be the main open route and we can reliably return here, proceed west to continue uncovering the passage beyond the junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor state is unchanged and west remains the only direction that has been reliably advancing exploration from this position. Continue west to keep moving through the passage and search for the next opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The state remains unchanged after another west attempt, indicating that this direction is no longer progressing us. Since the corridor has been traversable eastward for repositioning and the map still suggests a connected passage, switch back east to recover the junction and reassess from there.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have returned to the corridor junction, but repeated west/east shuttling has not revealed a new branch. The most plausible unexplored option from this position is to move north around the visible structure, which may open a different corridor or chamber beyond the current chokepoint.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "North again left the state unchanged, so that route is blocked or ineffective here. Since the corridor junction remains the only navigable feature and east has consistently returned us to the same central spot, move east to stay oriented and keep probing for the correct branch from the junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019ve shifted slightly eastward, suggesting movement is possible along the corridor. The likely goal is to keep following the passage to see whether it opens up into a new area, so continue east from the current position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The last east step advanced us further along the corridor, confirming that this direction continues to progress through the passage. Keep moving east to follow the corridor toward the next junction or opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor is still extending eastward, and the avatar has been successfully advancing in that direction. Since the current goal is to keep exploring the hallway until it opens or terminates, continue east one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Eastward movement is clearly progressing along the corridor, with the avatar advancing one step at a time and no new obstacles appearing. Continue east to keep following the hallway toward its next opening or endpoint.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor is continuing to advance east, and the avatar has been moving one step per turn without encountering a blockage. The next logical action is to keep moving east to follow the passage and reveal the next section of the map.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Eastward movement is still advancing the avatar along the corridor, and there is no indication of a branch or obstacle yet. Continue east to keep following the passage toward whatever lies ahead.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still advancing east along the same corridor, with the avatar now several steps farther right than before. Since the passage remains open and no branching decision has appeared, continue east to keep probing the hallway for its next transition.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving east through the same corridor, and the pattern shows steady progress with no new branching yet. Continue east one more step to follow the hallway and see whether it opens or terminates ahead.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The attempted east move missed because the corridor now contains an enemy directly adjacent to the avatar. The safest and most relevant immediate action is to attack that enemy by continuing east, which should engage the nearby target and clear the path forward.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are in melee with the emu and both sides have just missed. The correct next step is to keep attacking in place by moving east again, since that is the only action that directly continues the fight and can eventually clear the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are stuck in adjacent melee with the emu and repeated east moves have produced misses on both sides. Since the corridor is narrow and the enemy is directly blocking progress, continue attacking east to press the fight until it resolves.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We remain locked in melee with the emu, and the prior eastward attacks have continued the engagement without changing position. The only immediate way to finish the encounter is to keep attacking east.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are in direct combat with the emu and the last exchange showed the enemy landing a hit, so we need to keep pressing the attack to avoid lingering in melee. Continue moving east to attack again and attempt to finish the fight.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The emu has been defeated and the corridor is now clear. The next sensible action is to continue east to advance past the combat site and explore what lies beyond.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "With the emu gone, the path east is open again and the avatar is already aligned to continue through the corridor. Proceed east to explore the newly cleared area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has advanced further east after defeating the emu, and the corridor is still open ahead. Continue east to keep exploring the passage and reveal the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still progressing east through the corridor after the cleared combat. Since there\u2019s no sign of a branch yet, keep moving east to continue along the passage and uncover what comes next.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019ve continued to make steady eastward progress along the corridor after clearing the emu, and the passage still appears open. The most consistent next action is to keep moving east to advance to the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still aligned on the same eastbound corridor and the map indicates continued open passage ahead. Proceed east again to keep advancing through the hallway and uncover the next section.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued moving east in a straight corridor and remains in clear traversal mode with no immediate branching decision visible. The most relevant next action is to keep advancing east to reveal the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still progressing east through the corridor with no new obstacle or branch visible, and the path appears open ahead. Continue east to keep advancing along the hallway.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving east continuously and is still in the same corridor with the path apparently open ahead. Continue east to keep traversing the hallway and discover what lies beyond.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in a narrow eastbound corridor and has been advancing one step per turn. The next action is to continue east, since that remains the only apparent path forward and should reveal the next corridor segment or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the next eastward step in the corridor and still appears to have open space ahead. Continue east to keep moving through the passage and uncover the next map area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued east and is now adjacent to a more open area on the right, suggesting the corridor may be ending or turning. Continue east one step to transition into the next space and inspect the layout ahead.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now positioned at the right-side doorway/opening, indicating a transition point rather than straight corridor movement. The most useful next action is to step east into the adjoining space to reveal the next room or corridor layout.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have reached the doorway and there appears to be an open tile to the east in the adjacent area. Step east to enter that space and continue exploring beyond the cleared corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is at a doorway with an apparent open tile to the east, so the next logical move is to step east into the adjoining area and continue exploration.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the right edge of the corridor, and the visible open tile remains to the east. Continue east to enter the adjacent area and advance exploration.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still positioned at the corridor\u2019s east end, with the displayed map unchanged and no new obstacle visible. The safest continuation is to keep moving east to try to leave the corridor and enter the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains at the eastern edge of the explored corridor, and the map still suggests an open continuation or doorway to the east. Since no other action is indicated, continue east to attempt to enter the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor progression appears to have stalled at the east end, and the map now shows the avatar against the right-side boundary with no further eastward advance visible. A downward move is the most plausible way to continue from this position and explore the adjacent area below.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears stuck at the corridor end and the previous downward attempt did not change the state, which suggests the current tile may be a door or turn that needs another direction. Since the map still shows an open space to the east/right edge, try east once more to see if the passage continues or if the avatar can transition into the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains at the east end of the corridor with no visible change after prior attempts, so the best next step is to continue trying to move east in case the passage opens into the adjacent area on that side.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the corridor end and has not advanced, indicating the current repeated eastward attempts are not producing movement. A different directional move is needed to break out of this dead end; try moving north to see if there is a passage or room entry above.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Moving north successfully changed the visible position, indicating the avatar has found a way into the upper part of the nearby area. Continue north to fully enter and explore the space above.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has moved north one tile and is now aligned with the upper passage; continuing north should progress into the corridor/room above and is the most direct exploration step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now directly on the upper open tile, indicating the northward movement was effective. The next logical step is to continue north to advance into the space above and keep exploring the map.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now at the top corridor edge and appears to have room to continue north or potentially turn. Since the immediate goal is to keep exploring and the northward path has been open so far, continue north one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is at the northern edge of the explored corridor and the visible path suggests there is still room to continue upward or around the bend. To keep progressing through the dungeon, continue north one step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains at the north edge with the map unchanged, which suggests the current route is blocked or exhausted. Since northward movement is no longer advancing, the best next step is to try moving east to test for a side passage or exit from this corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is at a blocked-looking north/east edge with no apparent progress from repeated moves. A new direction is needed to escape the local dead end, and moving west is the most likely way to return toward the corridor and regain mobility.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now centered with walls on both sides, indicating a narrow passage. Since west movement was just successful enough to shift position and the north/south options remain constrained, continue west to probe the corridor and return toward unexplored space.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar successfully moved west into a tighter corridor segment, so continue west to keep retreating along the passage and look for a connection or branching path back toward unexplored territory.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar continues shifting west through the narrow passage, so the most relevant next action is to keep moving west to follow the corridor and search for a junction or open area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving west through a narrow corridor and has not encountered a new branch yet, so continuing west remains the most direct way to follow the passage and discover where it leads.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still progressing west through the same corridor, with no indication of a branch or hazard. Continue west to keep following the passage and reach whatever lies beyond the visible narrow section.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar continues to shift west through the corridor and has not reached an obstacle or new room yet. Maintain the same trajectory and keep moving west to follow the passage to its next opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving west through the narrow corridor, and the visible map shows no branching yet. The safest and most consistent action is to continue west to keep following the passage to its next opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor remains straight and the avatar is still advancing west, with no visible branching or danger. Continue west one more step to keep following the passage until it opens up or ends.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily moving west through the same narrow corridor without encountering a branch, so continuing west is the most direct way to keep advancing and eventually reach the corridor's end or an opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map now shows the avatar adjacent to a visible vertical feature above-left, suggesting the corridor may open upward or have a side passage nearby. Since westward progress is nearing an obstacle, try moving north to test for an opening or turn in the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Northward movement did not change the state, so that direction is blocked. The visible layout suggests the avatar is in a dead-end-like upper corridor, and the next best exploratory move is to try east to seek any adjacent passage or turn.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The east move changed the corridor view slightly, indicating the avatar is navigating a tight passage and there may still be a route to the right. Continue east to probe the corridor and look for the next opening or turn.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now positioned deeper in the narrow corridor with the map showing additional cleared space to the east. Since eastward motion has been productive and the corridor remains passable, continue east to advance toward the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor has clearly been traversed eastward several steps and now appears to be approaching a new area. Continue east to keep progressing toward the next opening or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued east through the same corridor and the map still suggests the path is open in that direction. To keep moving through the dungeon and avoid stalling, continue east one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor, now with the path clearly extending east. Continuing east is the most direct way to keep advancing and find the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in a straight corridor with visible continuation and no sign of a hazard or branch. The most sensible action is to keep moving east to continue exploring toward whatever lies ahead.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving east along a corridor for many turns, and the map still shows clear space to the east. Continue east to keep progressing through the passage toward the next opening or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still advancing east through the same narrow corridor, and the visible map indicates the path continues. Continue east to keep exploring toward the next opening or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same tight corridor with visible continuation east, and no new branch or obstacle has appeared. Continue east to keep advancing through the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the rightmost end of the corridor with no further eastward continuation visible. The most likely next useful action is to test for a nearby passage by moving north, since the current horizontal path appears exhausted.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "North did not reveal any movement, so that direction appears blocked. The corridor seems to have a right-side end, and the only unexplored direction worth trying from this position is south, to check whether there is a passage below the current horizontal hall.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has shifted into a position where the previous corridor traversal no longer looks like the rightward goal, and the map now suggests a downward route may connect to the lower room/corridor area. Continue probing south to enter that lower passage if available.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now on the lower horizontal corridor and appears aligned with a route to the west. Since south appears to have completed the move into this level of passage, continue west to follow the lower corridor and explore toward its next feature.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same lower corridor position after the last westward probe, suggesting that direction may be blocked or not yet advanced. Since the visible layout still hints at a passage to the east along the lower hall, try moving east to continue exploring from this junction-like spot.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is positioned on a lower horizontal corridor with no obvious progress from the previous move, and the strongest clue from the map is the vertical connection to the south/west area. Probe south to see whether this corridor connects downward into the next section of the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has moved into the lower corridor where the map now shows a nearby alternate tile below-right, suggesting the next useful exploration is to continue east along this lower passage to see what connects beyond the current spot.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears to have reached a stable corridor position with no clear forward progress from repeated eastward attempts. The lower corridor still suggests lateral exploration may be possible, so the next best probe is west to test the alternate direction and avoid getting stuck.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The lower corridor now shows the avatar shifted left, meaning the westward path is open and the character is making progress along this branch. Continue west to keep following the corridor and look for the next junction or room entrance.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has not advanced with the last westward move, so that direction may be blocked or already fully explored. The map still suggests a passage to the east/right from the current corridor position, so try east to see if the branch continues.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is in a lower corridor where east/west probing has alternated without clear exit, and the map still suggests a possible connection downward/right. Since no immediate combat or threat is present, the best next action is to continue east one step to confirm whether this corridor extends further or whether a junction lies just ahead.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor position appears unchanged after repeated east/west probing, indicating the avatar is likely at a dead end or blocked segment. The only unexplored route still plausible from this layout is north toward the upper connection, so probe north to escape the stagnation.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has returned to the upper corridor, and the visible map again suggests the route continues horizontally. Since the previous move brought the character back north to this line, the most likely productive action is to continue east along the upper passage to resume exploration.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is back on the upper hallway and the map indicates open space continues to the right. With no immediate hazards and the goal still to explore forward, the next action is to keep moving east.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the upper corridor with no apparent change, and repeated horizontal movement has been the only successful exploration pattern. Continue east to keep advancing along the hallway toward the next opening or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same upper corridor position after another eastward attempt, so the path may be blocked or the character may be pacing at the corridor edge. The best next probe is south, which should test for a connection into the lower passage or adjacent room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The south move succeeded and the avatar is now in the lower corridor again, positioned to continue exploring laterally. Since the passage appears open to the west and this has been the more reliable direction for progress through this branch, continue west to move deeper along the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has just moved west and now sits one step left in the lower corridor, indicating that west is open and still progressing the exploration. Continue west to follow this corridor until it terminates or opens into a new area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The latest westward move succeeded and the avatar is now farther left in the lower corridor. Since this branch is still open and has been the only direction showing consistent progress, continue west to keep advancing and see whether the corridor ends or turns into a room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued successfully moving west along the lower corridor, and the visible map still suggests there may be more of this passage to explore. Keep following the corridor west to reach its next feature or endpoint.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears to be at the western portion of the lower corridor, and repeated westward movement has been the only consistent way to make progress. Continue west once more to test whether this corridor extends further or terminates in an opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same lower-corridor position after another westward attempt, which suggests the branch may be fully explored or movement there is being constrained. To avoid stalling, switch direction and try east to determine whether the corridor is one-sided or if the character needs to backtrack toward a junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has shifted right again, confirming that east is open from this lower-corridor position and that the repeated west/east probing is simply oscillating around a narrow passage. Continue east to push toward the next unexplored section and escape the loop.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is currently in the lower corridor and the map indicates the nearby route continues to the east/right. After the last move the position changed back toward the right side, so the most relevant next action is to keep moving east and see whether this corridor opens up further.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains on the lower corridor with no visible change from the previous step, suggesting the eastern side may now be the path to continue or that we are at the edge of a short hall. Since the objective is to keep exploring and the east side has been the most plausible continuation, attempt east once more to confirm whether there is any further passage or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor segment and eastward probing appears to be the only direction that has kept the exploration moving without introducing danger. Continue east again to try to reach the next open tile or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar still has not changed position, which suggests the current tile may be at the corridor\u2019s edge or that horizontal movement is no longer making progress. To break the loop, switch to a vertical probe and try moving north to see if there is a passage or room above.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The north move succeeded and brought the avatar back to the upper corridor, confirming this vertical connection. From here the best course is to continue east along the upper hallway to keep exploring the corridor network and seek the next opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is back in the upper corridor, but prior eastward attempts from this position did not appear to advance the map. Since north/south connections have been confirmed and the upper passage seems to be a navigable transit point, continue east one more time to test for a new opening or to move toward the right-side structure.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is on the upper corridor and the map shows the right-hand side still as the likely continuation. Since the most recent eastward move did not visibly advance but this corridor is the active explored path, keep pressing east to try to reach the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains at the upper corridor with no visible progress from repeated east moves, so the safest way to break the apparent loop is to backtrack by moving west. This should help determine whether we are at a dead end or can return to a junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears to have returned to a stable upper-corridor position, and the previous west step did not visibly change the map. To continue exploring and avoid being stuck in place, probe downward again to see whether there is a route into the lower passage or a new area from this spot.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The downward move brought the avatar back to the lower corridor on the right side, so the corridor is connected vertically and we can continue exploring from here. The visible layout suggests the safest progress is still horizontal along the corridor, and moving west should advance into the unexplored portion rather than oscillating at the same junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has shifted left within the lower corridor and the map indicates this hallway continues westward. Since this is the clearest available progression and we want to keep exploring the corridor network, continue west.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now clearly one step left in the lower corridor, and this hallway still appears to extend further west. Continue west to progress along the passage and find the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the lower corridor and the recent westward moves have been the only consistent way to advance along this passage. Since the visible map suggests the corridor continues, keep moving west to pursue the unexplored end.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar\u2019s last few west moves appear to have reached a stable corridor position with no visible change, so continuing to hammer the same direction is unlikely to help. To break the deadlock and probe for an unseen branch, switch to moving north from the current lower-corridor spot and test for a connection upward.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the lower corridor and the repeated westward progression has plateaued. A northward probe is the best next test because it may reconnect to the upper passage or reveal a new branch without wasting more turns on an apparently static horizontal segment.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has remained in the same lower-corridor state despite previous north probes, indicating we are likely at a junction where the north action is not yielding visible movement. The map still suggests open space to the west, and horizontal exploration is the most promising way to make actual progress, so continue west.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the lower corridor, and the only visible route that appears to lead to unexplored space is westward along the hallway. Since prior north probes did not produce movement, continue west to make tangible progress and avoid unnecessary backtracking.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is stationary in the lower corridor after repeated attempts, and the map still shows the hallway extending west. The most relevant next action is to continue west to force movement into the remaining corridor and see whether it opens into a new area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears stuck at the same lower-corridor position, but the western side remains the only direction that plausibly extends the hallway. Continue west to force movement into the remaining unexplored corridor segment and determine whether the passage opens up or ends.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor with no visible change from repeated west moves, which means the current action is likely not making progress. The most sensible next step is to try moving south to probe for a different connection or return route from this stuck position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The south move changed the avatar\u2019s position to the lower-right side of the corridor, confirming the vertical adjustment works and that we are at a nearby junction. From here, the clearest unexplored progress is westward along the lower passage, so advance west to continue mapping the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now at the lower corridor with a visible open stretch to the west, and previous westward moves have been the only reliable way to advance along this hallway. Continue west to move into the unexplored section and keep following the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has successfully advanced further west along the lower corridor, and the corridor still appears to continue. The next logical move is to keep heading west to reach the left-side area or an upcoming junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has now progressed farther west in the lower corridor, and the left side appears to open into a broader unexplored area. Continue west to enter that space and advance beyond the narrow hallway.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued west and is now positioned at a new western stretch of the lower corridor, so the safest continuation is to keep moving west and see whether this opens into the larger room or the corridor terminus.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has advanced into the western portion of the lower corridor and the path still appears to extend leftward. Since west movement is currently the only action that is clearly producing exploration progress, continue west one more step to try to reach the next junction or room edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has now reached the far-west side of the lower corridor, and the repeated westward progression has likely brought us to the corridor\u2019s edge or a boundary. The most promising next action is to continue west once more to test whether this opens into a room or doorway beyond the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has finally reached the western end of the lower corridor and is aligned with an opening on the left. This looks like a doorway or transition point, so the best next action is to keep moving west to enter the adjacent space or trigger the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily moving west and is now at the far-left end of the lower corridor, but the visible map suggests there may be a branch or doorway nearby rather than a simple dead end. Since west progress is no longer clearly changing the situation, the best immediate test is to move north from this western endpoint to probe for a connection above.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar did not visibly change after the north probe, suggesting that action was ineffective at the current position. Since the corridor layout still shows an accessible passage and westward movement has been the reliable way to advance along it, continue west to force the next map transition or uncover the actual endpoint.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still progressing west along the lower corridor, and the latest state shows the character shifted further left again. Since west continues to be the only direction that advances along the corridor and there is no evidence of a better branch yet, keep moving west to press toward the corridor\u2019s end or a possible room opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued shifting west and is now positioned near what looks like the western stretch of the lower corridor. Since westward movement is still visibly advancing the position and there is no clearer alternative branch from the map, continue west to push through the passage and see if it opens into the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the lower corridor with the western side still being the only direction that has consistently advanced the position. Continue west to keep moving toward the corridor\u2019s end or a new opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has now reached the far-west end of the lower corridor as shown by the latest map, and westward movement has been the only consistent way to advance through this stretch. Continue west one more time to test the boundary or enter the next open space beyond the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached a boundary-like western edge of the corridor and the map no longer suggests further westward progress. The safest next action is to turn and move east to retrace a step, which may reveal a junction or free the avatar from the edge of the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor position and the last eastward action did not visibly change the map, suggesting a possible collision with a wall or a no-op at the edge. Since the lower corridor still appears traversable and the western route has been the main explored path, try moving east again to confirm whether this is a blocked edge or whether a valid step opens up from here.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar finally shifted one step east, indicating the corridor is still traversable and we are not at a hard wall. Since east opens up the route back toward the junction and may reveal side passages or the exit from this lower hallway, continue east to explore that direction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has moved east and is now positioned closer to the central portion of the lower corridor, where the route should eventually reconnect with the upper passage. Continue east to keep retracing toward the junction and uncover any branch leading away from this hallway.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has moved back east into the lower corridor and is now approaching the more central junction area. Since the objective is to keep exploring the map and east is clearly returning us toward the open passage, continue east to reach the next intersection or room connection.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has just moved further east along the lower corridor and is nearing the rightward side of this passage. Since eastward movement is still clearly making progress and may lead to the next branch or open area, continue east for the next step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has moved eastward again and is now positioned near the right side of the lower corridor, suggesting the next logical move is to continue east to reach the adjoining section or junction beyond this hallway segment.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued to make eastward progress along the corridor and is now near the far side of the explored lower passage. Since east remains the most plausible direction to advance toward the next unexplored junction or room, continue east one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still advancing east through the lower corridor, and the latest position suggests there may be more passage ahead on the right. Continue east to keep exploring toward the next junction or opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued east and is now very close to the right-side opening of the lower corridor. Since eastward motion is still making progress and the map suggests the corridor may connect into another passage on the right, continue east to reach that connection.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the right-side end of the lower corridor and now appears aligned with a narrow opening or junction. The most likely useful move is north, to test whether this opening leads upward into the adjacent corridor or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The north probe did not change the avatar\u2019s position, so that direction is likely blocked at this junction. Since the character is still at the right end of the lower corridor, the useful fallback is to move south, which may return to the lower track or reveal a vertical connection from the opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Both north and south tested from this junction appear to be blocked or ineffective, and the avatar is still at the same right-side corridor position. The most promising move is to continue east, since that is the only direction that has reliably advanced the character through this map and may carry us through the narrow passage into the next space.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has advanced further east and is now at the apparent far-right continuation of the lower corridor. Since east is still the only direction producing forward movement and the path seems to extend or open just beyond this point, continue east to test the next tile and see whether the corridor connects onward.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has now progressed to the far-right end of the lower corridor and the latest map suggests the route is likely terminating or opening just beyond this point. The most useful next step is to keep moving east to confirm whether there is one more tile of corridor or a transition into the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the right-side end of the corridor and the map now shows a distinct opening/transition immediately to the east of the current position, suggesting the next tile may matter. Continue east to step into or confirm the next space.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is at the rightmost edge of the corridor, and the map now clearly shows the passage continuing one tile to the east. Since east has been the correct direction for progress and the avatar has not yet stepped into the far-right open tile, continue east to enter that space.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has not advanced on the last attempted east move, so it may be blocked by the map edge or a corner. The layout suggests there is still unexplored space nearby, and the safest check is to try moving west back into the corridor to confirm the avatar can retreat and possibly find a side branch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The west move succeeded, confirming the avatar can backtrack from the far-right edge. Since the current position is now one step left of the previous dead-end and the east side appears blocked or saturated, the best next action is to continue west to re-enter the corridor and search for a branch or the main path forward.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has moved back into the corridor from the far-right edge, so west is clearly traversable and is the sensible way to return toward the previous junction. Continue west to keep exploring the corridor and avoid staying at the dead-end side.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has backtracked to the leftward side of the right corridor segment, which suggests the east end was a dead end. To continue making progress, keep moving west toward the broader corridor where unexplored branches are more likely to exist.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been walking west and is now back at the central/right junction, with the lower corridor behind and a clearly reachable passage above/right in the map. Since west continues to retrace the safe path and likely leads back toward the main corridor where unexplored options remain, continue west.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued moving west along the corridor and remains on a traversable path rather than at a new junction. Since west is still the direction that retraces toward the broader explored area and there is no evidence of a better branch yet, continue west one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving west through the same corridor and has not yet reached a distinct junction or obstacle that would change strategy. Continue west to keep backtracking toward the more open section of the level and the likely next branching point.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued to backtrack west and is approaching the left end of the corridor. Since west remains traversable and the map suggests we are nearing the larger explored section, keep moving west to reach the next decision point or branch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same westward-traveling corridor and has not yet reached the more open area, so continuing west is the most consistent way to backtrack to the next junction or branch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has nearly reached the left-side extent of the corridor, but the map still shows the path continuing further west. Continue west to finish backtracking toward the next junction or opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the westward corridor and appears one step farther left than before. Since the goal is to keep returning to the wider explored area and there is no visible reason to stop, continue west one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is at the left end of the current corridor segment and the map suggests the westward path has likely reached a boundary or choke point. At this point, the most informative action is to test north, since that is the only adjacent direction that could reveal a new branch from this junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The north test did not move the avatar, confirming that north is blocked from this position. Since the corridor still appears to extend east from the current junction and westward backtracking has already been exhausted, the next best move is to try east to explore the remaining exit from this choke point.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The east move succeeded in returning the avatar one step right, so the current corridor is traversable in that direction. Since we are exploring along the only apparent open route from the junction, continue east to advance toward whatever lies beyond this segment.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has advanced east again and remains within the same corridor segment, indicating that east is still the active path and there is no new obstacle forcing a change in direction yet. Continue east to keep following the corridor toward the next unseen area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued east along the corridor and is now near the right-side section again. Since the path still appears open and consistent with prior successful movement, continue east to follow the corridor to its next boundary or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the rightward side of the corridor again, and the map still shows a passable continuation east. Since we are following the corridor to its boundary and east has been consistently valid, continue east one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still on the same corridor line and has not encountered a new junction, so continuing east remains the most direct way to probe for the corridor\u2019s end or the next branch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar continues to advance east through the same corridor, and no alternate route has appeared yet. Since east has been consistently traversable and we are still following the same line toward the next boundary or opening, continue east again.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still progressing east along the same corridor, and the map continues to show passable tiles in that direction. The simplest next move is to keep heading east to reach the corridor\u2019s far end or the next junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has shifted further east and is now at the far end of the visible corridor segment, with no evidence of a new passage opening yet. Continue east to test whether this is the corridor\u2019s boundary or if it opens into another area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the far right edge of the current corridor, and east is likely blocked or about to be blocked. Since the visible rightward path appears exhausted, the best next exploration step is to try moving south from this end to see if there is a downward branch or room entrance.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The south attempt did not change position, so that direction is blocked here. The avatar is at the corridor end and still has an unresolved forward path to the east/right; since the map does not indicate any better alternative from this spot, try east again to confirm whether there is a hidden continuation or a hard wall.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar moved east successfully, so the corridor continues in that direction. Since this is the only confirmed open route from the current end position, keep moving east to proceed through the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "A new shop-like marker has appeared nearby and the avatar is now adjacent to it on the right-hand side of the corridor. The safest useful action is to step west toward the marker so we can inspect or enter the newly revealed area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now adjacent to the shop marker and has stepped onto the approach tile, so the next useful move is to keep edging west to interact with or fully enter the shop area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now positioned adjacent to the shop tile, with the shop symbol directly to the east. The next logical action is to move onto the shop to interact with it and see what it offers.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "A snake is adjacent and has already hit us once, so the immediate priority is to attack it rather than continue moving into it or open the shop. Strike the snake to reduce the threat and avoid taking more damage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The attack did not visibly move the state, which suggests either the snake is still alive or the command was not enough to finish it. Since we\u2019re in immediate combat and the enemy remains adjacent, repeat the attack to try to finish the snake before doing anything else.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still adjacent to the snake and the previous attack did not resolve the fight, so the safest next step is to keep attacking the enemy until it dies or the situation changes.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The snake remains adjacent and the last attack attempts did not change the visible state, so the combat is still unresolved. Continue attacking to finish the snake before attempting any movement or interaction with the shop.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The snake is still adjacent and the situation has not changed, so continuing the attack remains the best immediate action to resolve combat and stop further damage. Repeating the attack is the most relevant next step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still locked in the same adjacent combat situation with the snake and no state change has occurred across repeated attempts. The most plausible next action is still to attack, hoping the strike finally registers and resolves the fight.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still in the same adjacent combat state and the snake is not yet resolved. The most relevant immediate action remains to attack again in hopes of finishing the enemy.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains adjacent to the snake with no visible change, so the most relevant immediate action is still to continue attacking until the combat resolves. No other move is safer while a hostile remains in melee range.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still in the same melee standoff with the snake and no state change has occurred, so the safest immediate action is to keep attacking until the enemy is defeated or the state updates.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The state remains unchanged with the snake still adjacent, so the immediate priority is to continue the attack sequence and attempt to resolve combat. Since no alternative action appears safer or more effective right now, repeat the attack command.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The situation has not changed: the avatar is still in melee range of the snake and must keep attacking to survive and clear the obstacle. Repeating the attack is the most relevant immediate action.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still locked adjacent to the snake with no visible progress from repeated attacks, so the safest immediate action remains to continue attacking in order to finish the combat. Since there is no evidence of movement or escape options taking effect, keep pressing the attack.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The state is unchanged and the avatar remains adjacent to the snake, so the safest immediate action is to continue attacking in order to resolve combat. No better alternative is visible from the current board state.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The board still shows the avatar adjacent to the snake with no visible state change, so the immediate best action is to keep attacking until the combat resolves. Since we must choose a move now and no safer alternative is evident, repeat the attack command.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still adjacent to the snake and the visible state remains unchanged, so the most relevant immediate action is to keep attacking the hostile until the combat resolves. No alternative action is safer from this position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same melee position against the snake with no visible change, so the best immediate action remains to continue attacking the hostile in place. Since we must act now and there is no safer alternative, repeat the attack command.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains adjacent to the snake with no visible resolution after repeated attacks, so the most plausible next step is to continue the attack command to try to finish the combat. Since an action is required, repeat the attack.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The state is unchanged and the snake is still adjacent. The most relevant immediate action is to continue attacking in place to resolve the combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The board remains unchanged with the snake still adjacent, so the safest immediate action is to continue attacking rather than moving away or interacting with the environment. Repeating the attack is the most direct way to resolve combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The snake is still adjacent and the situation has not changed, so the most relevant immediate action remains to attack again in hopes of resolving the combat. No other visible action is safer from this position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The board is unchanged again, with the avatar still adjacent to the snake. The most relevant immediate action remains to continue the attack sequence to attempt to clear the combat, since moving away or interacting elsewhere is not safer while a hostile is in melee range.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The visible map remains unchanged, with the avatar still adjacent to the snake and no sign that previous inputs altered the state. The safest immediate action is to keep attacking, as that is the direct way to resolve the melee encounter and free the path.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The state is still unchanged and the avatar is adjacent to the snake, so the direct combat action remains the most relevant immediate move. Continue attacking to try to resolve the encounter.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The board still shows no visible change and the avatar remains adjacent to the snake, so the most immediate and relevant action is to continue attacking in place. This is the best available move to resolve the melee encounter.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still locked in melee with the snake and the map shows no state change, so the immediate best action remains to continue attacking. Repeating the attack is the only clearly relevant move from this position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains adjacent to the snake with no visible state change, so the most relevant immediate action is to keep attacking in place to resolve the combat. Since we must choose a move now, repeat the attack command.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The state is unchanged and the snake remains adjacent, so the most relevant immediate action is to keep attacking in place to resolve the combat. No alternate move is indicated by the board, so repeat the attack command.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still adjacent to the snake and the displayed state has not changed, so the most relevant immediate action is to continue attacking. Repeating the attack remains the best available move to resolve the melee encounter.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still adjacent to the snake and the board state remains unchanged, so the most relevant immediate action is to continue attacking in place. Since an action is required now and no better alternative is visible, repeat the attack command.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The state is still unchanged and the avatar remains adjacent to the snake, so the most relevant immediate action is to continue attacking in place. No other move is indicated by the board, so repeat the attack command.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still adjacent to the snake, but repeated attack inputs have not visibly advanced the state, suggesting the combat command may need to be continued or that the action queue is still being processed. The most relevant immediate action remains to attack again to force resolution of the melee.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains adjacent to the snake and the board has not changed, so the most relevant immediate action is to keep attacking in place to resolve the combat. Repeating the attack is still the best available move.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The situation is unchanged: the avatar is still adjacent to the snake and no other safe or meaningful move is visible. The best immediate action is to continue attacking in place to try to resolve combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The situation remains unchanged with the avatar adjacent to the snake, and the only clearly relevant immediate action is to continue the attack sequence to resolve combat. I will repeat the attack command again.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The board is still unchanged and the avatar remains next to the snake, so the most relevant immediate action is to continue attacking in place. Repeating the attack command is the best available move from this position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still adjacent to the snake, but the repeated visible lack of movement suggests the attack command may not be advancing state as expected. However, with no better information and no alternate safe action visible, the most relevant immediate action remains to continue attacking in place to resolve the melee.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The state is still unchanged and the avatar remains adjacent to the snake. Since an action is required and no alternate move is visible, the most relevant immediate action is to continue attacking in place to resolve combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same melee-adjacent position next to the snake, and no other state change is visible. The most relevant immediate action remains to continue attacking in place to resolve the combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The board remains unchanged and the avatar is still adjacent to the snake, so the most relevant immediate action is to continue attacking in place to resolve the combat. Repeating the attack command is the best available move.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still adjacent to the snake and the state is unchanged, so the most relevant immediate action is to continue attacking in place. Repeating the attack command remains the best available move to resolve the combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in melee range with the snake, and the visible board state has not changed. The most relevant action is to continue the attack sequence in place to try to resolve the combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still adjacent to the snake and the board has not changed, so the most relevant immediate action is to continue attacking in place. No other move is indicated, so repeat the attack command once more.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still adjacent to the snake, and the state remains unchanged, so the most relevant immediate action is to continue attacking in place. Repeating the attack command is the best available move to resolve the combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still adjacent to the snake and the state has not changed, so the most relevant immediate action remains to continue attacking in place. Repeating the attack command is the best available move to resolve combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The board is unchanged and the avatar remains in melee range with the snake, so the only sensible immediate action is to continue attacking in place. Repeating the attack command is the best available move.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still adjacent to the snake and there is no visible change in state, so the most relevant immediate action remains to keep attacking in place. Repeating the attack command is the best available move to resolve the combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains adjacent to the snake and the map is unchanged, so the most relevant immediate action is still to attack in place to resolve the melee. No alternative move is indicated by the current state.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still adjacent to the snake and the visible state has not changed, so the most relevant immediate action remains to continue attacking in place. Repeating the attack command is the best available move to try to resolve the combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still adjacent to the snake and the state remains unchanged. The most relevant immediate action is to continue the attack in place, since no other safe or meaningful move is apparent.",
+      "queue_length": 1,
+      "byte_length": 1
+    }
+  ]
+}

@@ -1,0 +1,2120 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "reasoning": "We\u2019re in a small room with the stair visible at the top-left and an E monster nearby in the room. Best move is to clear the immediate threat by attacking the E if adjacent/approaching, while staying in the room; if not adjacent, move toward the monster conservatively. Since the map shows @ directly below/right of E in the same room, stepping upward into E is the most direct combat action.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The room is now clear and the staircase is visible just above-left of the player. We should move onto the stairs and descend to continue exploring, since the level is otherwise tiny and no immediate threats remain.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I accidentally attempted to descend while not standing on the stairs. The @ is now adjacent to the % on the left, so move left onto the staircase, then descend.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "We\u2019ve just arrived on level 2 in a large open room near the right side, with no immediate enemies visible. The best move is to start systematic exploration by heading left into the room, then continue scanning the open area.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "We\u2019re in a large open room with no enemies visible. Continue exploring the open area by moving left in a straight line to reveal more of the room and look for exits, stairs, or items.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "Continue systematic exploration across the open room. No threats or prompts are visible, so moving left several more steps is safe and should uncover the rest of the area.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "A sleep effect just triggered and the game is waiting on --More--, so I must dismiss the message first before issuing any further movement. After that, I\u2019ll reassess from the current position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019re awake again in the same open room. There are no visible enemies, so continue exploring leftward to search the rest of the chamber and look for exits or items.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "We\u2019ve hit a trap corridor area: the player is adjacent to a visible trap (^), and the safest immediate action is to avoid stepping into it. Since there\u2019s no need to move further until we orient ourselves, I\u2019ll step back to the right to disengage from the trap edge and re-evaluate.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We\u2019re at a corridor junction with a visible trap immediately to the right and a wall/edge to the left. The safest useful move is to step left onto the corridor away from the trap, then continue exploring the passage rather than risking the trap tile.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "We\u2019re back adjacent to the left-side corridor entrance, with a trap still visible to the right. The safest next step is to move left into the corridor away from the trap and continue clearing the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map hasn\u2019t changed and we\u2019re still at the corridor edge beside a visible trap. Since moving left is blocked by the wall/structure and stepping right would risk the trap, the safest productive action is to search nearby for hidden doors or a safer route before moving further.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "We\u2019re stationary at the corridor edge with no visible change after searching. Since the safest way to progress is to explore the accessible open room and avoid the trap, I\u2019ll move left to continue mapping the area away from danger.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "We\u2019re still at the same corridor edge and visible trap. The previous left moves likely didn\u2019t execute due to map boundaries/blocked movement, so I\u2019ll re-evaluate conservatively by searching again for hidden routes before committing to movement.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The player is still stuck at the same edge with no visible progress. Since the corridor may continue or open via hidden passage, the best immediate action is to continue searching adjacent squares for secret doors/traps rather than forcing movement into the visible trap area.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "We\u2019re still pinned at the same corridor edge, and repeated searching hasn\u2019t revealed a new route. The most reasonable next attempt is to step right once to see if the corridor opens beyond the trap; if that proves dangerous, we can reassess immediately on the next turn.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are now on a corridor tile just left of a visible trap, with open space to the left and no immediate enemies. The safest useful progression is to continue left away from the trap and keep exploring the corridor/room boundary.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The repeated left commands have not advanced the position, which suggests the intended route may require a different local action. Since the trap is visible to the right and the player is at the corridor edge, I\u2019ll attempt a cautious search again to reveal hidden structure or a safe passage without stepping onto the trap.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "We are still in the same position at a corridor edge beside a visible trap, and prior movement/search attempts have not changed the map. The best next action is to try a different movement direction: step right to test whether there is an open path beyond the trap or whether a different route is required.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still at the same corridor edge with a visible trap to the right. The player appears to be on an open tile left of the trap, so the safest immediate action is to keep moving left into the open area and away from the hazard, rather than repeatedly testing the trap side.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "We\u2019re still in the same blocked-looking position by a visible trap, with previous left/right attempts not changing the map. The safest next move is to keep probing the local area from the current tile with a search action to reveal any hidden passage or mechanism rather than stepping onto the trap.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The position is unchanged and the safest actionable response is to continue probing the current area for hidden routes or interactions, since movement attempts have not advanced us and a trap remains visible to the right.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "The map and position have not changed across several attempts, indicating the player is likely stuck at a boundary or hidden transition point. Since the trap remains visible and movement hasn\u2019t advanced, the safest next step is a deliberate one-step move to the right to test whether the current tile is actually adjacent to a passable path or if a different action is needed on the following turn.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still at the same corridor edge beside the visible trap, but the current tile has a wall-like marker to the left and a passable corridor to the right/center. Given the repeated lack of progress, the most useful immediate action is to step leftward out of the narrow edge back into the safer open space, then reassess from there.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains at the same narrow corridor edge with a visible trap to the right and no progress from prior movements. Since we need to make a move and the left side appears to be the safer retreat, I\u2019ll continue stepping left to get away from the trap and hopefully back into the open area.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The position is unchanged and the safest available action remains to retreat from the visible trap by moving left toward the open area. Since prior single-step attempts may not have been enough to clear the edge, I\u2019ll continue left once more.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map shows the avatar still in the same trapped-looking spot, and the safest productive choice is to keep retreating left away from the visible trap rather than stepping toward it.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The position remains unchanged across many turns, suggesting my prior movement guesses were not effective. The visible trap is still to the right, so the safest immediate action is to continue moving left to clear the hazardous corridor edge and try to re-enter the open area.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "The avatar has not visibly moved despite repeated attempts, and the safest course is to try a different local action that may reveal a hidden route or interact with the corridor edge. I\u2019ll search again rather than risking the trap directly.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "We\u2019re still stuck in the same visible corridor position with a trap immediately to the right and no map change after repeated searches/moves. The most plausible way forward is to keep probing locally for a hidden passage or mechanism, since direct movement has not produced progress and stepping onto the trap is unsafe.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "We remain at the same stuck position beside a visible trap, with repeated movement/search attempts failing to change the map. The best immediate action is to try moving away from the trap once more to the left, hoping to break out of the corridor edge and regain open ground.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The avatar is still not advancing, and the safest plausible action is to keep retreating left away from the visible trap to try to re-enter open space. This maintains pressure against the stuck state without risking the hazard.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "The game state has remained unchanged for many turns, with the avatar apparently stuck beside a visible trap. Since movement/search attempts have not advanced us, the most sensible next action is a brief wait to see if any environmental or turn-based change occurs before trying another directional adjustment.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains stuck in the same corridor edge beside a visible trap, with no change after previous commands. Since a wait did not alter the situation and we need to keep exploring the local state, I\u2019ll try another short retreat to the left away from the hazard.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The state is unchanged and the avatar remains adjacent to the visible trap. Since retreat commands have not produced visible movement, the safest next attempt is to keep searching the current tile for a hidden door or trigger that could open a path forward without stepping into the trap.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "The situation is unchanged and the avatar is still pinned beside the visible trap. Since previous moves and searches have not altered the state, the most relevant next action is to keep trying a cautious leftward retreat away from the hazard to break the stalemate if possible.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The avatar is still unchanged beside the visible trap, and prior attempts have not resolved the stall. The safest next step is to try a single rightward move to test whether the apparent boundary can be crossed or whether the map is simply not updating as expected.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The last rightward move advanced the avatar to the edge of a wall/blocked section, with the trap still nearby. To continue progressing safely, the best immediate action is to move down into the open corridor below, away from the trap and the blocked edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is pressed against a blocked edge with the trap still visible nearby, and the last move did not change the visible situation. To avoid the trap and test for a passable route, the safest next action is to step left back toward the open side of the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still at the same corridor position adjacent to the visible trap, but the recent left move restored the avatar marker next to a passable-looking tile. The safest and most useful next step is to continue moving left one more time to get fully away from the trap and into the open area.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The map continues to show the avatar stuck beside the visible trap, with the left side still the safest direction. Since prior movement commands have been inconsistent, I\u2019ll keep pressing left to try to clear the corridor edge and reach open space.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The avatar still appears pinned in the same spot beside the trap, with leftward movement being the safest available direction. Since the state has not changed and we need to keep exploring, I\u2019ll continue pressing left to try to break free from the edge and move into open corridor.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "The avatar is still stuck in the same position and repeated leftward attempts have not visibly advanced the state. The most relevant next action is to test the opposite direction once to see whether there is any actual movement or a hidden blockage interaction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The last rightward attempt again moved the marker against the left wall edge, confirming the avatar can shift horizontally but remains trapped in the same corridor section. The safest next action is to move downward into the open area below the corridor rather than continuing to press against the wall or the trap.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same constrained corridor with a trap adjacent, and the recent move failed to change the state. Since the passage below may be the only exit from this pinched spot, the most useful immediate action is to keep trying downward movement to break into open space.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The visible state has not changed, but the avatar can at least shift position horizontally. Since downward attempts have not helped, I\u2019ll try a single rightward move to test whether we can leave the cramped corridor or interact with the nearby obstacle from the other side.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have now moved to a new adjacent tile configuration: the avatar is immediately left of a trap and appears able to continue horizontally. The safest immediate action is to move left once to get away from the trap and into the open corridor before reconsidering the route.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still constrained in the same corridor and the most likely way to make actual progress is to keep moving left away from the visible trap and blocked edge. This is a low-risk attempt to regain open space.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar remains in the same trapped corridor state, but the most recently successful-looking action was a horizontal adjustment. Since the goal is to make any visible progress away from the trap, I\u2019ll try another rightward move to see if the avatar can shift onto a new tile and escape the cornered position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has alternated between the same neighboring tiles without breaking out of the corridor. The rightward move appears to be the only action that reliably changes position relative to the visible trap, so I\u2019ll continue probing that direction to try to leave the stuck state and reach the open passage.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "A sleep effect has occurred and the prompt is waiting for input with the character likely asleep. The immediate necessary action is to dismiss the message and continue, so I\u2019ll advance the prompt with a space/continue command.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The character has just woken up and is now able to act again. The safest immediate move is to step away from the nearby trap/blocked edge by moving left into the open corridor and continue escaping the cramped area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has resumed movement and is now one tile further left of the sleeping/trap-adjacent position, suggesting leftward movement is valid and safest. To continue exiting the cramped area, I\u2019ll keep moving left toward open space.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still in the same narrow corridor adjacent to the trap, but leftward movement has consistently been the safest way to probe for an exit. I\u2019ll continue pressing left to try to progress out of the cramped area and avoid the hazard.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The avatar remains in the same corridor with the visible trap to the right. Since leftward movement has been the only consistent safe probe and the state still suggests we are trying to escape the cramped section, I\u2019ll continue moving left to seek open space.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same constrained position and the visible corridor layout has not changed. Since the only consistent progress so far has been horizontal probing, the best next action is to keep moving left to try to clear the obstacle cluster and advance into open space.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar remains in the same narrow corridor and the map shows the open area is to the left. Since previous attempts have not advanced the visible state, I will continue with leftward movement to try to exit the constrained spot and avoid the trap.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The avatar is still beside the trap and appears able to shift horizontally. Since the goal is to make measurable progress and the left side has remained the safer escape direction, I\u2019ll continue moving left to try to break out of this cramped corridor.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The state still shows the avatar trapped in the same corridor next to a visible trap, with no clear progress from prior attempts. To avoid wasting turns against the same blockage, I\u2019ll try a vertical move to test whether there is a passage above or below that breaks the deadlock.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still unchanged after the last vertical probe, so the immediate goal is to continue searching for an exit from the cramped corridor. Given the repeated dead-end on one direction, I\u2019ll switch to the opposite vertical direction to test whether a lower passage is available and avoid the trap side.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has finally shifted downward into a new row, indicating the lower route is the one that is actually opening progress. The next best action is to keep moving down to continue into the corridor below and away from the trap cluster above.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The latest state shows the avatar has already moved into the lower row and is adjacent to a wall, so continuing downward is the most likely way to keep making progress through this tight passage. I\u2019ll press further down to try to clear the corridor and avoid the trap area above.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still positioned in the lower corridor with the wall blocking further movement in the same direction. Since downward progress is no longer changing the visible state, the best next step is to move left along the lower passage to find the actual exit route.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has shifted slightly left, so the lower passage is open and horizontal movement is making progress. The best next move is to keep advancing left along this corridor to continue away from the trap and toward open floor.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has now clearly transitioned into a lower-left corridor with open space continuing left, indicating the escape path is through the horizontal passage rather than the trap-adjacent upper tiles. I\u2019ll continue moving left to keep leaving the cramped area and explore the open corridor.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The avatar has successfully moved into a broader lower-left corridor with visible open space, so continuing left is the best way to keep progressing away from the trapped section and into unexplored area.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has reached a new open area with an apparent passage and a visible creature or object ('S') nearby. Since the immediate objective is to continue advancing carefully without stepping into the unknown hazard zone, the safest next move is to keep heading left through the open corridor and maintain progress away from the trap-adjacent section.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The snake has been defeated, so the immediate danger in the corridor is gone. The safest next action is to continue moving left into the open passage to explore onward and avoid lingering near the previous combat area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The snake is gone and the avatar is in an open corridor. The safest and most productive continuation is to keep moving left to explore further into the passage and away from the earlier cramped hazard area.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar remains in the open corridor and has been making steady leftward progress, so continuing left is the most sensible way to advance into unexplored space and stay clear of the earlier trap area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same leftward corridor with clear open space to continue. Since every recent successful change has come from moving left, the best immediate action is to keep going left to push deeper into unexplored territory and avoid backtracking.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has reached a junction with a visible downward route now open at the left side of the corridor. Since continuing left may just keep hugging the same boundary, the most useful next probe is downward to test whether this is the actual exit path from the corridor system.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar did not move on the last downward probe, which suggests that route is blocked or requires a different approach. The corridor still extends left and the visible layout indicates the open route is best followed horizontally, so I\u2019ll resume leftward movement to keep exploring the passage.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has advanced to a new left-side junction where the corridor geometry changed again, so the immediate priority is to keep following the open horizontal route rather than forcing blocked directions. Continuing left is the most consistent way to explore deeper into the level.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has reached another corridor bend, and the most reliable forward path remains the open leftward passage. I\u2019ll keep moving left to continue exploration and preserve momentum through the level.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has been steadily advancing left through the corridor and the map still shows open passage in that direction. To maintain progress and avoid stalling at the bend, the best next action is to keep moving left into the unexplored corridor.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has continued to progress left and is now at the edge of a broader horizontal corridor, so the most likely useful move is to keep following the open passage leftward rather than changing direction prematurely. This should carry us further into unexplored space.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has been consistently advancing left through an open corridor, and the latest state still shows a clear horizontal route. The most sensible immediate action is to continue left to keep exploring and avoid unnecessary backtracking or direction changes.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has reached a junction where the left side is no longer a straightforward open corridor; there is a new structure ahead and the map suggests a change in route. The safest move is to continue left once more to test the remaining opening and keep pushing into unexplored territory.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the left-side junction and the last move did not visibly change the state, which suggests the corridor may have been fully traversed or the path is constrained. Since the layout ahead still appears to permit horizontal progress, the safest next action is to continue left to probe for the next opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears to be stationary at the left-side junction after repeated left moves, so the most prudent next step is to try a different direction to determine whether the passage continues vertically or if there is a doorway or stair access nearby. Down is the best exploratory probe from this position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar did not move on the last downward probe, indicating that direction is blocked. The most likely remaining route is to continue testing the adjacent open side, so I\u2019ll try moving right to see whether there\u2019s a passage or junction accessible from here.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has successfully shifted right one tile, suggesting the corridor can be navigated horizontally in this area. Since the immediate goal is to keep probing the accessible path and the map still shows open space to the right, the next logical action is to continue rightward.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has moved right into a more central position, but the corridor ahead still appears open and the prior repeated movements indicate we are trying to navigate this junction methodically. Continuing right is the most direct way to see whether this passage leads to the next area or reconnects with a larger corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same junction area, and the most recent move to the right has not yet been fully exploited. Since the corridor still appears open horizontally and the goal is to continue exploring the level efficiently, I\u2019ll keep moving right to probe the next accessible space.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still navigating the same corridor network and the visible layout suggests there is more open space to the right. Continuing right is the most direct way to advance through the level and avoid getting stuck in the left-side junctions.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has been progressing rightward through the corridor and the map still shows open horizontal space in that direction. The most sensible next action is to keep moving right to continue exploration and try to reach the next junction or room beyond this stretch.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still in the same horizontal corridor, and the visible open space continues to extend rightward. Since the prior moves have consistently advanced along this line, the best immediate action is to keep pushing right to reach the next opening or junction.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has advanced into a long horizontal corridor with the path still extending to the right, and there is no sign that the left side offers new progress. The best next move is to continue rightward to push toward the next junction or room.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is positioned in the same corridor chain, and the most likely way to make progress is still to continue following the open horizontal route to the right. Since the level layout shows more unexplored space in that direction, I\u2019ll keep moving right.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is at the rightward edge of the corridor and the newly visible structure suggests the path may now require a vertical move rather than more horizontal movement. Since the previous repeated rightward steps have not produced a new opening, probing downward is the best way to test for the next passage or room connection.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The last downward probe did not change the avatar\u2019s position, so that direction is blocked. The corridor still appears to extend horizontally, and the most reliable next step is to continue right to seek the next junction or opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has successfully continued moving right through the corridor network, and the latest map still shows open horizontal space extending that direction. Since downward movement was blocked and rightward progress remains available, the most sensible action is to keep moving right to reach the next junction or room.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has clearly been advancing right along a corridor, and the most recent state still suggests more open path in that direction. The best immediate action is to continue right to keep progressing through the level.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is now at a clearer junction with the corridor open to the right and the map indicating continued unexplored space in that direction. Since previous vertical probes were blocked and rightward movement has been the successful path so far, the best next action is to continue right.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has reached a new junction where the corridor appears to continue but the immediate rightward path is now likely constrained by the map geometry. Since prior horizontal movement was successful and the visible layout suggests the route may bend or open above/below, the safest exploratory step is to test upward movement next.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar\u2019s last upward probe did not visibly advance the position, so that direction is likely blocked. The current tile is a junction with a corridor extending horizontally, and the most promising immediate move is to continue right to follow the open passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has just shifted into a position where the horizontal passage is still the clearest available route. To keep making progress through the level, I\u2019ll continue following the corridor to the right.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has advanced to the far right side of the visible corridor and is now adjacent to a new area. Since rightward movement is still the path that has been consistently opening progress, the next logical action is to keep moving right and see what lies beyond this junction.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has reached a stable corridor junction on the right edge of the currently explored area. The immediate goal is to continue exploration, and the most likely productive direction is still to the right, where the map suggests further unseen space beyond the current corridor.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is positioned at the right side of the explored corridor and the level layout still suggests unexplored area to the right. Continuing right remains the most direct way to advance and discover the next section of the map.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor junction and the visible map indicates the route continues to the right. Since repeated rightward movement has been the only consistently successful exploration path here, I\u2019ll continue right to push into the next unseen section.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is at a corridor junction with no visible need to change direction. Since rightward movement has been the successful exploratory path and the current map still suggests open space to the right, continue moving right to advance through the level.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar remains in the same right-side corridor junction and the visible layout still suggests unexplored passage continuing to the right. The best immediate move is to keep pressing right to advance through the level.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still at the same corridor junction with the clearest visible progress path extending to the right. Since prior repeated rightward movement has been the consistent way to advance in this area, I will continue right again.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor junction and the visible route continues to suggest unexplored space to the right. The safest progress choice remains to keep moving right and see what the next tile reveals.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar remains at the same visible corridor junction, and the map continues to imply the unexplored route is to the right. I\u2019ll keep moving right to maintain progress through the level.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has been repeatedly advancing along the same visible corridor and the map still suggests the unexplored continuation is to the right. Since no new blocking change has appeared, the most relevant action is to continue right and probe the next tile sequence.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The map shows the avatar still at the right-side corridor junction with no new evidence of a downward opening, while the rightward path remains the most plausible route for forward exploration. Continue right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same corridor junction, and there is no visible indication that moving down would help. The most consistent progress path has been to the right, so I will continue right to keep exploring the map.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still at the same junction with the most plausible continuation to the right. Since the current area has not changed and prior rightward moves were the successful path, the next action is to continue right.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor junction, and the visible map continues to suggest unexplored space to the right. Since no new obstacle or alternative path has appeared, continue right to keep advancing through the level.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still fixed at the corridor junction with no visible indication of a new direction opening up. The safest way to continue exploration is to keep moving right, which has been the consistent successful route through this section.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor junction and the visible map suggests the route continues rightward. Since no new obstacle or better alternative is visible, keep moving right to continue exploration.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still in the same junction, but repeated rightward input has produced no visible state change, suggesting the move may be blocked or ineffective. The best next step is to try a different direction to probe for an exit; downward is the most plausible alternative from this layout.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar did not visibly change after the last move, which suggests the attempted direction may not be the correct exit from this junction. The most likely remaining untested path is to the right again, since the corridor on the map still extends that way and exploration progress has been centered there.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the same junction and prior movement choices have not produced a visible relocation, so the most practical next step is to test the rightward direction again, which remains the clearest route on the map.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The visible map still shows the avatar at the same junction with the corridor to the right remaining the clearest apparent route. Since prior moves haven\u2019t changed the displayed state, I\u2019ll continue pressing right to probe forward one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains visually unchanged at the junction, and repeated rightward attempts have not advanced the state. The safest immediate probe is to test an alternate direction to determine whether the exit is not to the right; moving down is the next most plausible option from this position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The position still appears unchanged, so the previous direction may be blocked. To discover the correct path from this junction, I\u2019ll test moving left, which is the remaining obvious exit to probe.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The latest state shows the avatar has shifted into a slightly different tile alignment, indicating movement is possible and the leftward probe opened space in this corridor. The next sensible step is to continue left to advance through the newly reachable area and see where the passage leads.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has now advanced left into an open corridor section, with more open space still extending that direction. Since leftward movement is demonstrably making progress and reveals new map tiles, continue left to explore further.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has clearly progressed left into a broader open area, so the leftward direction is confirmed as the active corridor. Continue left to fully clear this passage and reveal the next junction or room.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has just made progress left into an open passage, and the corridor still appears to extend in that direction. Continue left to keep exploring the newly opened path and reach the next junction.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has continued to move left and the corridor still opens in that direction, with no sign of a new branch yet. The most reasonable action is to keep moving left to finish traversing this passage and uncover the next area.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still advancing left through the same corridor, and the left side remains the clearest path forward. Continue left to keep exploring the passage and look for the next junction or room.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has been steadily moving left, and the corridor still appears to extend that way. Continue left to keep following the open passage and see whether it leads into a new junction or room.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has been consistently advancing left through the corridor, and the map still shows open space in that direction. Continue left to keep following the passage and reach the next area.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has clearly been moving left through an open corridor, and the visible passage still continues in that direction. Continue left to keep advancing to the next junction or room.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has been moving left through the corridor and the passage still appears open in that direction. Continue left to advance toward the next visible open space or junction.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is now near a more open section on the left, and the corridor has been consistently extending that way. Continue left to finish traversing this passage and see what lies beyond the current open area.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has reached a more open left-side area and still appears to have room to continue in that direction. Since leftward movement has consistently advanced exploration, keep moving left to exit the current corridor and reveal the next space.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has now reached the leftmost visible open area in this corridor, with the immediate left side appearing to continue into unexplored space. The best next move is to keep going left to advance out of the corridor and inspect what lies beyond.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is now positioned at the left edge of the visible corridor, and the open tiles suggest the path continues in that direction. The most direct next step is to keep moving left to fully enter the unexplored area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has not visibly advanced after the last attempt, suggesting the corridor may require a different direction or the previous move was blocked. From this position, the best next probe is to move up to test whether there is a branching path or doorway above the current tile.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has moved to a new visible position after the upward probe, indicating the path above is open and likely connects to the upper corridor. Continue upward to follow this newly revealed route and assess the room layout.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar remains aligned with the upward route, and continuing up is the clearest way to follow the connected corridor and uncover the next section of the level.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is already at the upper reachable position of this small corridor, and the repeated upward movement suggests we are probing the boundary of the passage. Since the left route appears to have led into a vertical connector, the most reasonable next move is to continue up once more in case it reaches the adjoining hallway or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is at a vertical connector with no clear progress from continued up-movement. The next sensible action is to test the available horizontal continuation; moving right should determine whether this connects back into the main corridor or opens into a new area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears to have shifted right into a slightly more open position, suggesting the horizontal corridor is active. Continue right to follow the open passage and see whether it reconnects to the main area or leads further into unexplored space.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is now centered in a more open section, with the corridor boundaries suggesting the path can continue in the current horizontal direction. Since the last move advanced the character rightward, continue right to keep tracing this open passage and discover the next room or junction.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has shifted further right and the map suggests this horizontal route is still open. Continue right to keep following the corridor and reach the next visible open section.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has continued moving right through the corridor and is still positioned to follow that passage. The most reasonable next action is to keep going right to continue exploration and reach the next opening.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is now positioned in a wider horizontal corridor with open space still implied to the right. Continue right to keep traversing the passage and uncover the next junction or room.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar remains in a corridor that has been consistently traversed horizontally, and the open passage still appears to extend in the same general direction. Continue right to keep following the accessible route and reach the next area.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still in a long horizontal corridor with open space continuing to the right, and prior rightward movement has been the consistent way to advance through this section. Continue right to keep following the passage and reach the next junction or room.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is advancing through a long corridor, and the open path still appears to extend horizontally. Continue right to keep following the corridor toward the next area.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still progressing along the same long horizontal corridor, and the rightward direction remains the only clear way to continue exploration. Keep moving right to advance toward the next opening or intersection.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar is still in the same extended corridor and the open passage remains to the right, so continuing right is the most likely way to reach the next junction or room. Maintain the current traversal direction.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The avatar has reached the far right end of the current corridor, with the map indicating a narrow continuation and no further meaningful progress from repeating the same move. The best next action is to step right once to test the boundary and see whether there is an exit, corner, or connected passage beyond the visible edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is at the apparent end of the corridor and the prior step to the right did not visibly change the map, suggesting a wall or blocked edge. The next best move is to try moving downward to test whether there is a side passage or descent from this end of the hallway.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has just shifted downward at the corridor end, and the map now suggests the passage may continue below or to the right of the current position. To keep exploring the connected hallway, continue downward one more step to confirm whether there is a lower route or room entrance.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the lower-right end of the explored corridor, with the latest downward step not visibly advancing into a new area. The most plausible continuation is to test the adjacent horizontal branch again to the right, since the map shows that side as the likely connection into the next room or hallway.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar now appears to have reached a narrow junction at the right edge of the explored corridor, and the visible corridor geometry suggests the route likely continues downward from here rather than farther right. The best next step is to move down to follow the connected passage and reveal the next section of the map.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is at a junction where the corridor appears to continue beyond the current position, and previous horizontal probing has already been exhausted. Moving down is the most likely way to enter the next connected passage and make progress.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains at the same junction-like position with no visible advancement from repeated downward probes, so the immediate next move should be to test the remaining connected direction. Moving left is the most plausible way to re-enter the corridor or find an alternate passage from this blocked edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map has changed slightly with the avatar now sitting at a constrained junction, and the most promising unexplored connection appears to be back to the right/down branch rather than continuing to force the same blocked direction. A small rightward move is the safest way to test the remaining open corridor and maintain exploration.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the corridor junction with the same constrained layout, and the rightward branch remains the most plausible route for continued progress. Since prior moves have been exploratory and the map suggests the passage extends in that direction, continue right to advance into the connected corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears to have reached a new intersection where the corridor continues and the most promising unexplored direction is downward/right from the current junction. Since the prior horizontal moves have brought us to the edge of the visible path, the next action should be to move down to follow the connected passage and avoid getting stuck at the branch point.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is at a junction-like position and the visible structure suggests the next viable passage is to the right rather than continuing to force downward into a likely dead end. Moving right is the best immediate exploratory step to follow the open corridor and reveal the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now positioned at a tight junction with the right side seemingly blocked by the corridor geometry, while the lower route remains the most likely continuation of the passage. Move down to advance through the connected path and avoid lingering at the choke point.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the same junction and the visible map suggests the most likely continuation is the rightward corridor rather than further vertical probing. Repeating the best available exploratory move to the right should help break out of this choke point and reveal the next section.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still confined at the same narrow junction, but the map now suggests the rightward route has been partially explored and the downward branch remains the most plausible way to break into a new area. Continue downward to follow the connected passage and escape the choke point.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still stuck at the same tight junction with the visible map unchanged, indicating repeated probing has not advanced into a new area. The safest next step is to keep exploring the only remaining open-looking direction by moving left, which may backtrack into the corridor and free the position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still trapped at the same junction and no progress has been made by repeating movement into blocked directions. The most reasonable next action is to backtrack left, since that is the remaining direction most likely to reopen the corridor and allow movement away from the choke point.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has backed up slightly and is no longer exactly at the previous choke point, so the most sensible move is to continue left to return into the broader corridor and escape the junction. This should help reorient toward the open area rather than repeatedly probing blocked directions.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now back in the narrower corridor, and the visible map shows a rightward route still open from this position. Since the repeated left/backtracking has regained mobility, the next logical step is to move right again to continue along the passage and seek the unexplored area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has returned to the corridor junction and the rightward path remains the most plausible way to continue exploring the map. Moving right should carry us deeper into the passage and is the best immediate action after the recent backtracking.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the same junction and the rightward move remains the only visible route that continues the corridor. Since the immediate goal is to escape the choke point and reveal the next area, repeat moving right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains at the same tight junction with the rightward branch still the most plausible way to continue advancing into unexplored space. Since repeated tests of other directions have not opened a new route, keep moving right to break out of the choke point and progress along the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still positioned at the same junction with no visible progress from repeated rightward attempts, suggesting the corridor may require a different direction or a longer repositioning move. Since the map shows the connected passage extending upward/left from the current choke point, the best next action is to backtrack left to regain space and try to re-enter the broader corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been backed up to the left edge of the tight junction, which suggests the most productive next step is to keep moving left to fully exit the choke point and rejoin the wider corridor. This should improve positioning and allow the map to open up again.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now at the left side of the choke point, and the corridor appears to open further left. Continuing left is the best way to fully exit the junction and return to a broader navigable section of the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moved back into the wider corridor and the map shows the open path continuing to the right from here. After the recent backtracking, the best immediate action is to move right again to proceed along the accessible passage and avoid getting stuck at the junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is again at the corridor junction, and the visible layout indicates the rightward branch is the active path to keep advancing into unexplored territory. Continue right to progress away from the choke point and into the next section of the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same tight corridor loop, indicating that the rightward move is not advancing due to a blockage or a one-tile oscillation. The most likely way to break the loop is to step left and re-center in the corridor, then reassess from there.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still at the same choke point and the repeated left/right oscillation suggests the current corridor is not being escaped. The best immediate exploratory action is to move down, which may be the only route into a new connected space from this junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The position has not changed after the last move, so the avatar is still at the same junction. Since repeated attempts to move right, left, and down have not advanced the character, the best immediate action is to continue probing the only remaining direction with potential to exit the loop: move up to test whether the corridor reconnects above.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears stuck in place at the same junction, and the latest move did not change position. Since the upward direction is still untested from this exact spot, use it to probe for a passage out of the loop and potentially reach a new corridor connection.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains stationary after the last probe, indicating the current tile is not allowing movement in the tested directions. The visible map suggests the corridor is still accessible to the left, so the best next action is to move left and attempt to exit the loop by returning to the wider passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moved back into the left-side corridor again, which confirms that left is the reliable direction for escaping the choke point. From this restored position, the best next action is to continue left and try to fully re-enter the wider area beyond the junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has now shifted slightly within the left-side passage, and the map indicates the corridor continues further left/up-left. The most sensible next move is to keep going left to complete the escape from the tight junction and regain access to the broader explored corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has successfully shifted further left within the corridor, and the visible passage suggests continued leftward movement will keep exiting the tight junction toward open space. Since the goal is to progress through the level rather than remain in the loop, continue left.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now clearly moving out of the previous loop and the corridor remains open to the left. Continuing left should finish clearing the choke point and advance into the adjacent explored passage, so that is the best next move.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the corridor and the visible map shows open space continuing to the left; the prior movement sequence suggests we are still exiting the junction rather than reaching a dead end. The most likely productive action is to keep moving left to fully clear the passage and continue exploring.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been inching left through the corridor and the map still shows space continuing in that direction. The safest immediate action is to continue left, which should keep us progressing out of the constricted junction and into the next navigable section.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still progressing through the same leftward corridor and the visible passage remains open in that direction. To continue escaping the earlier choke point and advance exploration, the best next move is to keep moving left.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the leftward corridor and the map continues to show open path in that direction. The most direct way to keep advancing and avoid re-entering the previous loop is to continue moving left.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar continues to occupy the same leftward corridor, and the open passage still appears to extend left. The most consistent action to keep making progress out of the junction and into unexplored space is to continue moving left.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor and the clearest open route remains to the left. Continue left to keep moving out of the choke point and into the next section of the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still making slow but steady leftward progress along the same corridor, and the visible path continues in that direction. Since the immediate objective is to keep advancing out of the constricted area, continue left.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still within the same corridor and the open route continues leftward. To maintain forward progress and avoid re-entering the earlier junction, continue moving left.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same leftward corridor and the passage continues to open on that side. The most sensible action remains to keep moving left to advance further into the level and away from the previous choke point.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same leftward corridor and the visible path continues in that direction. The best immediate action is to keep moving left to continue progressing through the level and away from the earlier bottleneck.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar continues to be constrained in the left-side corridor, and the map still shows the open passage extending left. The most relevant action remains to keep moving left so the character can continue past the bottleneck and into the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same leftward corridor with open space continuing left, so the most likely way to keep advancing is to continue moving left and see if we exit the bottleneck or encounter a new junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still aligned with the leftward corridor, and the visible path continues to suggest leftward movement as the way forward. To maintain progress and avoid stalling at the bottleneck, continue moving left.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving left through the same corridor, and the visible space continues in that direction. The safest and most consistent next action is to keep moving left to continue advancing through the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same leftward corridor and the open path continues left. Continue moving left to keep making progress through the corridor and into the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily moving left and is still not at a junction or obstacle. The visible corridor remains open in that direction, so continuing left is the most consistent action to keep advancing and avoid interrupting progress.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued moving left every turn and is now very close to the edge of the visible corridor. The same open path remains in that direction, so one more left move is the most likely way to keep advancing into the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has now reached the leftmost visible extent of the corridor and is effectively aligned with the edge of the passage. Continuing to press left is still the most reasonable next move because it should transition us into the adjacent space if one exists; if blocked, the next state will reveal a new direction to take.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the left edge of the corridor and appears to be at the threshold of a new space. The most prudent immediate action is to continue left once more to see if the passage opens into the next room or corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still pressed against the leftmost side of the current corridor, and there is no new evidence of a better direction. The most relevant immediate action is to keep moving left one more step to test whether the corridor opens further or whether a new junction is reached.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains at the left edge of the visible corridor and no new obstacle or branch is apparent. Continuing left is still the best action to probe for the next area or confirm whether the corridor ends here.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still stuck at the left edge of the corridor with no visible change suggesting another direction. The most relevant next move is to keep pressing left to test whether there is an adjacent room or if the corridor terminates here.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears to have reached the leftmost boundary of the current corridor and repeated left moves have produced no meaningful change. Since the visible map still suggests the route may continue at the same vertical level but the leftward motion is no longer advancing, it is time to test an alternate direction to uncover a junction or exit. Moving up is the most plausible next probe based on the map layout.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has moved upward one tile and now appears aligned with the upper corridor boundary. The map still suggests nearby navigable space, so continue probing upward to see whether this opens into a new passage or aligns with a junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the upper-left corridor area and has not yet found a new opening. Since upward movement has been accepted and the surrounding layout suggests the route may continue vertically, keep probing upward to locate the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been successfully moved upward into the upper corridor area, and the current state does not show a new obstacle or a better alternative. Continue moving up to press deeper into the passage and reveal the next opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the upper corridor with no new obstruction or branching visible. The safest continuation is to keep moving up, as that has been the working direction into the next section of the map.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same upper corridor with no new visible branch, and upward progress has been consistent so far. Continue moving up to keep exploring the passage and see if it opens into a new area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is stationary in the upper corridor, and repeated upward moves have not changed the layout, suggesting the route may be blocked or we are at a dead end. To resolve the stall, the best next step is to try moving right and test for a side passage or exit from this corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has moved right one step, indicating the horizontal corridor is open in that direction. Since the leftward/vertical attempts stalled, continuing right is the best way to progress toward the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is moving right through a horizontal corridor and the new state shows continued open space to the right. Advancing right is the best immediate action to keep following the passage and look for the next junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still on the horizontal corridor and rightward movement remains open. Continue moving right to follow the passage and reach whatever lies beyond this stretch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been advancing right along the corridor, and the latest state still shows open space continuing in that direction. Maintaining rightward movement is the most consistent way to keep exploring and avoid losing progress.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been progressing right through the corridor and the current map still shows open tiles continuing in that direction. The best immediate action is to keep moving right to follow the passage toward the next intersection or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is continuing to make rightward progress through the horizontal corridor, and the passage still appears open. The most sensible next action is to keep moving right to advance toward the next turn or room boundary.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily advancing right through the corridor, and the visible map still shows open space in that direction. The best immediate action is to continue right to keep following the passage and reach the next feature of the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been advancing right through the corridor, but the latest map suggests the passage may be nearing a boundary or turn, with no evidence that another direction is better yet. Continue right one more step to confirm whether the corridor opens into a junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the horizontal corridor with open space continuing to the right, and prior moves in this direction have consistently advanced the character. The best immediate action remains to keep moving right to reach the corridor's end or next junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving right through the corridor, and the map shows the passage continuing. The most likely way forward is to keep pressing right to reach the next junction or room edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued to advance right and is now close to the visible end of the corridor segment. Since the corridor still appears open, the correct immediate action is to continue right to reach the next junction or room boundary.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving right through the corridor for many turns and is now approaching what appears to be the end of this horizontal stretch. Continue right once more to confirm whether the passage opens into a junction or if a turn becomes available immediately ahead.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been advancing right through the corridor for many turns and is very likely at the far end of this horizontal section. To test for the next opening or a wall turn, continue right once more; if blocked, we can reassess on the following turn.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving right through the corridor and is now at the edge of the visible open stretch. The most relevant next action is to continue right one step to see whether this passage terminates or opens into a new junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily moving right through the corridor, and the passage still appears open in that direction. Continue right to follow the corridor toward the next junction or room edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor segment with the map showing open space extending to the right, and prior repeated rightward moves have consistently advanced progress. Continue right to keep following the passage toward the next junction or endpoint.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has nearly reached the end of the visible corridor to the right, and the safest way to continue discovering the layout is to keep advancing in that same direction. This should reveal whether the passage opens, turns, or terminates.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains aligned with the corridor and the latest state still shows open space continuing to the right. Since prior rightward moves have been consistently advancing the character, the best next action is to keep moving right to discover the next junction or endpoint.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor is still open to the right, and the avatar has been making steady progress that way. Continue right to advance along the passage and reveal the next map feature.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now pressed near the right end of the corridor, with the map suggesting a possible turn or boundary immediately ahead. Since continuing right has been the consistent strategy and the passage still appears open, take one more step right to test the endpoint.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the far right edge of the visible corridor. The rightward path now appears blocked or terminated by the room boundary, so the next best move is to switch direction and step left, likely to reposition for a different corridor or opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been pushed to the rightmost visible edge and the corridor no longer appears to extend further right. A left move is the best corrective step to back away from the boundary and potentially line up with another passage or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the right side of the corridor after backtracking slightly, and the safest immediate action is to continue left to move away from the dead end and probe for another opening or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has begun moving left after hitting the right-side boundary, and the map still shows corridor space to the left. Continue left to keep backtracking from the dead end and look for a junction or alternate route.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still on the corridor and moving left is continuing the backtrack from the right-side dead end. Since the passage remains open to the left, keep moving left to return toward the earlier junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still retreating left from the right-side dead end, and the corridor remains open in that direction. Continue left to return toward the earlier junction and avoid being pinned at the edge of the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor and appears to be moving left away from the right boundary. Continue left to keep retracing toward the earlier junction where a new route may open.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is backtracking left after reaching the right-side boundary, and the corridor still appears open in that direction. Continue left to return toward the earlier intersection and look for a new path.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily backtracking left along the corridor after reaching the right edge. Since the passage remains open and the immediate goal is to return toward the earlier junction, continue left by one step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still retreating left along the corridor from the right-side dead end, and the passage continues to remain open. Continue left to keep returning toward the earlier junction and uncover an alternate route.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving left through the same corridor after backing away from the right boundary. Since the passage remains open and the goal is to return toward the earlier junction, continue left one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has clearly been backtracking left along the corridor, and the visible layout still indicates open space to the left. Continue left to keep returning toward the earlier junction and search for a new branch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving left away from the right-side dead end, and the corridor remains open in that direction. Continue left to keep backtracking toward the earlier junction and look for another route.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in a leftward backtrack from the prior dead end, with the corridor still open and no new branch yet visible. Continue left one more step to keep returning toward the earlier junction and to avoid getting stuck at the boundary.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving left through the corridor after retreating from the right-side dead end. The visible passage remains open, so continuing left is the most consistent next move to reach the earlier junction and discover the next route.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now well left of the earlier right-side dead end, and the corridor still appears open on the left. Continue left to keep progressing back toward the earlier junction and search for the next branch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor, moving left away from the prior right-side dead end. The visible space to the left remains open, so continue left to keep backtracking toward the earlier junction and to avoid missing an alternate opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued moving left through the corridor and is now approaching the left-side side of the visible area. Since the path still appears open, keep moving left to proceed toward the earlier junction or opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving left within the same corridor and has not reached a visible junction yet. Continuing left is the safest and most consistent move to keep backtracking toward the earlier intersection and to avoid missing the opening ahead.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the left side of the corridor, and the next likely progression is to keep moving left toward the earlier junction or opening. The map still shows passable space in that direction, so continue left one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the left edge of the visible corridor, suggesting the next step is likely to continue left into the unseen space or toward the adjacent opening. Maintaining the current backtracking direction is the most consistent move.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now at the far left edge of the corridor and likely cannot continue left effectively. To avoid being stuck, the best next move is to turn back right and re-enter the passage, where an intersection or reachable area may still exist.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving left until reaching the far left edge of the corridor, then a right move was issued previously, and the latest frame still shows the avatar near the left boundary. To continue exploring and avoid being pinned, move right to re-enter the passage and search for the junction or open area ahead.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is back inside the visible corridor after retreating from the left edge. Since the map suggests more open space to the right and the previous leftward move reached the boundary, continue right to re-center in the passage and look for the next branching point.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now centered enough in the corridor that continuing right is the most likely way to keep progressing toward the next unexplored opening. The recent movement pattern indicates we should re-enter the passage to the right rather than remain pressed against the left boundary.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the corridor and the repeated left/right toggling has not yet reached a new branch. Since the latest frame places the avatar slightly right of the left edge with open space remaining, continue right to press deeper into the passage and search for the next opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor, now slightly shifted rightward again, indicating the prior direction change was effective. Continue right to keep exploring toward the next junction or opening rather than oscillating at the left edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been trending rightward through the corridor and is now positioned farther to the right than before, suggesting progress toward the next opening. Continue right to keep exploring the passage and avoid retreating unnecessarily.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving right through the same corridor and has not yet encountered a new branch. Continue right to keep advancing toward the unexplored area on the right side of the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor and the recent moves show continued progress to the right. The right side remains the most plausible direction toward the next opening, so keep moving right one step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily moving right across the visible corridor, and the latest frame shows it still advancing toward the right side where the unexplored area likely continues. Keep moving right to maintain that progress and reach the next junction or opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued moving right across the corridor and remains in open space, so the most likely useful action is to keep advancing right toward the next unexplored junction or room. No obstacles or threats are visible in the immediate path.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor, now farther to the right than before, and the visible path continues in that direction. Keep moving right to progress toward the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving right consistently and is still in open corridor space, so continuing right is the most direct way to keep exploring toward the next visible area or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily progressing to the right through the corridor, and the visible path still appears open in that direction. Continue right to keep moving toward the next unexplored junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving right through the corridor, and the path ahead remains open. Continue right to keep advancing toward the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor and the visible open path continues to the right. The most consistent action is to keep moving right to advance toward the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily moving right across the corridor and is still not at an apparent dead end. Continue right to keep pushing toward the next visible opening or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still advancing right through an open corridor. Since there is no visible obstacle or alternative branch yet, continue right to keep exploring toward the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the corridor and the visible route continues to the right. Since no new obstacle or branch is apparent, the best next step is to continue right and advance toward the unexplored area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily moving right, and the corridor still appears open in that direction. Continue right to keep progressing toward the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the far right edge of the corridor near a visible wall/turn, so continuing right risks stalling or bumping into the boundary. The next sensible move is to switch direction and probe leftward for any missed branch or continuation.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has now shifted left after hitting the right boundary, confirming the corridor end was reached. Continue left to backtrack and look for the nearby branching point or any alternate route that was passed while moving right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued backtracking left after reaching the corridor edge, indicating we should keep retracing the route to locate the branch or opening encountered earlier. Maintain leftward movement to return toward the junction area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving left, but the repeated frames suggest we are retracing the corridor toward the earlier junction. Continue left one more step to keep backtracking and search for the turn or opening that was passed on the way right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still positioned in the same corridor while backtracking left, and the most likely next useful move is to continue left to return toward the earlier junction or branching point. No new obstacle or enemy is visible yet.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar continues backtracking left in the corridor, and no new branch has appeared yet. Keep moving left to return toward the earlier junction and reassess from there.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been backtracking left through the corridor for several turns and is still in open space, so continuing left is the most direct way to return toward the earlier junction or branching area. No immediate threat or alternate action is visible.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same backtracked corridor segment and there is no visible change suggesting a new branch yet. Continue left to keep returning toward the junction or the previous intersection area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still backtracking left in the same corridor, and no new branching point has appeared yet. Continue left to keep returning toward the earlier junction and reassess once the corridor changes.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor while backtracking left, and the visible map suggests we have not yet reached a new intersection. Continue left to keep retracing toward the earlier junction and avoid missing a branch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still positioned in the same corridor and has been backtracking left for several turns. Since the map has not revealed a new branch yet, continue left one more step to keep returning toward the earlier intersection or opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still backtracking left in the corridor and the avatar has not yet reached a visible new junction in the updated frame. Continue left to keep retracing toward the earlier branching point.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the corridor with no new visible branch yet, and continued leftward movement is still the best way to backtrack toward the earlier intersection or room entrance. I will keep moving left one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving left through the same corridor, with no visible junction yet reached. Continue left to complete the backtrack toward the earlier branching point or room entrance.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are still backtracking left in the corridor and no new junction is visible yet. Continue left to keep returning toward the earlier intersection and uncover the branch point.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has nearly retraced the corridor all the way back to the earlier junction, and the safest continuation is to keep moving left for one more step to reach that decision point. No enemy or new obstacle is visible, so continuing the backtrack remains optimal.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has now reached the left side of the visible corridor segment, suggesting the earlier branch/junction is imminent. Continue left to finish returning to the intersection and then reassess from there.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has now reached the left end of the currently visible corridor segment, so continuing left is the most plausible way to hit the earlier intersection or reveal the next branch. Since no enemy or alternate path is visible yet, keep moving left one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the far left edge of the visible corridor segment, indicating the backtrack has likely hit the previous junction or its immediate vicinity. The next useful move is to continue left to probe for the branch/opening beyond the current edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We have now reached the leftmost visible edge of the corridor, so the prior backtracking is complete. The next logical step is to pause the leftward repetition and reassess the branch options from this junction-like position; however, because only a single keystroke can be issued now, I will keep probing left once more to confirm whether the corridor continues or wraps into a turn just beyond the current edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now at the apparent left edge of the corridor and the path beyond is still not visible, so the best immediate action is to continue probing left to determine whether there is an exit, turn, or wall just beyond the current view. This is the most informative move from the current position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The map now shows the avatar pressed against the left boundary with the corridor ahead blocked by the edge of the explored area, indicating further leftward movement is no longer useful. The next best move is to stop probing left and start reassessing the available corridor, but since I must emit a single keystroke now, I will take a cautious rightward step to return from the boundary and re-enter the corridor proper.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has stepped back from the left boundary and is now positioned to re-enter the corridor. The immediate goal is to continue moving right to return toward the explored passage and regain access to the central area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now moving back toward the corridor interior after probing the left boundary. Continuing right is the most sensible next step to re-center in the passage and recover from the dead-end exploration.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now back inside the corridor after probing the left edge, and the safest progression is to keep moving right to return toward the central explored area and avoid staying pinned at the boundary. This should restore positioning for the next branching choice.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are back inside the corridor after probing the left edge, and the displayed map suggests the route continues to the right toward the more open/explored area. Continuing right is the best immediate move to leave the boundary and regain the main passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the corridor and the safest move is to continue back toward the main passage by moving right. We have already probed the left edge, so the next useful step is to keep returning toward the center of the explored area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has nearly finished returning along the corridor toward the interior, and the immediate goal remains to move rightward back toward the central explored area. Continue with the same direction for one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "We are continuing the same backtrack sequence in a corridor, and the safest interpretation is still to move rightward toward the main explored area. The avatar has not encountered a new branch or threat, so I will keep the same directional action.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving along the same horizontal corridor and has not yet reached a visible junction, so continuing rightward remains the appropriate default action to re-center in the explored passage. No new threats or branches are visible in the current frame.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has advanced far enough rightward that the next sensible action is to continue in the same direction to reach the open/explored area or the next junction. No combat or obstacle is visible, so maintaining movement is appropriate.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily moving back through the same corridor and is now close to the more open area on the right. Continue the horizontal movement toward that area to fully return to the main passage and reach the next decision point.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the corridor and the rightward backtrack has not yet reached the next clear junction, so the most consistent action is to continue moving right. This keeps progress toward the open area and avoids getting stuck oscillating at the boundary.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still progressing rightward through the corridor and has not yet reached a visible junction or obstacle, so continuing in the same direction remains the most consistent move to finish returning to the main area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving rightward along the corridor after a long left-edge probe, and the visible map suggests more of the main passage lies in that direction. Continue right to keep returning toward the central explored area and any next branch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor and appears to be backtracking toward the main explored area. The immediate next step remains to continue moving rightward to complete the return and reach a more useful decision point.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same corridor progression and the consistent objective is to continue back toward the main explored area on the right. Since the map still shows no new branch or hazard, the most relevant immediate action is to keep moving right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily moving rightward along the corridor and appears to be nearing the open area on the right. The best immediate action is to continue that same direction to complete the return to the main passage and reach the next junction or open space.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving through the same corridor and the map indicates the rightward path remains the appropriate continuation toward the open area. No threat or branch is visible, so I will maintain the same direction to keep making progress.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same corridor sequence and the safest, most consistent progress is still to continue moving rightward toward the open explored area. No new branch, enemy, or obstacle is visible yet, so preserving the established movement is appropriate.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still progressing along the same corridor toward the right side of the explored map, and continuing that movement remains the most consistent action to reach the next open area or junction. No new information suggests a change in direction yet.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving rightward through the corridor for many turns and now appears near the open area, so the next most useful action is to keep heading right to reach the junction or room beyond. There is no visible threat or need to change course yet.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily moving rightward and is now aligned with the open passage on the right edge of the corridor. The most relevant immediate action is to continue right so we exit the narrow corridor into the next explored area or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the far right end of the corridor and appears positioned to continue into the next area. The best immediate action is to keep moving right, as that is the consistent direction of travel and likely advances into the room or junction beyond the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the corridor's right edge and the sequence has been to keep moving right to exit the passage. Continue that movement to reach the next room or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the far right end of the corridor, and the established movement is to continue rightward into the next area. Since no new obstacle or enemy is visible, repeating the same directional action is the most consistent choice.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains at the corridor\u2019s right boundary, so the consistent next step is still to continue rightward to enter the adjoining area or reach the next junction. No visible change in the map indicates a need to alter direction yet.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still pressed against the right-side corridor boundary and the only apparent progress route is to continue right into the adjoining area. Since the map has not changed to suggest a new decision point, maintain the established movement.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the right edge of the corridor, and the continued goal is to advance into the next area. Since the visible layout has not changed enough to justify a new direction, the most relevant immediate action remains moving right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the rightmost edge of the corridor with no visible change in the layout, so the most consistent action is to continue rightward. This preserves forward progress toward the next room or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains at the far right edge of the corridor and has not yet transitioned into a new visible area, so the safest continuation is to keep moving right. No alternate branch or threat is visible, making this the most consistent next step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the corridor\u2019s rightmost edge with no new visible branch or hazard. Continue moving right to advance into the next area and resolve the stalled progression.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the corridor's right edge and the map hasn't introduced a new decision point. The most relevant immediate action remains to continue rightward to push into the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still stalled at the right edge of the corridor, and the repeated rightward action has not visibly advanced the position. To test the other likely corridor direction and escape the stall, I will change movement to the left, which is the most plausible corrective action from this position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor segment, now slightly shifted but with the map suggesting the route continues to the right side of the passage. Since the left move did not resolve the positioning problem and there is still open space to the right, I will resume moving right to keep progressing through the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor area, with the right side appearing to be the direction of continued progress. Since the last move left did not meaningfully change the situation, I will return to moving right to advance along the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same corridor position, and the visible layout still suggests the continued route lies to the right. Since the prior adjustment did not reveal a better alternative, I will continue rightward to push through the passage and reach the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same corridor with the right side still appearing to be the forward route. There is no visible threat or new branch, so the most relevant immediate action is to keep moving right to continue progression.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still positioned at the corridor\u2019s right edge, and the repeated rightward movement has not yet shown a transition into the next area. Given the persistent corridor layout and lack of threats, continuing right remains the most relevant immediate action to force forward progress.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor position with no visible change, so the most consistent action is to continue moving right to progress through the passage and reach the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still stationary at the same corridor end, and the visible layout hasn't changed to indicate a new branch. Continuing right is the most relevant action to attempt to advance into the next room or corridor segment.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the same corridor end with no visible map change, so the safest immediate action is to continue the established rightward movement to try to enter the adjoining area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same corridor state with no visible change, but the repeated rightward input appears to have been ineffective or blocked. To avoid wasting turns, I will switch direction and try left again, which is the best available corrective action from this stalled position.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has shifted slightly left compared to the previous stalled position, indicating that movement is possible and the corridor is being traversed. Since leftward movement appears to be producing progress now, continuing left is the most reasonable next step to keep advancing through the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has now clearly shifted left within the corridor, so leftward movement is working and likely continues toward the open area or junction. To keep making progress through the passage, continue moving left.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued shifting left and is now farther from the right wall, indicating that leftward movement is the correct active direction. There is still no combat or obstacle forcing a different choice, so I will keep moving left to progress through the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving left consistently and is now near the middle of the corridor, with the right side still blocked and no visible threats. Continue left to follow the established path and reach the next opening or intersection.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still within the corridor and continuing to shift left, suggesting this is the active traversal direction. No enemies or branching choices are visible, so the best next move is to keep going left to advance toward the opening beyond the current passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily moving left and remains in the corridor, with no visible change that suggests a new direction or threat. Continue left to keep progressing toward the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still traversing left through the corridor and has not encountered any new branching or threat. Continuing left remains the most sensible action to keep following the passage toward the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is continuing to move left in the corridor, and the incremental position shifts show that left remains the active traversal direction. There is still no visible combat or alternate branch to justify changing course, so I will keep moving left to progress forward.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the corridor and is still shifting left, indicating that leftward traversal is continuing successfully. Since there is no sign of a new branch or danger, maintaining the same direction is the most reasonable immediate action.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving left through the corridor and appears to be approaching the left side of the passage. Since the movement has been consistently effective and there is no visible enemy or alternative route needing a change, continue left to finish traversing this section.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the left side of the corridor and the leftward movement pattern has been consistent across prior turns. The next logical step is to keep moving left to exit this corridor segment and see the next room or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has steadily progressed left and now sits at the far left side of the visible corridor, suggesting the next needed action is to continue left to attempt leaving this passage. No threats or alternative branches are visible, so maintaining direction is appropriate.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is at the left edge of the corridor and the established movement pattern has been leftward, so the best immediate action is to continue left in an attempt to exit the passage and reveal the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still positioned at the left end of the corridor after many successful leftward steps, and there is no indication of a better alternative. Continue moving left to try to exit this passage and reveal the next room or branch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the far left side of the corridor and continued left movement is the only established way to keep advancing. I will keep moving left to attempt to exit the corridor and discover the next room or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the far left end of the corridor and the previous leftward movement pattern has been working, but the scene now suggests we may be at the threshold of a turn or exit. Since no other options are visible, continue left once more to try to break into the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the left side of the visible corridor and has been progressing left consistently. Since the path still appears open and no enemy or obstacle is visible, continue left to try to leave the corridor and enter the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the left edge of the corridor and appears poised to transition into the next space. Continuing left is still the most direct way to advance, and the repeated movement has not shown any need to change direction yet.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has now reached the far left edge of the corridor, and the repeated leftward steps have exhausted the visible passage. The next sensible action is to keep trying left once more to test whether the character can step into the adjacent area or around the corner.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now flush against the left wall of the corridor, so continuing left is the only move that could advance through a possible opening or corner. Since the environment shows no immediate threat and no alternative route, I will keep pressing left.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now fully at the left boundary, with the corridor behind and no visible threats. The next step is to continue left to see if the corridor opens into the next room or if movement is blocked; this preserves the established traversal direction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is pressed against the left boundary and has been moving left consistently. The logical next action is to continue left to test for an exit or opening beyond the current corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now adjacent to the left boundary and the prior movement has just completed a leftward advance. Since the corridor appears to open vertically at this point and the avatar is no longer centered in the passage, the safest and most likely useful next step is to move down to follow the corridor\u2019s turn or enter the newly reachable space.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has just moved to the left boundary and the layout now suggests a vertical continuation below, with the corridor no longer extending meaningfully left. Since the goal is to continue navigating the passage, moving down is the best next step to follow the likely turn or opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the left edge of the corridor, but the layout suggests the path continues downward from here rather than further left. Moving down should follow the visible passage and maintain exploration without risking a dead end.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the same left-edge corridor position after the previous downward attempt, suggesting the move may not have advanced due to the map layout. Since the corridor still seems to offer a downward continuation, try moving down again to follow the passage or confirm the turn.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has not visibly progressed with the downward attempts, so the current position appears constrained. The map still suggests the corridor should be followed vertically from here, and the safest next action is to keep trying down to see if the character can proceed through the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is stuck in the same left-edge corridor position after repeated attempts to move down, so the likely issue is that the current direction is blocked or not the correct continuation. Based on the visible map, the route seems to branch around this corner, and the most plausible way to make progress is to try moving right to re-enter the corridor and look for the actual opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has shifted slightly right relative to the wall, indicating the previous corrective move worked and the corridor is navigable here. The next step is to continue right to follow the passage and escape the corner.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has now moved one step right from the corner and appears to be following the corridor properly. Continue moving right to advance along the passage and see what lies beyond the bend.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is clearly progressing rightward along the corridor after leaving the left corner. Continuing right is the most direct way to keep following the passage and reach the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is in the corridor and appears to be moving rightward away from the left boundary, which is consistent with following the passage toward the next area. Continue right to keep advancing through the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving steadily to the right through the corridor, and the visible map still indicates open passage ahead. Continue right to keep progressing toward the next intersection or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has continued to shift right along the corridor, and the map still suggests the passage is open in that direction. Continuing right is the most sensible move to keep advancing toward the next junction or chamber.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been advancing rightward through the corridor, and the current state suggests more open passage continues in that direction. The most direct next action is to keep moving right to proceed toward the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now clearly advancing to the right through the corridor, and the visible path still appears open in that direction. Continue right to keep moving toward the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has clearly been progressing rightward through the corridor for several turns, and the path still appears to continue in that direction. The appropriate next action is to keep moving right to advance into the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving steadily right through the corridor and the passage still appears open in that direction. Continuing right is the most direct way to keep exploring and reach the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving right consistently through an open corridor, and the map still shows continued space in that direction. The best next action is to keep moving right to advance toward the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still progressing along the corridor and the map suggests the route remains open ahead. Continue moving right to keep advancing toward the next accessible area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving right successfully and remains in open corridor space, so the most reasonable next action is to continue right to advance deeper into the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still positioned in the corridor and the repeated rightward movement has been the only direction making visible progress. Since the passage continues ahead, keep moving right to reach the next area or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has made consistent progress to the right along the corridor, and the visible map still suggests more open passage in that direction. Continue right to keep advancing toward the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor and the map indicates open space to the right, so the most likely way to continue progressing is to keep moving right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving along the corridor to the right and there is no indication of a turn or obstacle yet. Continuing right remains the most likely correct action to keep advancing through the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving right along the corridor with open space ahead, and the visible map shows the passage continuing. Keep moving right to continue advancing through the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still progressing rightward through the corridor, and the current map continues to show open passage ahead. Continue moving right to keep advancing toward the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still advancing along the rightward corridor and the passage ahead appears open. Continue moving right to keep progressing toward the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving rightward across an open corridor for many turns, and there is still visible space continuing in that direction. The safest continuation is to keep moving right to advance through the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reached the right edge of the visible corridor and appears to be aligned with an opening or transition point. A rightward move is still the most plausible next action to enter the next area or complete the corridor traversal.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is at the end of the visible corridor and nearly flush with the right-side transition, so continuing right is still the most likely correct action to enter the next space.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now pressed against the right boundary of the visible corridor, indicating the rightward traversal has reached its limit. The next sensible action is to try continuing right once more to see if it transitions into the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears to have reached the end of the current rightward corridor and is likely at an intersection or boundary. To keep exploring and avoid stalling, try another rightward move first, since the passage may continue beyond the current visible edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The character is still at the rightmost edge of the corridor, but the visible layout suggests there may be a junction or continued passage to the south below the current line. Since repeated right moves have likely exhausted the corridor, the next best exploratory action is to move down to see if there is a turn or opening below.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "After moving down, the avatar is now aligned with a vertical connection and the corridor below appears to continue. The most relevant next move is to keep going down to explore this new branch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now at a visible junction where the vertical passage is active, and continuing downward is the best way to keep exploring the newly opened branch. Move down again to proceed along this corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains at the junction after the last downward move, and the vertical path below still appears to be the active branch. Continue moving down to keep advancing through the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still positioned at the junction and the southward branch remains the most plausible path for further progress. Continuing down is the best available exploratory move.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the corridor junction and the southward branch remains the only unexplored direction that could advance progress. Continue moving down to proceed through the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still at the same junction with no visible change after repeated downward attempts, which suggests the movement may be constrained or blocked. Since the corridor to the left previously connected into the structure, switch direction and try moving left to continue exploring from the junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The left move has opened the corridor slightly, indicating the avatar is at a junction or in a tight passage. Since left is now the only direction showing structural change and likely leads back along the connected path, continue left to advance through the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has shifted left into a slightly more open section, suggesting the corridor continues in that direction. Continue moving left to follow the connected path and avoid getting stuck at the junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the connected corridor and has been moving left through the passage. Continue left to keep following the corridor and explore the area beyond the current junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor to the left continues to be open and the avatar has been progressing in that direction. Continue left to keep following the passage and reveal the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar remains in the corridor with visible open space still extending leftward, and prior left moves have been making progress through this passage. Continue left to keep moving through the connected hallway.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor continues to extend left and the avatar has been making incremental progress in that direction. Maintaining the leftward movement is the most sensible action to keep exploring the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same leftward corridor and the open passage continues to the left. Since prior left moves have steadily advanced through this hallway, continue left to keep progressing and uncover the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily moving left through a corridor that still appears open in that direction, with no sign of a dead end yet. Continue left to keep advancing along the current passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor and the leftward path remains the active direction of progress. Continue left to advance through the hallway and see whether it opens into a new room or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still progressing left through the corridor, and the passage remains open in that direction. Continue left to advance to the next section of the map.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still on the leftward corridor and appears to have room to continue in that direction. Maintain the same movement to keep exploring the passage and potentially reach the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The leftward corridor is still open and the avatar is continuing to make progress in that direction. Keeping the same movement is the safest way to advance and reveal the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same leftward corridor and there is no indication of a dead end yet. Continue left to keep following the passage and uncover the next section of the dungeon.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been moving left through the corridor for many turns and the passage still appears open, so continuing left is the most consistent progression choice to keep exploring the dungeon.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same leftward corridor and the path remains open. Continue moving left to follow the passage and keep making forward progress through the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has been steadily advancing left and the corridor still appears open, so the best continuation is to keep moving left to stay on the explored path and approach whatever lies ahead.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar continues to inch left through the same corridor and the passage still appears open. The consistent exploration choice is to keep moving left to advance toward the next junction or room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still moving through the same corridor, and the leftward direction remains the only obvious way to continue exploring this passage. Continue left to keep advancing along the route.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still positioned in the corridor with the leftward route continuing to be the active path of exploration. Maintain the same movement to keep progressing through the hallway.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now at the left edge of the visible corridor progression, with the explored path appearing to compress against the wall. A leftward move is still the most direct continuation to test for an opening or transition into the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor appears to have reached a tighter left boundary, suggesting the next move may require testing the available edge for a transition or opening. Continue left once more to see if the path advances or if the character needs to adjust after reaching the edge.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar appears to have reached the leftmost limit of the visible corridor; another left move may be blocked or could transition if the map scrolls. At this point, the best next action is to probe the boundary by continuing left one more step.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is at the left edge of the corridor and appears unable to progress further left without testing the boundary. A rightward move should reverse direction and back away from the limit, which is the safest next step if the corridor is fully traversed.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar has reversed off the left boundary and is now one step back in the corridor. The path ahead still looks like the same hallway, so continue right to move away from the edge and keep exploring the passage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is now back in the corridor after stepping away from the left edge. The safest continuation is to keep moving right along the same hallway to maintain exploration and avoid getting stuck at the boundary.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The avatar is still in the same corridor and has been moving away from the left boundary. Continue right to keep backtracking through the hallway and look for the next junction or room opening.",
+      "queue_length": 1,
+      "byte_length": 1
+    }
+  ]
+}

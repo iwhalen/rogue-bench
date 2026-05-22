@@ -1,0 +1,20 @@
+{
+  "total_keys": 161,
+  "score": 0,
+  "has_amulet": false,
+  "final_screen": "Illegal command 'g'                                                             \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                --+----         --+---                                          \n                |.....|        #+@...|                                          \n                |.....|        #|*.H.+                                          \n                |%....|        #------                                          \n                |.....+#########                                                \n                |.....|                                                         \n                -------                                                         \nLevel: 1  Gold: 0      Hp: 10(12)  Str: 16(16)  Arm: 4   Exp: 1/2               ",
+  "dungeon_level": 1,
+  "gold": 0,
+  "current_hp": 10,
+  "max_hp": 12,
+  "current_strength": 16,
+  "max_strength": 16,
+  "armor_class": 4,
+  "experience_level": 1,
+  "experience_points": 2,
+  "input_tokens": 599423,
+  "cache_write_tokens": 0,
+  "cache_read_tokens": 40960,
+  "output_tokens": 11122,
+  "total_tokens": 610545
+}
