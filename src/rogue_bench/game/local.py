@@ -51,6 +51,7 @@ class LocalRogueGame(PipeRogueGame):
                 cwd=self._cwd,
                 pass_fds=(trogue_r, frogue_w),
                 close_fds=True,
+                stdin=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
                 stderr=subprocess.DEVNULL,
             )

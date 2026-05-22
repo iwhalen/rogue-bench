@@ -120,6 +120,8 @@ class PipeRogueGame(RogueInterface):
         return self._parser.screen
 
     def is_running(self) -> bool:
+        if self.screen.is_death_screen:
+            return False
         if self._process is None:
             return False
         return self._process.poll() is None

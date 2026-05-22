@@ -58,10 +58,10 @@ make build-docker
 
 This will create a new docker image named `rogue-bench` by default. Then, when running any command, specify the `--docker-image rogue-bench` option.
 
-For example, running in human mode will look like:
+For example, running in human mode will look like (once you activate a virtual environment with `rogue-bench` in the path):
 
 ``` bash
-uv run rogue-bench --docker-image rogue-bench --player human
+rogue-bench --docker-image rogue-bench --player human
 ```
 
 ## Player types
@@ -105,6 +105,8 @@ The `--agent-config` option should point to a JSON file. For `NaiveAgent`, the c
 - `model`: Pydantic AI model string.
 - `max_history`: number of prior request/response pairs to keep.
 - `retries`: number of attempts for a model call before failing.
+- `model_settings`: optional Pydantic AI model settings passed to the agent.
+  Validated as a [`ModelSettings`](https://pydantic.dev/docs/ai/api/pydantic-ai/settings/) object if provided.
 
 You can also set `--action-delay` to slow down the keystrokes sent back to Rogue.
 

@@ -187,6 +187,7 @@ class NaiveAgent(RogueAgent):
         self._agent: Agent[RogueAction] = Agent(
             config.model,
             system_prompt=SYSTEM_PROMPT,
+            model_settings=config.model_settings,
             output_type=RogueAction,
             history_processors=[strip_orphan_tool_returns],
         )
@@ -204,8 +205,10 @@ class NaiveAgent(RogueAgent):
 
     def usage_stats(self) -> dict[str, int] | None:
         return {
-            "input_tokens": self._usage.request_tokens or 0,
-            "output_tokens": self._usage.response_tokens or 0,
+            "input_tokens": self._usage.input_tokens or 0,
+            "cache_write_tokens": self._usage.cache_write_tokens or 0,
+            "cache_read_tokens": self._usage.cache_read_tokens or 0,
+            "output_tokens": self._usage.output_tokens or 0,
             "total_tokens": self._usage.total_tokens or 0,
         }
 

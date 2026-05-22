@@ -20,6 +20,10 @@ if TYPE_CHECKING:
 
     from rogue_bench.agent.base import RogueAgent
     from rogue_bench.game.base import PipeRogueGame
+    from rogue_bench.game.screen import ScreenState
+
+_STATIONARY_POSITION_UPDATE_LIMIT = 50
+_STATIONARY_POSITION_STOP_REASON = "stalled_position"
 
 
 class AgentPlayer(PipeBasedPlayer):
@@ -34,6 +38,8 @@ class AgentPlayer(PipeBasedPlayer):
         self._agent = agent
         self._action_delay = action_delay
         self._turns: list[TurnPlayback] = []
+        self._last_player_position: int | None = None
+        self._stationary_position_updates = 0
 
     @property
     def agent(self) -> RogueAgent:
@@ -63,6 +69,7 @@ class AgentPlayer(PipeBasedPlayer):
         buf: StringIO,
     ) -> None:
         game.drain_initial()
+        self._reset_position_watch(game.screen)
         self._redraw_agent(game, stdout_fd, console, buf)
 
         turn = 0
@@ -124,6 +131,8 @@ class AgentPlayer(PipeBasedPlayer):
                     if r:
                         self._drain_game_output(game)
 
+                    if self._record_position_update(game.screen):
+                        break
                     if self._check_ctrl_c(fd_in):
                         self.request_stop("ctrl_c")
                         break
@@ -152,6 +161,30 @@ class AgentPlayer(PipeBasedPlayer):
             pass
         finally:
             os.write(stdout_fd, b"\x1b[2J\x1b[H\x1b[?25h")
+
+    def _reset_position_watch(self, screen: ScreenState) -> None:
+        """Initialize the stationary-position watchdog from the current screen."""
+        self._last_player_position = screen.player_regex_position
+        self._stationary_position_updates = 0
+
+    def _record_position_update(self, screen: ScreenState) -> bool:
+        """Track player movement and stop after too many unchanged updates."""
+        position = screen.player_regex_position
+        if position is None:
+            self._last_player_position = None
+            self._stationary_position_updates = 0
+            return False
+
+        if self._last_player_position is None or position != self._last_player_position:
+            self._last_player_position = position
+            self._stationary_position_updates = 0
+            return False
+
+        self._stationary_position_updates += 1
+        if self._stationary_position_updates >= _STATIONARY_POSITION_UPDATE_LIMIT:
+            self.request_stop(_STATIONARY_POSITION_STOP_REASON)
+            return True
+        return False
 
     async def _watch_ctrl_c(self, fd_in: int) -> None:
         """Poll stdin for Ctrl-C or external stop until cancelled."""

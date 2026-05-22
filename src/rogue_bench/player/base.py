@@ -28,6 +28,7 @@ _SHOW_CURSOR = b"\x1b[?25h"
 _HOME = b"\x1b[H"
 _CLEAR = b"\x1b[2J"
 _CLEAR_BELOW = b"\x1b[J"
+_NO_STDIN_FD = -1
 
 
 def render_frame(
@@ -173,17 +174,21 @@ class PipeBasedPlayer:
         """
 
     def play(self, game: PipeRogueGame) -> None:
-        fd_in = sys.stdin.fileno()
-        old_settings = termios.tcgetattr(fd_in)
+        stdin_fd = sys.stdin.fileno()
+        interactive = sys.stdin.isatty()
+        fd_in = stdin_fd if interactive else _NO_STDIN_FD
+        old_settings = termios.tcgetattr(stdin_fd) if interactive else None
         try:
-            tty.setraw(fd_in)
+            if interactive:
+                tty.setraw(stdin_fd)
             buf = StringIO()
             console = Console(file=buf, force_terminal=True, width=_CONSOLE_W)
             stdout_fd = sys.stdout.fileno()
             os.write(stdout_fd, _CLEAR + _HOME)
             self._io_loop(game, fd_in, stdout_fd, console, buf)
         finally:
-            termios.tcsetattr(fd_in, termios.TCSADRAIN, old_settings)
+            if old_settings is not None:
+                termios.tcsetattr(stdin_fd, termios.TCSADRAIN, old_settings)
             os.write(sys.stdout.fileno(), _SHOW_CURSOR)
 
     @abstractmethod
@@ -228,6 +233,8 @@ class PipeBasedPlayer:
     @staticmethod
     def _check_ctrl_c(fd_in: int) -> bool:
         """Non-blocking check for Ctrl-C on stdin. Returns True if detected."""
+        if fd_in == _NO_STDIN_FD:
+            return False
         r, _, _ = select.select([fd_in], [], [], 0)
         if r:
             data = os.read(fd_in, 1024)
