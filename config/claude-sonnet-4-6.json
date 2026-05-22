@@ -1,6 +1,0 @@
-{
-    "model": "anthropic:claude-sonnet-4-6",
-    "max_history": 25,
-    "retries": 5,
-    "model_settings": {}
-}
