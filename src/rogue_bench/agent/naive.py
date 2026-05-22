@@ -8,7 +8,14 @@ from typing import TYPE_CHECKING, cast
 
 import httpx
 from pydantic_ai import Agent
-from pydantic_ai.messages import ModelMessage, ModelRequest, ToolReturnPart
+from pydantic_ai.messages import (
+    ModelMessage,
+    ModelRequest,
+    ModelResponse,
+    RetryPromptPart,
+    ToolCallPart,
+    ToolReturnPart,
+)
 from pydantic_ai.usage import RunUsage
 from tenacity import (
     AsyncRetrying,
@@ -158,25 +165,51 @@ Keep your reasoning brief. Focus on what you see and what to do next."""
 def strip_orphan_tool_returns(
     messages: list[ModelMessage],
 ) -> list[ModelMessage]:
-    """Remove a leading orphan ToolReturnPart from the first ModelRequest.
+    """Remove orphan tool-result parts from model requests.
 
-    Structured-output tool calls leave a ToolReturnPart at the start of each
-    follow-up ModelRequest. When older messages are evicted from the history
-    deque, the first remaining request can start with a ToolReturnPart whose
-    matching tool-call assistant message is gone. Providers will reject this
-    empty tool call, so instead we strip it out.
+    Structured-output tool calls leave a ToolReturnPart in a follow-up
+    ModelRequest. Providers reject tool results unless the immediately previous
+    message contains the matching tool call, so strip orphaned tool results as
+    a defensive cleanup.
     """
-    if not messages:
+    cleaned: list[ModelMessage] = []
+    changed = False
+
+    for message in messages:
+        if not isinstance(message, ModelRequest):
+            cleaned.append(message)
+            continue
+
+        previous = cleaned[-1] if cleaned else None
+        valid_tool_call_ids = (
+            {
+                part.tool_call_id
+                for part in previous.parts
+                if isinstance(part, ToolCallPart)
+            }
+            if isinstance(previous, ModelResponse)
+            else set()
+        )
+
+        clean_parts = [
+            part
+            for part in message.parts
+            if not (
+                isinstance(part, ToolReturnPart)
+                or (isinstance(part, RetryPromptPart) and part.tool_name is not None)
+            )
+            or part.tool_call_id in valid_tool_call_ids
+        ]
+        if len(clean_parts) != len(message.parts):
+            changed = True
+        if clean_parts:
+            cleaned.append(dataclasses.replace(message, parts=clean_parts))
+        else:
+            changed = True
+
+    if not changed:
         return messages
-    first = messages[0]
-    if not isinstance(first, ModelRequest):
-        return messages
-    clean_parts = [p for p in first.parts if not isinstance(p, ToolReturnPart)]
-    if len(clean_parts) == len(first.parts):
-        return messages
-    if clean_parts:
-        return [dataclasses.replace(first, parts=clean_parts), *messages[1:]]
-    return messages[1:]
+    return cleaned
 
 
 class NaiveAgent(RogueAgent):
@@ -193,15 +226,22 @@ class NaiveAgent(RogueAgent):
         )
         self._retries = config.retries
         self._usage = RunUsage()
-        self._history: deque[ModelMessage] = deque(maxlen=config.max_history * 2)
+        self._history: deque[list[ModelMessage]] = deque(maxlen=config.max_history)
 
     async def decide(self, screen: ScreenState, turn: int) -> RogueAction:
         prompt = f"=== State from turn {turn} ===\n\n{screen.dump()}"
-        history = list(self._history) if self._history else None
+        history = self._message_history()
         result = await self._run_agent(prompt, history)
         self._usage += result.usage()
-        self._history.extend(result.new_messages())
+        if self._history.maxlen != 0:
+            self._history.append(result.new_messages())
         return result.output
+
+    def _message_history(self) -> list[ModelMessage] | None:
+        """Return retained history flattened from complete agent runs."""
+        if not self._history:
+            return None
+        return [message for run in self._history for message in run]
 
     def usage_stats(self) -> dict[str, int] | None:
         return {
