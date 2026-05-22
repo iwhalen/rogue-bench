@@ -67,3 +67,13 @@ def test_pipe_methods_raise_when_process_is_not_running(
 
     with pytest.raises(RuntimeError, match="Rogue process is not running"):
         dummy_game.read_screen()
+
+
+def test_is_running_returns_false_on_death_screen(dummy_game) -> None:
+    dummy_game.feed(
+        b"\x1b[11;26HREST"
+        b"\x1b[13;25HPEACE"
+        b"\x1b[24;1H[Press return to continue]"
+    )
+
+    assert dummy_game.is_running() is False

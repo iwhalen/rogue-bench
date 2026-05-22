@@ -5,7 +5,8 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
+from pydantic_ai import ModelSettings  # noqa: TC002
 
 if TYPE_CHECKING:
     from rogue_bench.game.screen import ScreenState
@@ -26,6 +27,8 @@ class RogueAction(BaseModel):
 
 class AgentConfig(BaseModel):
     """Base config for every RogueAgent. Concrete agents extend with their fields."""
+
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
 
 class LLMAgentConfig(AgentConfig):
@@ -53,6 +56,13 @@ class LLMAgentConfig(AgentConfig):
             "Number of attempts for a single model call before giving up. "
             "Retries trigger only on transient HTTP / connection errors with "
             "exponential backoff."
+        ),
+    )
+    model_settings: ModelSettings | None = Field(
+        default=None,
+        description=(
+            "Optional Pydantic AI model settings dictionary passed through "
+            "to the Agent constructor."
         ),
     )
 

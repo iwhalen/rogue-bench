@@ -5,6 +5,8 @@ from dataclasses import dataclass, field
 from typing import ClassVar, Optional
 
 _SCORE_ENTRY_RE = re.compile(r"^\s*\d+\s+(\d+)\s+rogomatic:")
+_DEATH_SCREEN_RE = re.compile(r"\b(REST|PEACE)\b|\[Press return to continue\]")
+_PLAYER_RE = re.compile(r"@")
 
 _STATUS_RE = re.compile(
     r"Level:\s*(\d+)\s+"
@@ -105,6 +107,37 @@ class ScreenState:
             if m is not None:
                 return int(m.group(1))
         return None
+
+    @property
+    def player_regex_position(self) -> int | None:
+        """Return the regex match offset for the player marker in screen text."""
+        match = _PLAYER_RE.search(self.dump())
+        if match is None:
+            return None
+        return match.start()
+
+    @property
+    def is_death_screen(self) -> bool:
+        """Return True when Rogue is showing the tombstone death screen."""
+        seen_rest = False
+        seen_peace = False
+        seen_prompt = False
+
+        for row in self.characters:
+            line = "".join(row)
+            for match in _DEATH_SCREEN_RE.finditer(line):
+                text = match.group(0)
+                if text == "REST":
+                    seen_rest = True
+                elif text == "PEACE":
+                    seen_peace = True
+                else:
+                    seen_prompt = True
+
+            if seen_rest and seen_peace and seen_prompt:
+                return True
+
+        return False
 
     def dump(self) -> str:
         """Serialize the full screen as a newline-delimited string.

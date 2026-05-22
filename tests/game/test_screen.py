@@ -44,3 +44,32 @@ def test_parse_final_score_returns_first_rogomatic_score() -> None:
 
 def test_parse_final_score_returns_none_when_score_is_absent() -> None:
     assert ScreenState.empty().parse_final_score() is None
+
+
+def test_player_regex_position_returns_dump_match_offset() -> None:
+    screen = ScreenState.empty()
+    screen.characters[4][7] = "@"
+
+    assert screen.player_regex_position == 4 * (ScreenState.COLS + 1) + 7
+
+
+def test_player_regex_position_returns_none_when_absent() -> None:
+    assert ScreenState.empty().player_regex_position is None
+
+
+def test_is_death_screen_detects_tombstone_prompt() -> None:
+    screen = ScreenState.empty()
+    screen.characters[10][25:29] = list("REST")
+    screen.characters[12][24:29] = list("PEACE")
+    prompt = "[Press return to continue]"
+    screen.characters[23][: len(prompt)] = list(prompt)
+
+    assert screen.is_death_screen is True
+
+
+def test_is_death_screen_ignores_regular_continue_prompt() -> None:
+    screen = ScreenState.empty()
+    prompt = "[Press return to continue]"
+    screen.characters[0][: len(prompt)] = list(prompt)
+
+    assert screen.is_death_screen is False
