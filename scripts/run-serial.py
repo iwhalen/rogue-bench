@@ -1,8 +1,7 @@
 # /// script
 # requires-python = ">=3.13"
 # dependencies = [
-#   "rogue-bench",
-#   "rich"
+#   "rogue-bench"
 # ]
 # [tool.uv.sources]
 # rogue-bench = { path = "../", editable = true}
@@ -14,15 +13,9 @@ Accepts all the same flags as the Rogue-Bench CLI, but adds `--n-replicas`.
 This runs `n` Rogue-Bench replicas one after another.
 """
 
+from collections.abc import Callable
+
 import click
-from rich.console import Console
-from rich.progress import (
-    BarColumn,
-    Progress,
-    SpinnerColumn,
-    TextColumn,
-    TimeElapsedColumn,
-)
 from typer.main import get_command
 
 from rogue_bench.__main__ import app as rogue_bench_app
@@ -30,31 +23,12 @@ from rogue_bench.__main__ import app as rogue_bench_app
 
 def run_replicas(
     n_replicas: int,
-    callback: click.Command.callback,
+    callback: Callable[..., object],
     args: tuple[object, ...],
     kwargs: dict[str, object],
 ) -> None:
-    console = Console()
-
-    with Progress(
-        SpinnerColumn(),
-        TextColumn("[bold cyan]Rogue-Bench serial run[/bold cyan]"),
-        BarColumn(),
-        TextColumn("{task.completed}/{task.total} completed"),
-        TimeElapsedColumn(),
-        console=console,
-        transient=False,
-        refresh_per_second=8,
-    ) as progress:
-        task_id = progress.add_task("replicas", total=n_replicas)
-
-        for index in range(1, n_replicas + 1):
-            progress.update(
-                task_id,
-                description=f"replica {index}",
-            )
-            callback(*args, **kwargs)
-            progress.advance(task_id)
+    for _ in range(n_replicas):
+        callback(*args, **kwargs)
 
 
 def build_command() -> click.Command:
