@@ -9,22 +9,24 @@
     If you'd like to donate some credits or suggest an improvement, please [get in touch](https://github.com/iwhalen/rogue-bench/issues). 
 
 
+Below, score refers to how much gold an agent picked up.
+
 ## 10 minute bracket
 
 Each result here had a 10 minute time limit to accumulate as high a score as possible.
 
 Note that Rog-O-Matic is slightly better than human expert performance. 
 
-All runs were tested on seed 0.
+All runs were tested on seed 0 with 5 replicates.
 
 | Model | Harness | Max score (n=5) | Results folder |
 | :--:  | :--:          | :---:              | :---:          |
-| Rog-O-Matic[^rogomatic-note] | Rog-O-Matic | 923 | Link |
-| Deepseek V4 Flash | `naive.NaiveAgent` | 23 | Link |
-| Claude Haiku 4.5 | `naive.NaiveAgent` | 5 | Link | 
-| Gemini 3 Flash | `naive.NaiveAgent` | 5 | Link | 
-| Kimi K2.6 | `naive.NaiveAgent` | 5 | Link | 
-| GPT-5-4-mini | `naive.NaiveAgent` | 0 | Link |
+| Rog-O-Matic[^rogomatic-note] | Rog-O-Matic | 923 | [Link](https://github.com/iwhalen/rogue-bench/tree/main/results/rogomatic) |
+| Deepseek V4 Flash | `naive.NaiveAgent` | 23 | [Link](https://github.com/iwhalen/rogue-bench/tree/main/results/deepseek-v4-flash) |
+| Claude Haiku 4.5 | `naive.NaiveAgent` | 5 | [Link](https://github.com/iwhalen/rogue-bench/tree/main/results/claude-haiku-4-5) | 
+| Gemini 3 Flash | `naive.NaiveAgent` | 5 | [Link](https://github.com/iwhalen/rogue-bench/tree/main/results/gemini-3-flash) | 
+| Kimi K2.6 | `naive.NaiveAgent` | 5 | [Link](https://github.com/iwhalen/rogue-bench/tree/main/results/kimi-k2-6) | 
+| GPT-5-4-mini | `naive.NaiveAgent` | 0 | [Link](https://github.com/iwhalen/rogue-bench/tree/main/results/gpt-5-4-mini) |
 
 ??? Note "Click to reveal run details"
 
@@ -260,5 +262,7 @@ To analyze an output directory, us the `analyze-runs.py` script:
 ``` bash
 uv run scripts/analyze-runs.py results/claude-haiku-4-5
 ```
+
+See the [CLI docs](cli.md) for more on how to run replays.
 
 [^rogomatic-note]: Each run has a randomly seeded initial genome and no shared memory between runs. For more on Rog-O-Matic, see [here](https://www.cs.princeton.edu/~appel/papers/rogomatic.html).

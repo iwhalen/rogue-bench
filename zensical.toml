@@ -49,9 +49,9 @@ site_author = "Ian Whalen"
 # Read more: https://zensical.org/docs/setup/navigation/
 nav = [
   { "Home" = "index.md" },
+  { "Leaderboard" = "leaderboard.md"},
   { "CLI" = "cli.md"},
   { "Add an agent" = "add-an-agent.md"},
-  { "Leaderboard" = "leaderboard.md"},
   { "Blog" = "https://iwhalen.com/"}
 ]
 
