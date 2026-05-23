@@ -1,0 +1,8 @@
+{
+    "model": "google-gla:gemini-3-flash-preview",
+    "max_history": 25,
+    "retries": 5,
+    "model_settings": {
+        "temperature": 0.1
+    }
+}

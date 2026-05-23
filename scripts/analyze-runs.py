@@ -150,7 +150,10 @@ def print_summary(runs: list[Run], results_dir: Path) -> None:
     scores = numeric_values(runs, "score")
     print(f"Results: {results_dir}")
     print(f"Runs: {len(runs)}")
-    print(f"Median score over {len(scores)} runs: {format_number(median(scores))}")
+    print(
+        f"Max score over {len(scores)} runs: "
+        f"{format_number(max(scores) if scores else None)}"
+    )
 
     model = first_metadata_value(runs, ("config", "model"))
     if model is not None:

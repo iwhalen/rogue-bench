@@ -1,0 +1,9 @@
+{
+    "model": "openrouter:moonshotai/kimi-k2.6",
+    "max_history": 25,
+    "retries": 5,
+    "model_settings": {
+        "temperature": 0.1,
+        "openrouter_provider": "wandb/fp4"
+    }
+}

@@ -5,6 +5,8 @@ from pydantic_ai.messages import (
     ModelRequest,
     ModelResponse,
     RetryPromptPart,
+    SystemPromptPart,
+    TextPart,
     ToolCallPart,
     ToolReturnPart,
     UserPromptPart,
@@ -12,7 +14,12 @@ from pydantic_ai.messages import (
 from pydantic_ai.usage import RunUsage
 
 from rogue_bench.agent.base import LLMAgentConfig, RogueAction
-from rogue_bench.agent.naive import NaiveAgent, strip_orphan_tool_returns
+from rogue_bench.agent.naive import (
+    SYSTEM_PROMPT,
+    NaiveAgent,
+    compact_action_history,
+    strip_orphan_tool_returns,
+)
 from rogue_bench.game.screen import ScreenState
 
 
@@ -78,67 +85,62 @@ def test_strip_orphan_tool_returns_removes_orphan_retry_prompt() -> None:
     assert cleaned[0].parts == [user_prompt]
 
 
-def test_naive_agent_retains_complete_run_message_groups(monkeypatch) -> None:
+def test_compact_action_history_uses_plain_request_response_messages() -> None:
+    prompt = "screen"
+    action = RogueAction(reasoning="Move left.", keys=["h"])
+
+    history = compact_action_history(prompt, action)
+
+    assert len(history) == 2
+    assert isinstance(history[0], ModelRequest)
+    assert isinstance(history[0].parts[0], UserPromptPart)
+    assert history[0].parts[0].content == prompt
+    assert isinstance(history[1], ModelResponse)
+    assert history[1].tool_calls == []
+
+
+def test_naive_agent_retains_compact_action_history(monkeypatch) -> None:
     agent = NaiveAgent(LLMAgentConfig(model="test", max_history=1))
-    first_run = [
-        ModelRequest(parts=[UserPromptPart(content="first")]),
-        ModelResponse(
-            parts=[
-                ToolCallPart(
-                    tool_name="final_result",
-                    args={"reasoning": "first", "keys": ["h"]},
-                    tool_call_id="call-1",
-                )
-            ]
-        ),
-        ModelRequest(
-            parts=[
-                ToolReturnPart(
-                    tool_name="final_result",
-                    content="Final result processed.",
-                    tool_call_id="call-1",
-                )
-            ]
-        ),
-    ]
-    second_run = [
-        ModelRequest(parts=[UserPromptPart(content="second")]),
-        ModelResponse(
-            parts=[
-                ToolCallPart(
-                    tool_name="final_result",
-                    args={"reasoning": "second", "keys": ["l"]},
-                    tool_call_id="call-2",
-                )
-            ]
-        ),
-        ModelRequest(
-            parts=[
-                ToolReturnPart(
-                    tool_name="final_result",
-                    content="Final result processed.",
-                    tool_call_id="call-2",
-                )
-            ]
-        ),
-    ]
     captured_history: list[list[ModelMessage] | None] = []
-    runs = iter([first_run, second_run])
+    actions = iter(
+        [
+            RogueAction(reasoning="first", keys=["h"]),
+            RogueAction(reasoning="second", keys=["l"]),
+        ]
+    )
 
     async def fake_run_agent(
         prompt: str,
         history: list[ModelMessage] | None,
     ) -> "_FakeRunResult":
+        action = next(actions)
         captured_history.append(history)
-        return _FakeRunResult(next(runs))
+        return _FakeRunResult(
+            [ModelRequest(parts=[UserPromptPart(content=prompt)])],
+            action,
+        )
 
     monkeypatch.setattr(agent, "_run_agent", fake_run_agent)
 
     asyncio.run(agent.decide(ScreenState.empty(), 0))
     asyncio.run(agent.decide(ScreenState.empty(), 1))
 
-    assert captured_history == [None, first_run]
-    assert agent._message_history() == second_run
+    first_prompt = "=== State from turn 0 ===\n\n" + ScreenState.empty().dump()
+    second_prompt = "=== State from turn 1 ===\n\n" + ScreenState.empty().dump()
+    first_history = compact_action_history(
+        first_prompt, RogueAction(reasoning="first", keys=["h"])
+    )
+    second_history = compact_action_history(
+        second_prompt, RogueAction(reasoning="second", keys=["l"])
+    )
+
+    assert captured_history[0] is None
+    assert _history_content(captured_history[1]) == _history_content(
+        _with_system_prompt(first_history)
+    )
+    assert _history_content(agent._message_history()) == _history_content(
+        _with_system_prompt(second_history)
+    )
 
 
 def test_naive_agent_max_history_zero_disables_retained_history(monkeypatch) -> None:
@@ -169,13 +171,34 @@ def test_rogue_action_accepts_reasoning_and_keys() -> None:
 
 
 class _FakeRunResult:
-    output = RogueAction(reasoning="test", keys=["h"])
-
-    def __init__(self, messages: list[ModelMessage]) -> None:
+    def __init__(
+        self,
+        messages: list[ModelMessage],
+        output: RogueAction | None = None,
+    ) -> None:
         self._messages = messages
+        self.output = output or RogueAction(reasoning="test", keys=["h"])
 
     def usage(self) -> RunUsage:
         return RunUsage()
 
     def new_messages(self) -> list[ModelMessage]:
         return self._messages
+
+
+def _history_content(history: list[ModelMessage] | None) -> list[tuple[str, str]]:
+    assert history is not None
+    compacted: list[tuple[str, str]] = []
+    for message in history:
+        part = message.parts[0]
+        if isinstance(message, ModelRequest):
+            assert isinstance(part, UserPromptPart | SystemPromptPart)
+            compacted.append((part.part_kind, part.content))
+        else:
+            assert isinstance(part, TextPart)
+            compacted.append(("response", part.content))
+    return compacted
+
+
+def _with_system_prompt(history: list[ModelMessage]) -> list[ModelMessage]:
+    return [ModelRequest(parts=[SystemPromptPart(content=SYSTEM_PROMPT)]), *history]

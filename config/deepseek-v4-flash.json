@@ -1,0 +1,9 @@
+{
+    "model": "openrouter:deepseek/deepseek-v4-flash",
+    "max_history": 25,
+    "retries": 5,
+    "model_settings": {
+        "temperature": 0.1,
+        "openrouter_provider": "alibaba"
+    }
+}

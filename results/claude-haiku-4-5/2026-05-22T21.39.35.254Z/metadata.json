@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-05-22T21:49:35.373644+00:00",
+  "seed": 0,
+  "rogue_version": "Unix Rogue 5.4.2",
+  "player": "agent",
+  "agent_class": "naive.NaiveAgent",
+  "agent_config_path": "config/claude-haiku-4-5.json",
+  "rogomatic_config_path": null,
+  "config": {
+    "model": "anthropic:claude-haiku-4-5",
+    "max_history": 25,
+    "retries": 5,
+    "model_settings": {
+      "temperature": 0.1
+    }
+  },
+  "args": [
+    "scripts/run-serial.py",
+    "--n-replicas",
+    "1",
+    "--player",
+    "agent",
+    "--agent-class",
+    "naive.NaiveAgent",
+    "--agent-config",
+    "config/claude-haiku-4-5.json",
+    "--output-path",
+    "results/claude-haiku-4-5",
+    "--versioned",
+    "--timeout",
+    "600",
+    "--action-delay",
+    "0",
+    "--seed",
+    "0"
+  ],
+  "terminated": "timeout"
+}

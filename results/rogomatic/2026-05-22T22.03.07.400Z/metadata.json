@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-05-22T22:03:23.131450+00:00",
+  "seed": 0,
+  "rogue_version": "Unix Rogue 5.4.2",
+  "player": "rogomatic",
+  "agent_class": null,
+  "agent_config_path": null,
+  "rogomatic_config_path": "config/rogomatic.json",
+  "config": {
+    "fresh_run": true,
+    "use_ltm": false,
+    "genes": null,
+    "random_gene_seed": 1
+  },
+  "args": [
+    "/home/whale/projects/rogue-bench/.venv/bin/rogue-bench",
+    "--player",
+    "rogomatic",
+    "--rogomatic-config",
+    "config/rogomatic.json",
+    "--output-path",
+    "results/rogomatic",
+    "--versioned",
+    "--timeout",
+    "600",
+    "--action-delay",
+    "0",
+    "--seed",
+    "0"
+  ],
+  "terminated": "completed"
+}

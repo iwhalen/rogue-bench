@@ -19,6 +19,13 @@ def test_send_keypress_encodes_latin_1(pipe_game) -> None:
     assert pipe_game.game.keylog == b"\xa3"
 
 
+def test_send_keypress_replaces_non_latin_1_entry_with_space(pipe_game) -> None:
+    pipe_game.game.send_keypress(" \u63a8\u8fdb")
+
+    assert os.read(pipe_game.read_fd, 1) == b" "
+    assert pipe_game.game.keylog == b" "
+
+
 def test_feed_updates_last_status(
     dummy_game,
     valid_status_line: str,

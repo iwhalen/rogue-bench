@@ -94,7 +94,11 @@ class PipeRogueGame(RogueInterface):
         """Stop the Rogue game session and release resources."""
 
     def send_keypress(self, key: str) -> None:
-        self.send_raw(key.encode("latin-1"))
+        try:
+            data = key.encode("latin-1")
+        except UnicodeEncodeError:
+            data = b" "
+        self.send_raw(data)
 
     def send_raw(self, data: bytes) -> None:
         """Send raw bytes to the game and record them in the keylog."""

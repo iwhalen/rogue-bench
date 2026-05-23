@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "reasoning": "I'm in a small room with an Elf (E) to my left. This is a weak early-alphabet monster, so melee combat is appropriate. I'll move left twice to engage it in combat.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I moved left and took 2 damage from the Elf (12 \u2192 10 HP). The Elf is now directly to my right. I'll continue attacking by moving right to hit it again.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Good! I defeated the Elf (it was labeled E but called an \"emu\" in the message). My HP is 10/12. Now I should explore the room systematically. I'll move around to check for items and hidden doors. Let me move right to explore the eastern part of the room.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "I've reached the eastern wall and found a passage (#) to the right. This is an exit from the room. Let me continue exploring by moving right into the passage to see what's beyond.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm now at a door (+) leading to a passage (#). Let me continue moving right to explore the corridor beyond.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm in a corridor with passages on both sides. Let me continue exploring right to see if there are more rooms or corridors.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Still in a corridor. Let me continue moving right to explore further.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Still in a corridor. Let me continue moving right to find the next room or area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Still in a corridor. Let me continue moving right to find the next room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Still in a corridor. Let me continue moving right to find the next room or junction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Still in a corridor. Let me continue moving right to find the next room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I can see a corridor junction above me. Let me continue right to see if there's a room ahead, then I'll explore the upper corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I've reached the end of the corridor (wall ahead). I can see a corridor junction above. Let me move up to explore that area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm in a corridor. Let me continue moving up to explore further.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I can see a door (+) to my right. Let me move right to reach it and explore the room beyond.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I didn't move - I'm still at the same position. The door is above me. Let me move up to reach it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm at the door. Let me move right to enter the room beyond.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Great! I found a new room with a scroll (?) and gold (*). My HP also increased to 11/12. Let me pick up the scroll first, then the gold. I'll move right to the scroll.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The game is showing me a scroll I picked up and asking for more. I need to press space to continue.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "A hobgoblin (H) just attacked and missed. I need to fight it. Let me move right to engage it in melee combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I missed and the hobgoblin missed. I'm still adjacent to it. Let me continue attacking by moving right again.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Good! I defeated the hobgoblin. Now I can explore the room. I see gold (*) below me. Let me move down to pick it up.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Good! I picked up 6 gold pieces. Now let me explore the rest of this room. I'll move right to check for more items or exits.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I've reached the eastern wall of the room. There's a door (+) to my right. Let me move right to exit through it and continue exploring.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm in a corridor. Let me continue moving right to explore further.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm at another door. Let me continue moving right to explore the corridor beyond.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm in a corridor. Let me continue moving right to find the next room or area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Still in a corridor. Let me continue moving right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Still in a corridor. Let me continue moving right to find the next room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Still in a corridor. Let me continue moving right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Still in a corridor. Let me continue moving right to find the next room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Still in a corridor. Let me continue moving right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I can see a corridor junction below me. Let me continue right to see if there's a room ahead, then I'll explore downward.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I've reached the end of the corridor (wall ahead). Let me move down to explore the corridor junction I saw.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm in a corridor. Let me continue moving down to explore further.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm in a corridor. Let me continue moving down.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I didn't move - I'm at a wall. Let me try moving left to explore the corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm still at the same position. Let me try moving up to go back and explore a different direction.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm back in the corridor. Let me move left to explore further.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm still at the same position. Let me try moving down again to explore the lower corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "My HP is now full (12/12). I'm in a dead end. Let me go back and explore other directions. Let me move up and then left to find new areas.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "I'm back in the corridor. Let me continue moving left to explore.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "I'm in the corridor. Let me continue moving left.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "I'm back in the room. Let me explore downward from here to find new areas.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I can't move down from here. Let me move left to explore the western part of the room.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I'm in the room. Let me move down to explore the southern part.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I can't move down. Let me move left to explore the western room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm at a wall. Let me move down to explore the southern corridor.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm stuck. Let me try moving right to go back through the room and explore other directions.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "I'm back at the door. Let me move down to explore the southern area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I can't move down from here. Let me move left to go back to the western room and explore downward from there.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "I'm back in the room. Let me move down to explore the southern corridor.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I can't move down from here. Let me try moving right to explore the eastern corridor.",
+      "queue_length": 7,
+      "byte_length": 7
+    },
+    {
+      "reasoning": "I'm in the corridor. Let me move down to explore the southern area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I can't move down. Let me move right to continue exploring the corridor.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "I'm in the corridor. Let me continue moving right.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I'm at the end of the corridor. Let me move down to explore the southern area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm in the corridor. Let me move down to explore further.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm back at the dead end. Let me try a different approach - move left to explore the western side of the map.",
+      "queue_length": 13,
+      "byte_length": 13
+    },
+    {
+      "reasoning": "I'm still at the dead end. Let me move up and then left to explore the western room more thoroughly.",
+      "queue_length": 5,
+      "byte_length": 5
+    }
+  ]
+}

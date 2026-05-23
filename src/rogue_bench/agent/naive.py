@@ -13,8 +13,11 @@ from pydantic_ai.messages import (
     ModelRequest,
     ModelResponse,
     RetryPromptPart,
+    SystemPromptPart,
+    TextPart,
     ToolCallPart,
     ToolReturnPart,
+    UserPromptPart,
 )
 from pydantic_ai.usage import RunUsage
 from tenacity import (
@@ -212,6 +215,14 @@ def strip_orphan_tool_returns(
     return cleaned
 
 
+def compact_action_history(prompt: str, action: RogueAction) -> list[ModelMessage]:
+    """Represent one completed turn without provider-specific tool call messages."""
+    return [
+        ModelRequest(parts=[UserPromptPart(content=prompt)]),
+        ModelResponse(parts=[TextPart(content=action.model_dump_json())]),
+    ]
+
+
 class NaiveAgent(RogueAgent):
     """Straightforward LLM agent: system prompt + screen dump + structured output."""
 
@@ -222,7 +233,6 @@ class NaiveAgent(RogueAgent):
             system_prompt=SYSTEM_PROMPT,
             model_settings=config.model_settings,
             output_type=RogueAction,
-            history_processors=[strip_orphan_tool_returns],
         )
         self._retries = config.retries
         self._usage = RunUsage()
@@ -234,14 +244,17 @@ class NaiveAgent(RogueAgent):
         result = await self._run_agent(prompt, history)
         self._usage += result.usage()
         if self._history.maxlen != 0:
-            self._history.append(result.new_messages())
+            self._history.append(compact_action_history(prompt, result.output))
         return result.output
 
     def _message_history(self) -> list[ModelMessage] | None:
         """Return retained history flattened from complete agent runs."""
         if not self._history:
             return None
-        return [message for run in self._history for message in run]
+        return [
+            ModelRequest(parts=[SystemPromptPart(content=SYSTEM_PROMPT)]),
+            *(message for run in self._history for message in run),
+        ]
 
     def usage_stats(self) -> dict[str, int] | None:
         return {
