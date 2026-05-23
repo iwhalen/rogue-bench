@@ -2165,7 +2165,7 @@ wheels = [
 
 [[package]]
 name = "rogue-bench"
-version = "2026.5"
+version = "2026.5.23"
 source = { editable = "." }
 dependencies = [
     { name = "pydantic-ai" },
