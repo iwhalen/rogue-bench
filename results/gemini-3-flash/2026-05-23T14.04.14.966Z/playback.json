@@ -1,0 +1,270 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "reasoning": "An Emu (E) is adjacent. Attacking it first to clear the room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The emu is to my right. I will attack it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The emu is still there and I need to defeat it. Continuing the attack.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The emu is still alive and adjacent. I will continue attacking it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The emu is defeated. I'm moving towards the door on the right to explore the rest of the level.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "The room is cleared. Moving through the door to the right to explore more of the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Moving right into the corridor to explore more of the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor seems to go up. Moving up to explore.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to follow the corridor upwards.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing up the corridor towards the door.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I've entered a new room. There's a scroll (?), gold (*), and a Hobgoblin (H). I'll move towards the items and the monster. I'll pick up the scroll first.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm in a room with a Hobgoblin (H), gold (*), and a scroll (?). I'll move to pick up the gold and then engage the Hobgoblin. Wait, I missed the scroll. Let me go back for the scroll and gold. Actually, I'll just go for the gold and the monster now. Moving down to the gold.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "I'm moving to pick up the gold and then I'll deal with the Hobgoblin if it's still there. It seems the Hobgoblin moved or I misidentified the situation. Wait, the Hobgoblin is gone? Ah, I see 'Exp: 1/5' now, so I must have defeated it or something happened. Let's get the gold.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I picked up the gold. Now I'll go back for the scroll (?) I saw earlier. It should be to the left and up.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm looking for the scroll that was in this room. I'll move right to find it.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "Searching for the scroll in the room. Moving right.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The scroll seems to have disappeared or I misread the map. I'll explore the exit to the right.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "Moving right into the corridor to continue exploring.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right. HP is slowly regenerating.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right. It seems to be turning down.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor turns down. Moving down to follow it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to follow the corridor downwards.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor continues to the right. Moving to explore.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I've reached a door (+). I'll enter the room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I've entered a new room and there's a Bat (B) nearby. Bats move erratically, but I'll move towards it to engage. I'll also explore the room.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I defeated the bat. Now I'll explore this large room to find items or another exit. I'll move right across the room.",
+      "queue_length": 20,
+      "byte_length": 20
+    },
+    {
+      "reasoning": "I've reached the right wall of the room. Now I'll explore the upper part of the room by moving up and then left.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I've explored the top-left corner. Now I'll move right along the top wall to see if there's an exit or items. HP is full.",
+      "queue_length": 20,
+      "byte_length": 20
+    },
+    {
+      "reasoning": "Checking the top wall for a door. Moving up and then right.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I'm at the top right of the room. I'll check for a door in the top wall.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "I'm trying to move up to the top wall of the room to check for a door. I'll press 'k' multiple times.",
+      "queue_length": 20,
+      "byte_length": 20
+    },
+    {
+      "reasoning": "I'm trying to move up to the top wall of the room to check for a door. I'll press 'k' multiple times.",
+      "queue_length": 20,
+      "byte_length": 20
+    },
+    {
+      "reasoning": "I'm trying to move up to the top wall of the room to check for a door. I'll press 'k' multiple times.",
+      "queue_length": 20,
+      "byte_length": 2
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "reasoning": "Starting on level 1. I see a room with an 'E' (a monster - early letter, likely weak) and stairs '%'. I'm at position near the bottom of the room. Let me move up-left to explore the room, heading toward the monster to engage it, then explore the rest of the level.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "Moved up-left 5 times. Now I'm next to the 'E' monster (an emu or similar weak creature). I should attack it by moving into it. Let me move right to engage.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I hit the emu and it hit me back. I'm at 10 HP. The emu is weak - I should keep attacking. Move right into it again.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I missed and got hit again, now at 8 HP. The emu is weak but I need to finish it. Keep attacking - move right into it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Defeated the emu. Now at 8 HP. I should explore the room - there's a '+' (door) to the right, stairs '%' below me, and the rest of the room to explore. Let me pick up any items on the floor (none visible), then head right toward the door to explore further. First let me check the area around me - move right to see what's there.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "Moved right 4 times. Now at the right side of the room near the door '+'. I'm at 8 HP - a bit low. Let me explore through the door to see what's beyond. The door is at the bottom right of the room. Let me move down-right to the door, then through it.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm at the door area. I see a '#' (corridor) to the right. Let me explore the corridor and see where it leads. I'm at 8 HP so I should be careful. Let me move right into the corridor and explore.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "Exploring the corridor. I see it continues to the right. Let me keep moving right to see where it leads. I'm at 8 HP so I'll be cautious.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "Exploring the corridor. I see it branches - there's a '#' above me and the corridor continues right. Let me check what's above first, then continue exploring. I'm at 8 HP so I'll be cautious but the level seems clear so far.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "I moved up and found a '+' (door) to the right. This looks like another room entrance. I'm at 9 HP (rested 1 point). Let me go through the door to explore the next room. I'll move right into the door and then into the room beyond.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "I entered a new room. There's a hobgoblin (H) that just missed me. There's also gold (*) on the floor. I'm at 9 HP. The hobgoblin is a weak monster (early letter). I should attack it. Let me move left into it to engage in melee combat.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I moved left but the hobgoblin is still one space away. Let me move left again to attack it directly.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The hobgoblin hit me hard - I'm down to 3 HP! That's very dangerous. I need to retreat and rest. Let me move back through the door into the corridor to escape, then rest to regain HP. I'll move right to get away from the hobgoblin.",
+      "queue_length": 5,
+      "byte_length": 5
+    }
+  ]
+}

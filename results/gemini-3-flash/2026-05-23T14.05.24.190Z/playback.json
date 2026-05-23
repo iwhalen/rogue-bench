@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "reasoning": "An Emu (E) is directly above me. I will attack it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Defeated the emu. Now moving towards the door on the right to explore.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Moving through the corridor to explore more of the level.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing to move right through the corridor to find the next room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The corridor seems to turn upwards. Moving up to follow it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to follow the corridor upwards.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Moving right to enter the door and explore the next room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Moving to collect gold and the scroll, then attacking the Hobgoblin.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "Dismissing the message, picking up the gold, and then attacking the Hobgoblin.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "Dismissing the message, moving up, and then attacking the Hobgoblin. I took some damage, but I'm still above 50% HP.",
+      "queue_length": 3,
+      "byte_length": 3
+    }
+  ]
+}

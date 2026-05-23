@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "reasoning": "E monster is directly above me in the room. I'll attack it in melee by moving up (k). It's an early-alphabet monster so should be manageable at level 1.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "E monster is directly above me in the room. I'll attack it in melee by moving up (k). It's an early-alphabet monster so should be manageable at level 1.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "E monster is directly above me in the room. I'll attack it in melee by moving up (k). It's an early-alphabet monster so should be manageable at level 1.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "E monster is directly above me in the room. I'll attack it in melee by moving up (k). It's an early-alphabet monster so should be manageable at level 1.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "I'm moving toward the staircase % visible in the room. Two steps down will put me on it, then I'll descend to level 2.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm moving toward the staircase % visible in the room. Two steps down will put me on it, then I'll descend to level 2.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm moving toward the staircase % visible in the room. Two steps down will put me on it, then I'll descend to level 2.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm moving toward the staircase % visible in the room. Two steps down will put me on it, then I'll descend to level 2.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm moving toward the staircase % visible in the room. Two steps down will put me on it, then I'll descend to level 2.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm moving toward the staircase % visible in the room. Two steps down will put me on it, then I'll descend to level 2.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm moving toward the staircase % visible in the room. Two steps down will put me on it, then I'll descend to level 2.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm moving toward the staircase % visible in the room. Two steps down will put me on it, then I'll descend to level 2.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm moving toward the staircase % visible in the room. Two steps down will put me on it, then I'll descend to level 2.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm moving toward the staircase % visible in the room. Two steps down will put me on it, then I'll descend to level 2.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The staircase % is two rows above me at row 18. I need to move up to reach it. Let me move up twice first to get to the right row, then I can position myself on the % and descend.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I'm one step right of the staircase %. Move left to step onto it, then descend with >.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I'm at column 18, staircase % is at column 17. One more step left will put me on the staircase, then I can descend.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I'm at column 18, staircase % is at column 17. One more step left will put me on the staircase, then I can descend.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I'm at column 18, staircase % is at column 17. One more step left will put me on the staircase, then I can descend.",
+      "queue_length": 2,
+      "byte_length": 2
+    }
+  ]
+}

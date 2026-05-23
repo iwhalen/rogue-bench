@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "reasoning": "An Emu (E) is directly above me. I will attack it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Defeated the emu. Now moving towards the door on the right to explore the rest of the level.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Moving right into the corridor to explore further.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "Continuing right along the corridor to find the next room.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Moving up to explore the corridor branch.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the upward corridor branch.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Moving right to enter the door.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Entering the room. There is a scroll (?) and gold (*) nearby, but also a Hobgoblin (H). I will move towards the items and the monster. Moving right to engage the Hobgoblin.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "Picked up a scroll. Need to dismiss the message and then deal with the Hobgoblin.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The hobgoblin hit me. I will attack it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Defeated the hobgoblin. Now moving to pick up the gold.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "Picked up the gold. Now moving to the door on the right to continue exploring.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Moving through the door to explore the next area.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing along the corridor to the right.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing along the corridor to find the next room.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing along the corridor to the right.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Moving down the corridor branch.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing down the corridor.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing to explore the corridor downwards.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing to explore the corridor downwards. It seems I am in a vertical corridor.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing to explore the corridor downwards. It seems I am in a vertical corridor.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The corridor seems to turn right at my current position. I will move right to continue exploring.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right. My HP is slowly recovering.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Moving right to enter the door.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Entering the room. There is a Bat (B) inside. I will move towards it to engage.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The bat hit me. I will attack it. Bats are hard to hit because they move erratically, but I must defeat it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The bat moved to the upper-left. I will move to attack it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The bat is at (19, 55) and I am at (20, 56). I will move up to be adjacent to it. Wait, the bat is at row 19, column 55. I am at row 20, column 56. Moving 'k' will put me at (19, 56).",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The bat is at (19, 55) and I am at (20, 56). I will move up-left to attack it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The bat is still at (19, 55). I will move up-left to attack it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The bat is at (19, 55) and I am at (20, 56). I will move up-left to attack it. I've tried this before but the state didn't seem to update my position correctly or the bat moved. Let's try again.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The bat is to my left. I will move left to attack it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The bat is to my right. I will attack it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Defeated the bat. Now I will explore the rest of this large room. Moving right.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Continuing to explore the room to the right.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "Exploring the upper part of the room. Moving up then left.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Exploring the top row of the room. Moving up then right.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "Exploring the bottom row of the room. Moving down then left.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "Another bat appeared. I will move up-left to attack it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The bat is at (19, 55) and I am at (20, 56). I will move up-left to attack it. Wait, the coordinates are relative. The bat is diagonally up-left from me. I will attack.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The bat is still there. I will keep attacking it. HP is getting low (7/12), but bats are usually weak.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "HP is at 5/12. This is dangerous. I will try one more attack. If I miss again and get hit, I might need to retreat or use a potion if I have one. Inventory check might be needed soon.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Defeated the bat. HP is low (5/12). I will rest and search for a bit to recover HP before continuing exploration. Searching also helps find hidden doors.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "Resting and searching to recover HP. HP is currently 5/12. I'll do this for several turns.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "HP is still 5/12. I need to rest more to recover health. Searching (s) also passes time and allows for HP regeneration.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "HP is slowly recovering (6/12). I will continue to rest/search to get back to a safer health level.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "HP is still 6/12. Continuing to rest and search to recover health.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "HP is now 7/12. I will continue to rest and search to recover more health before exploring further.",
+      "queue_length": 10,
+      "byte_length": 1
+    }
+  ]
+}

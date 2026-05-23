@@ -1,0 +1,20 @@
+{
+  "total_keys": 172,
+  "score": 0,
+  "has_amulet": false,
+  "final_screen": "                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                    ##                    --+-  \n                                                     #                    |..|  \n                                                     @####################+..|  \n                                                                          ----  \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \nLevel: 2  Gold: 0      Hp: 12(12)  Str: 16(16)  Arm: 4   Exp: 1/2               ",
+  "dungeon_level": 2,
+  "gold": 0,
+  "current_hp": 12,
+  "max_hp": 12,
+  "current_strength": 16,
+  "max_strength": 16,
+  "armor_class": 4,
+  "experience_level": 1,
+  "experience_points": 2,
+  "input_tokens": 102248,
+  "cache_write_tokens": 0,
+  "cache_read_tokens": 68096,
+  "output_tokens": 3038,
+  "total_tokens": 105286
+}

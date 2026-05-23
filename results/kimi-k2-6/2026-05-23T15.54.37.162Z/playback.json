@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "reasoning": "The 'E' monster is directly above me in the same column. Since I'm at full HP and this is level 1, I should engage it in melee. Moving up (k) will attack it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Emu defeated. Now I'll explore the room. I'll move up toward the staircase and then right to see more of the room and check for items.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "I'm at the top-right of the room. I'll move left across the top row to fully explore this room, then head toward the stairs and the door.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "At top-left of room. Moving down toward stairs, then will explore through the door on the right.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "Going through the door on the right to explore the rest of the level. I'll move right through the door and then up to see what's beyond.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Need to go down to the door row and then through the door on the right to explore further.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "In a corridor to the right of the room. Moving right to explore where it leads.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Following the corridor upward to see where it leads.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "At a door to the right. Going through to explore the room beyond.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "Need to dismiss the --More-- prompt about finding a scroll.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Hobgoblin is to my right. I'm at 8/12 HP but should fight. Attacking by moving right.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Hobgoblin defeated. Moving into the room to collect the gold (*) and explore.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "Gold is below me. Moving down to collect it.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "Gold is to my left. Moving left to collect it.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "Gold collected. Now exploring the rest of this room by moving up and left.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "Room explored. Heading back down the corridor to check for other passages and fully explore level 1.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "At corridor junction. Going left back to first room to check for unexplored areas and hidden doors.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Back in first room. Moving to top-left corner to search for hidden doors on the walls.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "Searching the left and top walls for hidden doors.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "Searching bottom wall and right wall of first room for hidden doors.",
+      "queue_length": 15,
+      "byte_length": 15
+    },
+    {
+      "reasoning": "Going to second room to search all its walls for hidden doors, then will decide whether to descend or continue exploring.",
+      "queue_length": 40,
+      "byte_length": 40
+    },
+    {
+      "reasoning": "In the corridor between rooms. Moving up to enter the second room and then systematically search all its walls for hidden doors.",
+      "queue_length": 34,
+      "byte_length": 34
+    },
+    {
+      "reasoning": "Bat is attacking me from the left. Fighting back by moving left to attack it in melee.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "At 5/12 HP but need to kill the bat. Attacking again.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "At 3/12 HP, very dangerous. Retreating right away from the bat to survive.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "At 3/12 HP, retreating further right down the corridor to escape the bat and find a safe place to rest.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Bat is still adjacent. Continuing to retreat right down the corridor to escape.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Bat still adjacent at 3 HP. Continuing retreat right.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Still trying to escape the bat at 3 HP. Moving right repeatedly.",
+      "queue_length": 10,
+      "byte_length": 3
+    }
+  ]
+}

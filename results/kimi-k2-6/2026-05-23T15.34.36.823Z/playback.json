@@ -1,0 +1,335 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "reasoning": "Attack the E monster directly above me in melee while at full HP, clearing the starting room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "The emu is dead. I should check the room and nearby corridor for items before deciding whether to descend. I'll move up toward the stairs to look around.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I'm near the stairs on level 1. I'll exit through the east door to explore the corridor and look for items or more rooms before descending.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "Now in a corridor to the east. I'll explore further along the passage to look for more rooms, items, and potential monsters.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Corridor continues east with a door at the end. I'll keep exploring east through the door to see what's beyond.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "Corridor still going east. I'll continue exploring along the corridor to see if there's a room or an item.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "Corridor appears to continue or branch. I'll keep moving east along it.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I seem to have reached the end of the east corridor. I'll try moving up to see if there's a north branch or hidden area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Found a north branch in the corridor. I'll continue north to explore for rooms and items.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "A door to the east at the end of the north branch. I'll open it and see what's inside.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Entered a room with a Hobgoblin (H), a scroll (?), and gold (*). I have full HP and decent armor, so I'll engage the hobgoblin in melee by moving toward it.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "A '--More--' prompt appeared while showing a scroll description. I must press space to continue before acting.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Hobgoblin is adjacent and hit me for 4 HP. I'll fight back by attacking into its square.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Hobgoblin is dead. I'll move onto the gold (*) to pick it up, then continue exploring the level.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Picked up 6 gold. I'll move east into the room and check for the scroll or other items, then explore the south door.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'll backtrack through the door to the corridor and explore south to continue mapping level 1.",
+      "queue_length": 7,
+      "byte_length": 7
+    },
+    {
+      "reasoning": "I need to go west through the door first, then south along the corridor to explore more of the level.",
+      "queue_length": 7,
+      "byte_length": 7
+    },
+    {
+      "reasoning": "I need to go west through the door first, then south along the corridor to explore more of the level.",
+      "queue_length": 7,
+      "byte_length": 7
+    },
+    {
+      "reasoning": "I need to exit the room north through the door I entered, then explore south along the corridor. Going north twice should get me back to the corridor junction.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "I need to exit the room north through the door I entered, then explore south along the corridor. Going north twice should get me back to the corridor junction.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "The map hasn't changed across several turns, which is suspicious. I'll try moving north once to see if the game responds and to navigate toward the north door of this room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Moved north to the door. Now I'll go west through the door into the corridor, then south to explore the rest of level 1.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "Moved north to the door. Now I'll go west through the door into the corridor, then south to explore the rest of level 1.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "Moved north to the door. Now I'll go west through the door into the corridor, then south to explore the rest of level 1.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "Moved north to the door. Now I'll go west through the door into the corridor, then south to explore the rest of level 1.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "Moved north to the door. Now I'll go west through the door into the corridor, then south to explore the rest of level 1.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "Moved north to the door. Now I'll go west through the door into the corridor, then south to explore the rest of level 1.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "Back in the starting room. I'll move west and north to explore the west corridor/door I saw earlier, then continue mapping the level.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "In the starting room. I'll move north to the top wall, then turn west to explore the corridor leading west from this room.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "At the top-left of the starting room. I'll move west to check for a corridor or hidden door along the west wall.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "At the top-left of the starting room. I'll move west to check for a corridor or hidden door along the west wall.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "At the top-left corner with walls to the north and west. I'll move south to get back into the room and continue exploring.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "At the top-left corner with walls to the north and west. I'll move south to get back into the room and continue exploring.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "At the top-left corner with walls to the north and west. I'll move south to get back into the room and continue exploring.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "At the western door. I'll move west through it to explore the corridor beyond.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "I see now \u2014 the door in this room is to the EAST (the `+` on row 20). I was confused. I need to go east through that door to get back to the corridor, then explore north.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "I see now \u2014 the door in this room is to the EAST (the `+` on row 20). I was confused. I need to go east through that door to get back to the corridor, then explore north.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "Back in the corridor. I'll move north to explore the remaining passages on this level.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "Movement north is blocked here. I'll head back toward the west room with the stairs, rest to heal, and then descend to level 2 since I've explored the main areas of level 1.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "Movement north is blocked here. I'll head back toward the west room with the stairs, rest to heal, and then descend to level 2 since I've explored the main areas of level 1.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "I'm back in the west room and the stairs `%` are in this same room at row 19. I'll move northwest to reach them, then rest once to heal before descending.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "I'm standing on the stairs (% is hidden under my @). HP is 11/12 which is good enough. I'll descend to level 2 now.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Descended to level 2. I'm in a long room with a snake (S) nearby. Snakes can be dangerous. I'll move right toward the door to escape the room and find a better position, or explore elsewhere.",
+      "queue_length": 7,
+      "byte_length": 7
+    },
+    {
+      "reasoning": "The snake is to my west. I'll open the east door and exit the room to explore corridors, rather than fight the snake in an open room where it can move freely.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "At the east wall of the room. The door is south of me on row 4. I'll move south to reach the door.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The snake hit me! HP down to 8/12. I need to escape through the east door quickly.",
+      "queue_length": 7,
+      "byte_length": 7
+    },
+    {
+      "reasoning": "Trapped in a corridor with the snake blocking the only exit. I must fight my way through. I'll attack the snake by moving west into it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Snake defeated! Gained exp to 1/7. Now I'll explore the corridor to the east.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "East is blocked by walls. I'll go back west into the room and explore the north-south corridors and other doors.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Exploring the corridor going north. I'll continue north to see where it leads.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "Exploring the corridor going north. I'll continue north to see where it leads.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "Exploring the corridor going north. I'll continue north to see where it leads.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "The corridor extends east with `###`. I'll move east to explore further.",
+      "queue_length": 7,
+      "byte_length": 7
+    },
+    {
+      "reasoning": "The corridor just loops back to the room's east door. I'll explore south from the room now.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "I need to move west into the room first, then explore south to the bottom of the room.",
+      "queue_length": 15,
+      "byte_length": 15
+    },
+    {
+      "reasoning": "In the room near the east door. Moving south to explore the lower part of this room.",
+      "queue_length": 15,
+      "byte_length": 15
+    },
+    {
+      "reasoning": "South is blocked by the room's bottom wall. This room is small. I'll search the south wall for hidden doors and then explore the rest of the level.",
+      "queue_length": 13,
+      "byte_length": 13
+    },
+    {
+      "reasoning": "In the room. I'll move west to the southwest corner, then explore the south corridor.",
+      "queue_length": 18,
+      "byte_length": 18
+    },
+    {
+      "reasoning": "At the southwest area of the room. I'll search the south wall for hidden doors since movement south is blocked.",
+      "queue_length": 13,
+      "byte_length": 13
+    },
+    {
+      "reasoning": "At the west wall. Moving east across the room, then south to explore the south corridor.",
+      "queue_length": 18,
+      "byte_length": 18
+    },
+    {
+      "reasoning": "I need to go east through the door and then explore south to find the corridor below.",
+      "queue_length": 13,
+      "byte_length": 13
+    },
+    {
+      "reasoning": "I need to pass through the east door and then explore south. Moving east through the door.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "Near the east door. Let me move south then east through the door.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "At the east door. Moving south through it.",
+      "queue_length": 15,
+      "byte_length": 15
+    },
+    {
+      "reasoning": "The room is small and south from the door is a wall. I'll try going north from my current position to see if there's a north corridor from this area.",
+      "queue_length": 15,
+      "byte_length": 15
+    },
+    {
+      "reasoning": "Found a north door in the corridor! Moving north through it to explore.",
+      "queue_length": 15,
+      "byte_length": 15
+    }
+  ]
+}

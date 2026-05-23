@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "reasoning": "E (emu) is directly above me in the room. At full HP with decent stats, I should attack it to gain experience and clear access to the downstairs.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Emu defeated. Move to the downstairs and descend to level 2.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I moved to the wrong spot. The % is at row 18, col 17. I'm at row 17, col 18. Need to move left then down to stand on the staircase, then descend.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm at col 18, the % is at col 17. Need to move left one more square to stand on the staircase, then descend.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "On level 2, in a room near upper right. No items or monsters visible. Moving toward the bottom door to explore corridors and find stairs/items.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "Move down toward the bottom door to exit the room and explore corridors.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "I was at the bottom of the room and couldn't move down. Need to move right to reach the bottom door at row 4, then go through it.",
+      "queue_length": 8,
+      "byte_length": 8
+    },
+    {
+      "reasoning": "At row 4, col 55. The door is at row 5, col 55. Move down to reach the door and go through it.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I miscalculated my position. The @ is at col 76, the door + is at col 68. Need to move left 8 squares to align with the door, then down through it.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Aligned with the door at col 68. Move down to go through it.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "I was at col 67, door is at col 68. Need to move right one to align, then down through the door.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "In a corridor leading down. Follow it to explore and find stairs or items.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Corridor seems to have ended. Explore left to find where it continues.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Corridor turns down. Follow it to explore.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Found a room. Move up to explore it for items, monsters, or stairs.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Go back down and enter the room through the door.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "At row 13, col 57. Need to move up to row 11, right to door at col 58, then up into the room.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "At row 13, col 57. Move right to enter room at row 13, col 58, then explore the room.",
+      "queue_length": 6,
+      "byte_length": 6
+    },
+    {
+      "reasoning": "Move up into the room and explore it for items or stairs.",
+      "queue_length": 7,
+      "byte_length": 7
+    },
+    {
+      "reasoning": "Move down and right to enter the room through the door, then explore it.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Move down and left to enter the room at rows 8-11.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Move down to row 8, right to door at col 58, enter room, then explore it.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "K (kobold) is adjacent. Attack it in melee.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Kestrel hit me for 4 damage. HP is 8/12, still manageable. Fight back in melee.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Kestrel defeated. HP at 8/12. Rest a few turns to recover HP before exploring further.",
+      "queue_length": 5,
+      "byte_length": 5
+    },
+    {
+      "reasoning": "HP didn't recover from resting. Continue exploring - enter the room below to look for items, stairs, and more monsters.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Move down to row 8, left to door at col 58, enter room, then explore it.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Move down to row 8, left to door at col 58, then up into the room to explore.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Move down to row 8, right to door at col 58, then up into the room to explore.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Move down to row 8, left to door at col 58, then up into the room to explore.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "HP recovered to 9. Move down to row 8, right to door at col 58, then up into the room to explore.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Move down to row 8, left to door at col 58, then up into the room to explore.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "At row 6, col 60. Move down 2 and left 2 to reach door at row 8, col 58, then up into the room.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "At row 6, col 59. Move down 2, left 1 to door at row 8, col 58, then up into the room to explore.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "At row 6, col 57. Move down 2, right 1 to door at row 8, col 58, then up into the room to explore.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "At row 6, col 59. Move down 2, left 1 to door at row 8, col 58, then up into the room to explore.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "At row 6, col 57. Move down 2, right 1 to door at row 8, col 58, then up into the room to explore.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "From row 6, col 59: move down to row 8, left to door at col 58, down into room at row 9, then explore the room interior.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Move down to row 8, left to door at col 58, enter room at row 9, then explore the room interior.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Move down to row 8, left to door at col 58, enter room at row 9, then explore the room interior.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "HP recovered to 10. Move down to door at row 8, col 58, enter room, then explore right and up.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "Move down to door at row 8, enter room, then explore right and down to see room contents.",
+      "queue_length": 10,
+      "byte_length": 10
+    }
+  ]
+}

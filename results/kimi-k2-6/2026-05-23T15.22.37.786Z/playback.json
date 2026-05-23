@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "reasoning": "An 'E' monster (likely an emu) is directly above me in the room. I'm at full HP (12/12) with good starting stats, so I should engage it in melee. Moving up (k) will attack it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Emu defeated. Now I'll explore the room systematically - move up toward the stairs, check the left side, then sweep the room for items before deciding whether to descend.",
+      "queue_length": 10,
+      "byte_length": 10
+    },
+    {
+      "reasoning": "I'm near the right door. I'll sweep left across the room, go up to the stairs area, then sweep back right and down to cover the whole room for items.",
+      "queue_length": 15,
+      "byte_length": 15
+    },
+    {
+      "reasoning": "Room is empty. I'll go through the right door to quickly scout the corridor, return, then descend the stairs to level 2.",
+      "queue_length": 16,
+      "byte_length": 16
+    },
+    {
+      "reasoning": "I wasn't on the stairs. The % is one up and one right from my position. I'll move there and then descend.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "I'm one tile right of the stairs (%). Need to step left onto it, then descend.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "On level 2, in a room. I'll move left across the room toward the left door to explore. The room appears empty of items. I'll head to the door and then explore corridors.",
+      "queue_length": 20,
+      "byte_length": 20
+    },
+    {
+      "reasoning": "Hit a sleep trap. Need to press space to continue past the --More-- prompt.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Sleep trap wore off. I'm near the left door. I'll move through it and explore the corridor above, then systematically map out level 2.",
+      "queue_length": 20,
+      "byte_length": 20
+    },
+    {
+      "reasoning": "In a corridor above the room. There's a visible trap (^) in the room. I'll move left along the corridor to explore further.",
+      "queue_length": 20,
+      "byte_length": 20
+    },
+    {
+      "reasoning": "The corridor turns down. I'll follow it downward to explore more of level 2.",
+      "queue_length": 20,
+      "byte_length": 20
+    },
+    {
+      "reasoning": "Following the corridor downward to explore more of the level.",
+      "queue_length": 20,
+      "byte_length": 20
+    },
+    {
+      "reasoning": "Continuing to explore the corridor downward to find more of the level.",
+      "queue_length": 20,
+      "byte_length": 11
+    }
+  ]
+}

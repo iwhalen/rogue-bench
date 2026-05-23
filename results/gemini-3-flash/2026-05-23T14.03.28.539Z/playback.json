@@ -1,0 +1,180 @@
+{
+  "version": 1,
+  "turns": [
+    {
+      "reasoning": "An Emu (E) is adjacent. Attacking it before exploring further.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Defeated the emu. Now exploring the room and heading towards the door on the right.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Moving through the corridor to explore more of the level.",
+      "queue_length": 4,
+      "byte_length": 4
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The corridor appears to turn upwards. Moving up to follow it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to follow the corridor upwards.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Found a door to the right. Entering the new room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Moving to pick up the scroll and then attacking the Hobgoblin.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "Picked up a scroll. Now attacking the Hobgoblin (H).",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "Defeated the hobgoblin. Now moving to pick up the gold.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "Picked up the gold. Now moving to the door on the right to continue exploring.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "Moving through the door to explore the next area.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing through the corridor to the right.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The corridor turns downward. Following it.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to follow the corridor downwards.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing to follow the corridor downwards.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing to follow the corridor downwards.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing to follow the corridor downwards.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The character seems stuck at (20, 46). Moving right to see if the corridor continues that way.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing to explore the corridor to the right. HP is recovering slowly.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Found another door. Entering the room.",
+      "queue_length": 1,
+      "byte_length": 1
+    },
+    {
+      "reasoning": "Entering the room and moving towards the Bat (B) to engage it. Bat is weak but hard to hit.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "Attacking the bat. Bats are erratic, so I'll keep moving into it to attack.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "The bat moved. Moving towards it to attack.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The bat is at (19, 56). I am at (20, 59). Moving left and up to engage.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "Defeated the bat. Now exploring the rest of this large room. Moving right, then up, then left to cover the area.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Exploring the large room systematically. Moving right to the wall, then down, then left.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "Continuing to explore the large room. Moving right, then down, then left.",
+      "queue_length": 3,
+      "byte_length": 3
+    },
+    {
+      "reasoning": "A Kestrel (K) appeared and hit me. I need to fight it. Moving up to engage.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "The Kestrel is below me. Moving down to attack. HP is low (6/12), so I need to be careful.",
+      "queue_length": 2,
+      "byte_length": 2
+    },
+    {
+      "reasoning": "HP is critically low (2/12). I need to try and hit the Kestrel or retreat. Since it's right there, I'll try to hit it one more time, but moving up to get a better position or force it to move. Actually, attacking is safer than running in an open room. Wait, I'll try to move up to the door to funnel it if possible, but I'm already at the door. I'll attack.",
+      "queue_length": 2,
+      "byte_length": 2
+    }
+  ]
+}

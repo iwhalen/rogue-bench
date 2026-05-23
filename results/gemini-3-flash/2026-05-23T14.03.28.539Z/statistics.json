@@ -1,0 +1,20 @@
+{
+  "total_keys": 82,
+  "score": 5,
+  "has_amulet": false,
+  "final_screen": "                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                                                                                \n                       __________                                               \n                      /          \\                                              \n                     /    REST    \\                                             \n                    /      IN      \\                                            \n                   /     PEACE      \\                                           \n                  /                  \\                                          \n                  |    rogomatic     |                                          \n                  |       6 Au       |                                          \n                  |   killed by a    |                                          \n                  |     kestrel      |                                          \n                  |       2026       |                                          \n                 *|     *  *  *      | *                                        \n         ________)/\\\\_//(\\/(/\\)/\\//\\/|_)_______                                 \n                                                                                \n                                                                                \n[Press return to continue]                                                      ",
+  "dungeon_level": 1,
+  "gold": 6,
+  "current_hp": 2,
+  "max_hp": 12,
+  "current_strength": 16,
+  "max_strength": 16,
+  "armor_class": 4,
+  "experience_level": 1,
+  "experience_points": 6,
+  "input_tokens": 168066,
+  "cache_write_tokens": 0,
+  "cache_read_tokens": 73363,
+  "output_tokens": 3225,
+  "total_tokens": 171291
+}
