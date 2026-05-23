@@ -1,6 +1,6 @@
 [project]
 name = "rogue-bench"
-version = "2026.05"
+version = "2026.05.23"
 description = "Rogue-Bench: a benchmark where agents play Rogue."
 readme = "README.md"
 authors = [
