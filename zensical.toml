@@ -52,7 +52,7 @@ nav = [
   { "Leaderboard" = "leaderboard.md"},
   { "CLI" = "cli.md"},
   { "Add an agent" = "add-an-agent.md"},
-  { "Blog" = "https://iwhalen.com/"}
+  { "Blog" = "https://iwhalen.com/rogue-bench/"}
 ]
 
 # With the "extra_css" option you can add your own CSS styling to customize
