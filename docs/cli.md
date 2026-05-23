@@ -11,7 +11,7 @@ If you are experimenting with LLMs playing Rogue, most of your commands will loo
 ``` bash
 rogue-bench --player agent \ 
   --agent-class naive.NaiveAgent \
-  --agent-config config/naive.json \
+  --agent-config config/gpt-5-4-mini.json \
   --output-path results/gpt-5-4-mini/ \ 
   --versioned \ 
   --seed 0
@@ -95,7 +95,7 @@ To run `NaiveAgent`, execute:
 ``` bash
 rogue-bench --player agent \
   --agent-class naive.NaiveAgent \
-  --agent-config config/naive.json
+  --agent-config config/deepseek-v4-flash.json
 ```
 
 The `--agent-class` option is an import path to a `RogueAgent` subclass. Short paths are resolved under `rogue_bench.agent`, so `naive.NaiveAgent` loads `rogue_bench.agent.naive.NaiveAgent`.
